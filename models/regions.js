@@ -26,11 +26,26 @@ const data = [{
         location: 'Coogee',
         imageLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/%281%29Coogee_Beach_001.jpg/1200px-%281%29Coogee_Beach_001.jpg',
     }, {
-        location: 'Coogee',
-        imageLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/%281%29Coogee_Beach_001.jpg/1200px-%281%29Coogee_Beach_001.jpg',
+        location: 'Bondi',
+        imageLink: 'https://wakeup.com.au/wp-content/themes/yootheme/cache/WAKEUP-BONDI-2019-8324-2-f40e129b.jpeg'
     }, {
-        location: 'Coogee',
-        imageLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/%281%29Coogee_Beach_001.jpg/1200px-%281%29Coogee_Beach_001.jpg',
+        location: 'Manly',
+        imageLink: 'https://media.cntraveler.com/photos/59516243365ba72b7a69c4e4/16:9/w_2560%2Cc_limit/GettyImages-500049291.jpg'
+    }, {
+        location: 'Parramatta',
+        imageLink: 'https://static.ffx.io/images/$zoom_0.28266203703703696%2C$multiply_0.7554%2C$ratio_1.776846%2C$width_1059%2C$x_141%2C$y_163/t_crop_custom/q_86%2Cf_auto/ea1904a3bdea7d4fe38c68a7bf0a753e01a938bb'
+    }, {
+        location: 'Newtown',
+        imageLink: 'https://assets.atdw-online.com.au/images/91cc11574e70957f58ddbd5c6b7b745c.jpeg?rect=0%2C2422%2C3707%2C2780&w=745&h=559&&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjU2YjI0NDU4ZDI3MDE1NGI0NTU0Njg2MyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZWI5MzQ0ZmVjYTNkZjJlMzIwYzgiLCJhcGlrZXlJZCI6IjU2YjFlZTU5MGNmMjEzYWQyMGRjNTgxOSJ9'
+    }, {
+        location: 'Surry Hills',
+        imageLink: 'https://media.timeout.com/images/105684113/image.jpg'
+    }, {
+        location: 'Chatswood',
+        imageLink: 'https://res.akamaized.net/domain/image/upload/t_web/v1624406710/Neighborhoods_Chatswood-6_unuaig.jpg',
+    }, {
+        location: 'Cronulla',
+        imageLink: 'https://assets.atdw-online.com.au/images/c58721a43da3041a101f2d8ddbed3081.jpeg?rect=0%2C0%2C4000%2C3000&w=745&h=559&&q=eyJ0eXBlIjoibGlzdGluZyIsImxpc3RpbmdJZCI6IjU2YjIzZWFkZDI3MDE1NGI0NTUzZmY3YyIsImRpc3RyaWJ1dG9ySWQiOiI1NmIxZWI5MzQ0ZmVjYTNkZjJlMzIwYzgiLCJhcGlrZXlJZCI6IjU2YjFlZTU5MGNmMjEzYWQyMGRjNTgxOSJ9',
     }, {
         location: 'Coogee',
         imageLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/d/df/%281%29Coogee_Beach_001.jpg/1200px-%281%29Coogee_Beach_001.jpg',
@@ -54,8 +69,17 @@ const data = [{
         location: 'Carlton',
         imageLink: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Rathdowne_st%2C_carlton_north.jpg'
     }, {
-        location: 'Carlton',
-        imageLink: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Rathdowne_st%2C_carlton_north.jpg'
+        location: 'St Kilda',
+        imageLink: 'https://a.travel-assets.com/findyours-php/viewfinder/images/res70/189000/189417-Melbourne.jpg'
+    }, {
+        location: 'Fitzroy',
+        imageLink: 'https://media.timeout.com/images/105407684/image.jpg'
+    }, {
+        location: 'South Yarra',
+        imageLink: 'https://www.visitvictoria.com/-/media/atdw/melbourne/see-and-do/tours/5bdab5b62167e6465a5164ac375a3d8d_1600x1200.jpeg?ts=20221223401209'
+    }, {
+        location: 'Docklands',
+        imageLink: 'https://www.visitvictoria.com/-/media/images/melbourne/travel-info/160141-3_docklands_canoes_1150x863.jpg?ts=20230215390553'
     }, {
         location: 'Carlton',
         imageLink: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Rathdowne_st%2C_carlton_north.jpg'

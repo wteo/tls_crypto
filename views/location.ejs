@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <script src="./js/grid.js" defer></script>
+    <link rel="stylesheet" href="./css/main.css">
+</head>
+
+<body>
+    <%- include('./partials/nav_header.ejs') %>
+        <section>
+            <div class="location__wrapper">
+                <h1 class="location__title"><a href="./region"><%= regions[0].region %></a> > Bondi</h1>
+                <p class="location__description">Bondi is a beautiful place</p>
+                <h1>Amenities</h1>
+                <div class="location__amenities-grid">
+                    <div class="location__amenities-container">
+                        <a href="./amenities">
+                            <img class="location__amenities-image" src="" alt="" />
+                            <h3 class="location__amenities-title">Education</h3>
+                        </a>
+                    </div>
+                    <div class="location__amenities-container">
+                        <a href="./amenities">
+                            <img class="location__amenities-image" src="" alt="" />
+                            <h3 class="location__amenities-title">Education</h3>
+                        </a>
+                    </div>
+                    <div class="location__amenities-container">
+                        <a href="./amenities">
+                            <img class="location__amenities-image" src="" alt="" />
+                            <h3 class="location__amenities-title">Education</h3>
+                        </a>
+                    </div>
+                    <div class="location__amenities-container">
+                        <a href="./amenities">
+                            <img class="location__amenities-image" src="" alt="" />
+                            <h3 class="location__amenities-title">Education</h3>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

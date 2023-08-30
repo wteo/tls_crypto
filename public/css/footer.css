@@ -1,0 +1,6 @@
+.footer {
+    background-color: var(--navigation-bar-color);
+    color: var(--navigation-font-color);
+    padding: 5vh 3vw;
+    margin: auto 0;
+}

@@ -1,0 +1,19 @@
+:root {
+
+    /* Header Navigation */
+    --navigation-bar-color: #2D3142;
+    --navigation-font-color: #FFFFFF;
+
+
+    /* Body sections */
+    --main-background-color: #FFFFFF;
+    --secondary-background-color: #7b8699;
+    --main-font-color: #7994c3;
+    --secondary-font-color: #FFFFFF;
+
+    /* See More Button */
+    --button-font-color: #2D3142;
+    --border-color: #2D3142;
+    --background-color: transparent;
+    --background-hover-color: #BFC0C0;
+}

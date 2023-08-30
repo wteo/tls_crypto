@@ -27,9 +27,9 @@ const addSeeMoreButton = (grid) => {
 
 // Configuration object for screen widths and container limits
 const screenConfig = [
-    { maxWidth: 750, limit: 5 },
-    { maxWidth: 1200, limit: 7 },
-    { maxWidth: Infinity, limit: 9 }
+    { maxWidth: 750, limit: 8 },
+    { maxWidth: 1200, limit: 11 },
+    { maxWidth: Infinity, limit: 14 }
 ];
 
 // Main function to handle grids
