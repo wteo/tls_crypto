@@ -53,6 +53,12 @@ const data = [{
     }, {
         location: 'Carlton',
         imageLink: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Rathdowne_st%2C_carlton_north.jpg'
+    }, {
+        location: 'Carlton',
+        imageLink: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Rathdowne_st%2C_carlton_north.jpg'
+    }, {
+        location: 'Carlton',
+        imageLink: 'https://upload.wikimedia.org/wikipedia/commons/c/cd/Rathdowne_st%2C_carlton_north.jpg'
     }]
 }, {
     region: 'Brisbane',

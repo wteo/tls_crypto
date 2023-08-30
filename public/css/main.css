@@ -72,12 +72,6 @@ section:nth-child(even) .region__location-title {
     height: 300px;
 }
 
-.region__location-container:hover .region__location-title {
-    opacity: 1;
-    transform: scale(1.3);
-    right: 20px;
-}
-
 .region__location-image {
     position: absolute;
     top: 50%;
@@ -101,6 +95,26 @@ section:nth-child(even) .region__location-title {
     right: 10px;
     font-size: 1.25rem;
     transition: all 0.3s ease; 
+}
+
+.region__location-button-container {
+    border: 1px solid darkgreen;
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+}
+
+.region__location-more, 
+.region__location-button {
+    color: green;
+}
+
+.region__location-more {
+    margin-top: 50%;
+}
+.region__location-button {
+    background-color: transparent;
+    border: none;
 }
 
 /* Tablet layout */
