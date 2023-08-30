@@ -14,11 +14,11 @@ section {
 }
 
 section:nth-child(odd) {
-    background-color: var(--main-background-color);
+    background-color: var(--secondary-background-color);
 }
 
 section:nth-child(even) {
-    background-color: var(--secondary-background-color);
+    background-color: var(--main-background-color);
 }
 
 .region__title a,
@@ -37,7 +37,7 @@ section:nth-child(odd) .region__title a,
 section:nth-child(odd) .location__title a, 
 section:nth-child(odd) .region__description,
 section:nth-child(odd) .location__description {
-    color: var(--main-font-color);
+    color: var(--secondary-font-color);
 }
 
 section:nth-child(even) .region__title, 
@@ -46,7 +46,7 @@ section:nth-child(even) .region__title a,
 section:nth-child(even) .location__title a,
 section:nth-child(even) .region__description,
 section:nth-child(even) .location__description {
-    color: var(--secondary-font-color);
+    color: var(--main-font-color);
 }
 
 .region__wrapper, .location__wrapper {
