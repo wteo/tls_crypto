@@ -13,15 +13,18 @@
         <input class="nav__search" type="text" placeholder="Search">
     </nav>
     <% regions.forEach( region => { %>
-        <section class="region">
-            <h1 class="region__title"><%= region.region %></h1>
-            <div class="region__location-grid">
-                <% region.locations.forEach( location => { %>
-                    <div class="region__location-container">
-                        <img class="region__location-image" src="<%= location.imageLink %>" alt="" />
-                        <h3 class="region__location-title"><%= location.location %></h3>
-                    </div>
-                <% }) %>
+        <section>
+            <div class="region__wrapper">
+                <h1 class="region__title"><%= region.region %></h1>
+                <p class="region__description"><%= region.description %></p>
+                <div class="region__location-grid">
+                    <% region.locations.forEach( location => { %>
+                        <div class="region__location-container">
+                            <img class="region__location-image" src="<%= location.imageLink %>" alt="" />
+                            <h3 class="region__location-title"><%= location.location %></h3>
+                        </div>
+                    <% }) %>
+                </div>
             </div>
         </section>
     <% }) %>
