@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <nav class="nav">
+        <input class="nav__search" type="text" placeholder="Search">
+    </nav>
+    <% regions.forEach( region => { %>
+        <section class="region">
+            <h1 class="region__title"><%= region.region %></h1>
+            <div class="region__location-grid">
+                <% region.locations.forEach( location => { %>
+                    <div class="region__location-container">
+                        <img class="region__location-image" src="<%= location.imageLink %>" alt="" />
+                        <h3 class="region__location-title"><%= location.location %></h3>
+                    </div>
+                <% }) %>
+            </div>
+        </section>
+    <% }) %>
+</body>
+
+</html>
