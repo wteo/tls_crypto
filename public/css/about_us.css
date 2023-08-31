@@ -1,0 +1,20 @@
+.about__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.about__description-container {
+    padding: 0vh 5vw;
+}
+
+.about__container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.about__image {
+    position: absolute;
+    width: 100%;
+}

@@ -12,19 +12,13 @@
     height: 300px;
 }
 
-.region__location-container:hover .region__location-title {
-    opacity: 1;
-    transform: scale(1.25);
-    right: 20px;
-}
-
 .region__location-image {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     filter: brightness(50%);
-    transition: all 0.3s ease; 
+    transition: all 0.5s ease; 
 }
 
 .region__location-image:hover {
@@ -41,7 +35,13 @@
     bottom: 10px;
     right: 10px;
     font-size: 1.25rem;
-    transition: all 0.3s ease; 
+    transition: all 0.5s ease; 
+}
+
+.region__location-container:hover .region__location-title {
+    opacity: 1;
+    transform: scale(1.25);
+    right: 20px;
 }
 
 .region__location-button-container {
@@ -55,7 +55,7 @@
 .region__location-button-container:hover {
     cursor: pointer;
     background-color: var(--background-hover-color);
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .region__location-button-container:hover .region__location-more,
@@ -68,7 +68,7 @@
 .region__location-button {
     color: var(--button-font-color);
     font-size: 1.5rem;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
 }
 
 .region__location-more {

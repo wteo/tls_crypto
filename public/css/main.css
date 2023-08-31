@@ -1,6 +1,8 @@
 @import './variables.css';
 @import './nav_header.css';
-@import './grid.css';
+@import './about_us.css';
+@import './amenities_grid.css';
+@import './location_grid.css';
 @import './footer.css';
 
 body {
@@ -36,7 +38,8 @@ section:nth-child(odd) .location__title,
 section:nth-child(odd) .region__title a, 
 section:nth-child(odd) .location__title a, 
 section:nth-child(odd) .region__description,
-section:nth-child(odd) .location__description {
+section:nth-child(odd) .location__description,
+section:nth-child(odd) .location__amenities-title {
     color: var(--secondary-font-color);
 }
 
@@ -45,7 +48,8 @@ section:nth-child(even) .location__title,
 section:nth-child(even) .region__title a, 
 section:nth-child(even) .location__title a,
 section:nth-child(even) .region__description,
-section:nth-child(even) .location__description {
+section:nth-child(even) .location__description,
+section:nth-child(even) .location__amenities-title {
     color: var(--main-font-color);
 }
 

@@ -11,9 +11,31 @@
 
 <body>
     <%- include('./partials/nav_header.ejs') %>
-    <section>
-        <h1>About Us</h1>
-        <p>We're a professional Team</p>
+    <section class="about__wrapper">
+        <div class="about__container">
+            <img class="about__image" src="https://remindermedia.com/wp-content/uploads/2021/04/building-a-team-main.jpg" alt="" />
+        </div>
+        <div class="about__description-container">
+            <h1 class="about__title">About Us</h1>
+            <p class="about__description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. 
+                In vehicula dapibus nisl, a fermentum orci viverra ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            </p>
+            <p class="about__description">
+                Suspendisse potenti. Fusce venenatis vel velit vel euismod. Nunc non urna facilisis, imperdiet nulla quis, fermentum mi. Quisque et libero nec mauris sollicitudin fringilla. 
+                Vivamus a ante et libero pharetra cursus.
+            </p>
+            <p class="about__description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. 
+                In vehicula dapibus nisl, a fermentum orci viverra ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            </p>
+            <p class="about__description">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. 
+                In vehicula dapibus nisl, a fermentum orci viverra ac. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
+            </p>
+            <br/>
+            <button>Contact Us</button>
+        </div>
     </section>
     <% regions.forEach( region => { %>
         <section>
