@@ -3,7 +3,7 @@ const data = [{
     description: 'Sydney is Australia\'s largest and most iconic city, featuring world-renowned landmarks like the Sydney Opera House and Harbour Bridge. The city offers a vibrant lifestyle, bustling with various cultural events, outdoor activities, and a diverse culinary scene.',
     locations: [{
         location: 'Bondi',
-        imageLink: 'https://wakeup.com.au/wp-content/themes/yootheme/cache/WAKEUP-BONDI-2019-8324-2-f40e129b.jpeg'
+        imageLink: 'https://wakeup.com.au/wp-content/themes/yootheme/cache/WAKEUP-BONDI-2019-8324-2-f40e129b.jpeg',
     }, {
         location: 'Manly',
         imageLink: 'https://media.cntraveler.com/photos/59516243365ba72b7a69c4e4/16:9/w_2560%2Cc_limit/GettyImages-500049291.jpg'
