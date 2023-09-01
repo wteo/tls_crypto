@@ -1,3 +1,7 @@
+.location__amenities-title {
+    margin-top: 10vh;    
+}
+
 .location__amenities-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

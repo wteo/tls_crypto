@@ -4,7 +4,7 @@ import regionsController from '../controllers/regions.js';
 
 const router = express.Router();
 
-router.get('/regions', regionsController.getRegions)
+router.get('/', regionsController.getRegions)
 
 router.get('/region', regionsController.getSelectedRegion)
 

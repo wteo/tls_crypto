@@ -5,7 +5,10 @@
 @import './button.css';
 @import './amenities_grid.css';
 @import './location_grid.css';
+@import './article.css';
+@import './error.css';
 @import './footer.css';
+
 
 body {
     margin: auto 0;
@@ -44,6 +47,10 @@ section:nth-child(even) {
     text-decoration: underline;
 }
 
+section:nth-child(even) .error__title,
+section:nth-child(even) .error__description,
+section:nth-child(odd) .about__title,
+section:nth-child(odd) .about__description,
 section:nth-child(odd) .region__title, 
 section:nth-child(odd) .location__title,
 section:nth-child(odd) .location__breadcrumb,
@@ -54,6 +61,10 @@ section:nth-child(odd) .location__amenities-title {
     color: var(--secondary-font-color);
 }
 
+section:nth-child(even) .error__title,
+section:nth-child(even) .error__description,
+section:nth-child(even) .about__title,
+section:nth-child(even) .about__description,
 section:nth-child(even) .region__title, 
 section:nth-child(even) .location__title,
 section:nth-child(even) .location__breadcrumb,

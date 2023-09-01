@@ -3,4 +3,8 @@
     color: var(--navigation-font-color);
     padding: 5vh 5vw;
     margin: auto 0;
+    position: relative;
+    bottom: 0;
+    left: 0;
+    right: 0;
 }

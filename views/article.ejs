@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Website</title>
     <script src="./js/grid.js" defer></script>
-    <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="/css/main.css">
 </head>
 
 <body>
@@ -15,11 +15,32 @@
     </header>
         <section>
             <div class="location__wrapper">
-                <p class="location__breadcrumb"><a href="./region"><%= regions[0].region %></a> > Bondi</p>
-                <h1 class="location__title">Bondi</h1>
-                <p class="location__description">Bondi is a beautiful place</p>
-                <h1 class="location__amenities-title">Amenities</h1>
-                
+                <p class="location__breadcrumb"><a href="./region">Sydney</a> > Bondi > Education</p>
+                <div class="article__wrapper">
+                    <h1 class="article__title">Sydney Opera House: The Crowd Jewel of the Southern Hemisphere</h1>
+                    <h5 class="article__author">By Jane Doe | 15th August 2023</h5>
+                    <article class="article__content">
+                        <aside class="article_column">
+                            <figure class="article__image-container">
+                                <img class="article__image" src="https://www.tripsavvy.com/thmb/k39AA6dtCIbao7bsVyy5HDz7AJo=/2121x1414/filters:no_upscale():max_bytes(150000):strip_icc()/OperaHouse-755d893182dc4811b608eb1a99792fd7.jpg" />
+                            </figure>
+                            <blockquote class="article__quote-container">
+                                <p class="content__quotation_mark">"</p>
+                                <p class="content__quote">The construction of the Opera House was anything but smooth.</p>
+                            </blockquote>
+                        </aside>
+                        <div class="article__column">
+                            <p class="">Nestled on the edge of Sydney Harbour, the Sydney Opera House stands as an emblem of both the city and Australia as a whole. Its distinctive sail-shaped shells, set against the backdrop of the azure waters and the Sydney Harbour Bridge, make it one of the most photographed buildings in the world. But beyond its iconic silhouette, the Opera House has a rich history and significance that cements its status as a global architectural marvel.</p>
+                            <h3 class="article__subheading">Genesis of a Vision</h3>
+                            <p class="article__text-content">The journey of the Sydney Opera House began in 1955 when the New South Wales Government announced an international design competition for a national opera house at Bennelong Point. The challenge was to create a structure that would not only serve as a premier venue for the performing arts but also stand as a symbol of post-war optimism and modernity.</p>
+                            <p class="article__text-content">Out of 233 entries from 32 countries, it was the groundbreaking design of a then relatively unknown Danish architect, Jørn Utzon, that captured the jury's imagination. His vision was revolutionary: a series of shell-like structures, reminiscent of sails billowing in the wind.</p>                
+                            <h3 class="article__subheading">Challenges and Triumphs</h3>
+                            <p class="article__text-content">The construction of the Opera House was anything but smooth. The groundbreaking design posed numerous engineering challenges. Traditional building methods were inadequate for Utzon's innovative shell concept. It took years of research, experimentation, and collaboration before a viable construction method was developed. The solution was to create a series of precast rib segments, which, when assembled, formed the iconic shells.</p>
+                            <p class="article__text-content">However, the technical challenges weren't the only hurdles. Spiraling costs, public criticism, and political controversies plagued the project. In 1966, amid escalating tensions and disagreements with the project's management, Utzon resigned, leaving the interiors to be completed by local architects.</p>
+                            <p class="article__text-content">Despite the setbacks, the Sydney Opera House was officially opened by Queen Elizabeth II on October 20, 1973. The final structure, with its soaring white shells, intricate tile patterns, and sprawling podium, was hailed as a masterpiece of 20th-century architecture.</p>
+                        </div>
+                    </article>
+                </div>
             </div>
         </section>
     <%- include('./partials/footer.ejs') %>

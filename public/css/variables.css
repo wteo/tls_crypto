@@ -11,7 +11,7 @@
     /* Body sections */
     --main-background-color: #FFFFFF;
     --secondary-background-color: #7b8699;
-    --main-font-color: #7994c3;
+    --main-font-color: #7b8699;
     --secondary-font-color: #FFFFFF;
 
     /* See More Button */
@@ -26,4 +26,8 @@
     --default-button-background-color: #2D3142;
     --default-hovered-button-font-color: #2D3142;
     --default-hovered-button-background-color: transparent;
+
+    /* Article */
+    --article-background-color: transparent;
+    --article-font-color: #7b8699;
 }

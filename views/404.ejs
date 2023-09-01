@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+        <section class="error">
+            <h1 class="error__title">Error 404</h1>
+            <p class="error__description">The page that you were looking for does not exist.</p>
+            <button class="error__button">Go back to Home</button>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

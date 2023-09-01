@@ -16,8 +16,16 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
 
 app.use(regionsRouter);
-
 app.use(locationRouter);
+
+app.use('/location/article', (req, res) => {
+    res.render(path.join(__dirname, 'views', 'article.ejs'));
+});
+
+app.use((req, res) => {
+    res.status(404);
+    res.render(path.join(__dirname, 'views', '404.ejs'));
+});
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
