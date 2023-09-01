@@ -15,8 +15,15 @@
     --secondary-font-color: #FFFFFF;
 
     /* See More Button */
-    --button-font-color: #2D3142;
-    --border-color: #2D3142;
-    --background-color: transparent;
-    --background-hover-color: #BFC0C0;
+    --see-more-button-font-color: #2D3142;
+    --see-more-button-border-color: #2D3142;
+    --see-more-button-background-color: transparent;
+    --see-more-hovered-button-background-color: #BFC0C0;
+
+    /* Default Buttons */
+    --default-button-font-color: white;
+    --default-button-border-color: #2D3142;
+    --default-button-background-color: #2D3142;
+    --default-hovered-button-font-color: #2D3142;
+    --default-hovered-button-background-color: transparent;
 }

@@ -1,0 +1,14 @@
+button {
+    background-color: var(--default-button-background-color);
+    color: var(--default-button-font-color);
+    border: 2px solid var(--default-button-border-color);
+    padding: 10px 15px;
+    text-transform: uppercase;
+    transition: all 0.3s ease;
+}
+
+button:hover {
+    background-color: var(--default-hovered-button-background-color);
+    color: var(--default-hovered-button-font-color);
+    cursor: pointer;
+}

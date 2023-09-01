@@ -1,20 +1,40 @@
 .about__wrapper {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
+    margin: 150px 0 50px;
+    position: relative;
+    background-image: url('https://remindermedia.com/wp-content/uploads/2021/04/building-a-team-main.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    height: 400px;
 }
 
 .about__description-container {
-    padding: 0vh 5vw;
-}
-
-.about__container {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-}
-
-
-.about__image {
     position: absolute;
+    bottom: 5%;
+    left: 50%;
+    padding: 5vh 5vw 10vh;
+    background-color: white;
+    border-bottom-right-radius: 20%;
+}
+
+.about__title {
+    font-size: 2.5rem;
+}
+
+.about__container, .about__image {
     width: 100%;
+}
+
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+    .about__description-container {
+        left: 45%;
+    }
+}
+    
+/* Mobile layout */
+@media (max-width: 750px) {
+    .about__description-container {
+        left: 35%;
+    }
 }

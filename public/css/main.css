@@ -2,6 +2,7 @@
 @import './nav_header.css';
 @import './search.css';
 @import './about_us.css';
+@import './button.css';
 @import './amenities_grid.css';
 @import './location_grid.css';
 @import './footer.css';
@@ -28,20 +29,25 @@ section:nth-child(even) {
     background-color: var(--main-background-color);
 }
 
-.region__title a,
-.location__title a {
+.region__title, 
+.location__title, 
+.location__amenities-title,
+.about__title {
+    text-transform: uppercase;
+}
+
+.location__breadcrumb a {
     text-decoration: none;
 }
 
-.region__title a:hover,
-.location__title a:hover {
+.location__breadcrumb a:hover {
     text-decoration: underline;
 }
 
 section:nth-child(odd) .region__title, 
 section:nth-child(odd) .location__title,
-section:nth-child(odd) .region__title a, 
-section:nth-child(odd) .location__title a, 
+section:nth-child(odd) .location__breadcrumb,
+section:nth-child(odd) .location__breadcrumb a, 
 section:nth-child(odd) .region__description,
 section:nth-child(odd) .location__description,
 section:nth-child(odd) .location__amenities-title {
@@ -50,8 +56,8 @@ section:nth-child(odd) .location__amenities-title {
 
 section:nth-child(even) .region__title, 
 section:nth-child(even) .location__title,
-section:nth-child(even) .region__title a, 
-section:nth-child(even) .location__title a,
+section:nth-child(even) .location__breadcrumb,
+section:nth-child(even) .location__breadcrumb a, 
 section:nth-child(even) .region__description,
 section:nth-child(even) .location__description,
 section:nth-child(even) .location__amenities-title {

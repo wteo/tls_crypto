@@ -3,7 +3,7 @@
     padding: 5vh 5vw;
     margin: auto 0;
     display: grid;
-    position: fixed;
+    position: absolute;
     z-index: 100;
     top: 0;
     left: 0;
@@ -17,7 +17,8 @@
     display: flex; 
     list-style: none; 
     padding: 0; 
-    margin: 0; 
+    margin: 0;
+    text-transform: uppercase;
 }
 
 .nav__menu-title a {
@@ -31,3 +32,18 @@
     cursor: pointer;
     text-decoration: underline;
 }
+
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+    .nav__menu-title a {
+        font-size: 1.25rem;
+    }
+}
+    
+/* Mobile layout */
+@media (max-width: 750px) {
+    .nav__menu-title a {
+        font-size: 1rem;
+    }
+}
+
