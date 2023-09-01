@@ -15,7 +15,7 @@
     </header>
         <section>
             <div class="location__wrapper">
-                <p class="location__breadcrumb"><a href="/region"><%= region %></a> > <%= location %></p>
+                <p class="location__breadcrumb"><a href="/region"><%= selectedRegion %></a> > <%= location %></p>
                 <h1 class="location__title"><%= location %></h1>
                 <div class="location__grid">
                     <div class="location__container">
@@ -27,53 +27,19 @@
                         </p>
                     </div>
                     <div class="location__container">
-                        <img class="location__image" src="https://www.google.com/maps/vt/data=ebAcbYblrVhVrmfWcAa-Do5ubQOTXxYe4NbFCdWRlwNR0DzBpekHPkQms2ekhRq_ezG7bKn8ff3fU04A1aqLG5ARVYvJjLiJ0jOSAWUlYuT1hYf0twaKRkei0CX9cqsgS4oUTVQRtd772BlVtefXwwOc3X9V93_SQnJG7vwOh1e8FtBSRTyDALlhdn7oOKw6ebgIJbWcZFTOpnPPQf6veDuWwfGxfthRcX1Odr1jbhJKt0n6upakMhI" alt="Location Map" />
+                        <img class="location__image" src="<%= mapImageLink %>" alt="Location Map" />
                     </div>
                 </div>
                 <h1 class="location__amenities-title">Amenities</h1>
                 <div class="location__amenities-grid">
-                    <div class="location__amenities-container">
-                        <a href="/location/article">
-                            <img class="location__amenities-image" src="https://assets.weforum.org/global_future_council/image/W43md-ZlCf6Ljlf_7_0dCuSsNZ3BfPc9fwCLnNxFTSo.jpg" alt="" />
-                            <h3 class="location__amenities-category">Education</h3>
-                        </a>
-                    </div>
-                    <div class="location__amenities-container">
-                        <a href="/amenities">
-                            <img class="location__amenities-image" src="https://www.macquariecentre.com.au/getmedia/611ebf83-8695-43ad-b78d-ca87902f9b74/L_Restaurant_Shared_Lunch_1.jpg?width=8510&height=5674&ext=.jpg" alt="" />
-                            <h3 class="location__amenities-category">Food & Dining</h3>
-                        </a>
-                    </div>
-                    <div class="location__amenities-container">
-                        <a href="/amenities">
-                            <img class="location__amenities-image" src="https://www.nrpa.org/uploadedImages/wwwparksandrecreationorg/Articles/2016/April/Social-equity.jpg" alt="" />
-                            <h3 class="location__amenities-category">Recreation</h3>
-                        </a>
-                    </div>
-                    <div class="location__amenities-container">
-                        <a href="/amenities">
-                            <img class="location__amenities-image" src="https://www.visitchatswood.com.au/files/assets/chatswood/v/1/generic-images/chatswood-chase1.jpg?w=1080" alt="" />
-                            <h3 class="location__amenities-category">Shopping</h3>
-                        </a>
-                    </div>
-                    <div class="location__amenities-container">
-                        <a href="/amenities">
-                            <img class="location__amenities-image" src="https://assets.primecreative.com.au/imagegen/cr/340/255/s3/cougar-assets/abcau/2016/10/14/131712/Untitled-1.jpg" alt="" />
-                            <h3 class="location__amenities-category">Transportation</h3>
-                        </a>
-                    </div>
-                    <div class="location__amenities-container">
-                        <a href="/amenities">
-                            <img class="location__amenities-image" src="https://static.wixstatic.com/media/285f80_78a3d7d19da8413b8f2ca675a3ebb2d8~mv2.jpg/v1/fill/w_560,h_228,al_t,q_80,usm_0.66_1.00_0.01,enc_auto/285f80_78a3d7d19da8413b8f2ca675a3ebb2d8~mv2.jpg" alt="" />
-                            <h3 class="location__amenities-category">Safety</h3>
-                        </a>
-                    </div>
-                    <div class="location__amenities-container">
-                        <a href="/amenities">
-                            <img class="location__amenities-image" src="https://surfculture.com.au/cdn/shop/collections/Surf-Culture-Bondi-Road_41601388-0bf4-43ef-a445-e5b15992ef18.jpg?v=1625840925" alt="" />
-                            <h3 class="location__amenities-category">Culture</h3>
-                        </a>
-                    </div>
+                    <% amenities.forEach( amenity => { %>
+                        <div class="location__amenities-container">
+                            <a href="/location/article">
+                                <img class="location__amenities-image" src="<%= amenity.imageLink %>" alt="" />
+                                <h3 class="location__amenities-category"><%= amenity.amenity %></h3>
+                            </a>
+                        </div>
+                    <% }) %>
                 </div>
             </div>
         </section>

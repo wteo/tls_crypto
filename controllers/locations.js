@@ -10,7 +10,8 @@ const getSelectedLocation = (req, res) => {
     const selectedRegion = req.params.region;
     const selectedLocation = req.params.location;
     locations.filter(location => location.location === selectedLocation);
-    res.render(path.join(__dirname, '..', 'views', 'location.ejs'), { region: selectedRegion, location: locations[0].location });
+    const { location, mapImageLink, amenities } = locations[0];
+    res.render(path.join(__dirname, '..', 'views', 'location.ejs'), { selectedRegion, location, mapImageLink, amenities });
 }
 
 

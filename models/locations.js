@@ -1,5 +1,6 @@
 const data = [{
     location: 'Bondi',
+    mapImageLink: 'https://www.google.com/maps/vt/data=ebAcbYblrVhVrmfWcAa-Do5ubQOTXxYe4NbFCdWRlwNR0DzBpekHPkQms2ekhRq_ezG7bKn8ff3fU04A1aqLG5ARVYvJjLiJ0jOSAWUlYuT1hYf0twaKRkei0CX9cqsgS4oUTVQRtd772BlVtefXwwOc3X9V93_SQnJG7vwOh1e8FtBSRTyDALlhdn7oOKw6ebgIJbWcZFTOpnPPQf6veDuWwfGxfthRcX1Odr1jbhJKt0n6upakMhI',
     amenities: [{
             amenity: 'Education',
             imageLink: 'https://assets.weforum.org/global_future_council/image/W43md-ZlCf6Ljlf_7_0dCuSsNZ3BfPc9fwCLnNxFTSo.jpg',
