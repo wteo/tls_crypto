@@ -1,8 +1,13 @@
 .nav {
     background-color: var(--navigation-bar-color);
-    padding: 5vh 3vw;
+    padding: 5vh 5vw;
     margin: auto 0;
     display: grid;
+    position: fixed;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    right: 0;
     grid-template-columns: 1fr auto; 
     justify-content: space-between; 
     align-items: center; 
@@ -25,11 +30,4 @@
 .nav__menu-title a:hover {
     cursor: pointer;
     text-decoration: underline;
-}
-
-.nav__search {
-    width: 250px;
-    height: 20px;
-    padding: 5px;
-    border-radius: 50px;
 }

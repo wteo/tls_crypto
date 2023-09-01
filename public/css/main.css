@@ -1,5 +1,6 @@
 @import './variables.css';
 @import './nav_header.css';
+@import './search.css';
 @import './about_us.css';
 @import './amenities_grid.css';
 @import './location_grid.css';
@@ -8,6 +9,10 @@
 body {
     margin: auto 0;
     font-family: 'proxima-nova', sans-serif;
+}
+
+header {
+    margin-bottom: 10vh;
 }
 
 section {

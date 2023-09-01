@@ -10,12 +10,15 @@
 </head>
 
 <body>
-    <%- include('./partials/nav_header.ejs') %>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
         <section>
             <div class="location__wrapper">
                 <h1 class="location__title"><a href="./region"><%= regions[0].region %></a> > Bondi</h1>
                 <p class="location__description">Bondi is a beautiful place</p>
                 <h1 class="location__amenities-title">Amenities</h1>
+                
                 <div class="location__amenities-grid">
                     <div class="location__amenities-container">
                         <a href="./amenities">

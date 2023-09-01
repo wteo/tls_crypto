@@ -4,6 +4,9 @@
     --navigation-bar-color: #2D3142;
     --navigation-font-color: #FFFFFF;
 
+    /* Search Bar */
+    --navigation-border-search-color: #d4dcff;
+
 
     /* Body sections */
     --main-background-color: #FFFFFF;
