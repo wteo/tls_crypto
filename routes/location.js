@@ -1,9 +1,9 @@
 import express from 'express';
 
-import regionsController from '../controllers/regions.js';
+import locationController from '../controllers/location.js';
 
 const router = express.Router();
 
-router.get('/location', regionsController.getSelectedLocation)
+router.get('/:location', locationController.getSelectedLocation)
 
 export default router;

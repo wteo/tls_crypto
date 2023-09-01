@@ -15,13 +15,6 @@ const getSelectedRegion = (req, res) => {
     res.render(path.join(__dirname, '..', 'views', 'region.ejs'), { regions });
 }
 
-const getSelectedLocation = (req, res) => {
-    const regions = RegionsModel.getAllRegions();
-    res.render(path.join(__dirname, '..', 'views', 'location.ejs'), { regions });
-}
-
-
-
-const regionsController = { getRegions, getSelectedRegion, getSelectedLocation };
+const regionsController = { getRegions, getSelectedRegion };
 
 export default regionsController;

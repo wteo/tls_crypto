@@ -60,3 +60,21 @@
     grid-column-end: span 1;
     grid-row-end: span 2;
 }
+
+/* Mobile layout */
+@media (max-width: 750px) {
+    .location__amenities-container:nth-child(5n + 1) {
+        grid-column-end: span 2;
+        grid-row-end: span 3;
+    }
+    
+    .location__amenities-container:nth-child(5n + 2),
+    .location__amenities-container:nth-child(5n + 3),
+    .location__amenities-container:nth-child(5n + 4),
+    .location__amenities-container:nth-child(5n + 5),
+    .location__amenities-container:nth-child(5n + 6),
+    .location__amenities-container:nth-child(5n + 7) {
+        grid-column-end: span 1;
+        grid-row-end: span 1;
+    }
+}

@@ -1,4 +1,16 @@
 
+/* At Location Page */
+.location__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.location__container, .location__image {
+    width: 100%;
+}
+
+/* At Main Regions Page Page */
 .region__location-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -82,6 +94,12 @@
 
 /* Tablet layout */
 @media (min-width: 751px) and (max-width: 1200px) {
+
+    .location__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
     .region__location-grid {
         grid-template-columns: repeat(4, 1fr);
     }
@@ -93,6 +111,12 @@
     
 /* Mobile layout */
 @media (max-width: 750px) {
+
+    .location__grid {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
     .region__location-grid {
         grid-template-columns: repeat(3, 1fr);
     }
