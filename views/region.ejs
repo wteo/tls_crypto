@@ -14,12 +14,12 @@
     </header>
         <section>
             <div class="region__wrapper">
-                <h1 class="region__title"><%= regions[0].region %></h1>
-                <p class="region__description"><%= regions[0].description %></p>
+                <h1 class="region__title"><%= region %></h1>
+                <p class="region__description"><%= description %></p>
                 <div class="region__location-grid">
-                    <% regions[0].locations.forEach( location => { %>
+                    <% locations.forEach( location => { %>
                         <div class="region__location-container">
-                            <a href="./<%= regions[0].region %>/<%= location.location %>">
+                            <a href="/<%= region %>/<%= location.location %>">
                                 <img class="region__location-image" src="<%= location.imageLink %>" alt="" />
                                 <h3 class="region__location-title"><%= location.location %></h3>
                             </a>

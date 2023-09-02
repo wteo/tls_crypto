@@ -31,8 +31,10 @@
                 <div class="region__location-grid">
                     <% region.locations.forEach( location => { %>
                         <div class="region__location-container">
-                            <img class="region__location-image" src="<%= location.imageLink %>" alt="" />
-                            <h3 class="region__location-title"><%= location.location %></h3>
+                            <a href="/<%= region.region %>/<%= location.location %>">
+                                <img class="region__location-image" src="<%= location.imageLink %>" alt="" />
+                                <h3 class="region__location-title"><%= location.location %></h3>
+                            </a>
                         </div>
                     <% }) %>
                 </div>

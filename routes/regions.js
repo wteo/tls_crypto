@@ -6,6 +6,6 @@ const router = express.Router();
 
 router.get('/', regionsController.getRegions)
 
-router.get('/region', regionsController.getSelectedRegion)
+router.get('/:region', regionsController.getSelectedRegion)
 
 export default router;

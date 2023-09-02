@@ -15,7 +15,7 @@
     </header>
         <section>
             <div class="location__wrapper">
-                <p class="location__breadcrumb"><a href="/region"><%= selectedRegion %></a> > <%= location %></p>
+                <p class="location__breadcrumb"><a href="/<%= region %>"><%= region %></a> > <%= location %></p>
                 <h1 class="location__title"><%= location %></h1>
                 <div class="location__grid">
                     <div class="location__container">
@@ -34,7 +34,7 @@
                 <div class="location__amenities-grid">
                     <% amenities.forEach( amenity => { %>
                         <div class="location__amenities-container">
-                            <a href="/location/article">
+                            <a href="/<%= location %>/<%= amenity.amenity %>">
                                 <img class="location__amenities-image" src="<%= amenity.imageLink %>" alt="" />
                                 <h3 class="location__amenities-category"><%= amenity.amenity %></h3>
                             </a>
