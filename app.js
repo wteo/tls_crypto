@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 
 import regionsRouter from './routes/regions.js';
 import locationRouter from './routes/location.js';
+import amenitiesRouter from './routes/amenities.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);  
@@ -17,10 +18,7 @@ app.use(express.urlencoded({extended: false}));
 
 app.use(regionsRouter);
 app.use(locationRouter);
-
-app.use('/location/article', (req, res) => {
-    res.render(path.join(__dirname, 'views', 'article.ejs'));
-});
+app.use(amenitiesRouter);
 
 app.use((req, res) => {
     res.status(404);

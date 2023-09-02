@@ -5,6 +5,16 @@ button {
     padding: 10px 15px;
     text-transform: uppercase;
     transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+button a {
+    color: var(--default-button-font-color);
+    text-decoration: none;
+}
+
+button a:hover {
+    color: var(--default-hovered-button-font-color);
 }
 
 button:hover {

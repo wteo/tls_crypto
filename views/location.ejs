@@ -34,7 +34,7 @@
                 <div class="location__amenities-grid">
                     <% amenities.forEach( amenity => { %>
                         <div class="location__amenities-container">
-                            <a href="/<%= location %>/<%= amenity.amenity %>">
+                            <a href="/<%= region %>/<%= location %>/<%= amenity.amenity %>">
                                 <img class="location__amenities-image" src="<%= amenity.imageLink %>" alt="" />
                                 <h3 class="location__amenities-category"><%= amenity.amenity %></h3>
                             </a>

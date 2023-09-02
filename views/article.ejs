@@ -15,7 +15,11 @@
     </header>
         <section>
             <div class="location__wrapper">
-                <p class="location__breadcrumb"><a href="./region">Sydney</a> > Bondi > Education</p>
+                <p class="location__breadcrumb">
+                    <a href="/<%= region %>"><%= region %></a> > 
+                    <a href="/<%= region %>/<%= location %>"><%= location %></a> > 
+                    <%= amenity.amenity %>
+                </p>
                 <div class="article__wrapper">
                     <h1 class="article__title">The Landscape of Education in Bondi, NSW: A Guide for Prospective Homebuyers</h1>
                     <h5 class="article__author">By Jane Doe | 15th August 2023</h5>
