@@ -1,33 +1,33 @@
 :root {
 
     /* Header Navigation */
-    --navigation-bar-color: #2D3142;
+    --navigation-bar-color: #323031;
     --navigation-font-color: #FFFFFF;
 
     /* Search Bar */
-    --navigation-border-search-color: #d4dcff;
+    --navigation-border-search-color: #C1BDB3;
 
 
     /* Body sections */
     --main-background-color: #FFFFFF;
-    --secondary-background-color: #7b8699;
-    --main-font-color: #7b8699;
+    --secondary-background-color: #7F7979;
+    --main-font-color: #7F7979;
     --secondary-font-color: #FFFFFF;
 
     /* See More Button */
-    --see-more-button-font-color: #2f2d42;
-    --see-more-button-border-color: #2D3142;
+    --see-more-button-font-color: #3D3B3C;
+    --see-more-button-border-color: #3D3B3C;
     --see-more-button-background-color: transparent;
     --see-more-hovered-button-background-color: #BFC0C0;
 
     /* Default Buttons */
-    --default-button-font-color: white;
-    --default-button-border-color: #2D3142;
-    --default-button-background-color: #2D3142;
-    --default-hovered-button-font-color: #2D3142;
+    --default-button-font-color: #FFFFFF;
+    --default-button-border-color: #3D3B3C;
+    --default-button-background-color: #3D3B3C;
+    --default-hovered-button-font-color: #3D3B3C;
     --default-hovered-button-background-color: transparent;
 
     /* Article */
     --article-background-color: transparent;
-    --article-font-color: #7b8699;
+    --article-font-color: #7F7979;
 }
