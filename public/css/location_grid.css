@@ -59,9 +59,11 @@
 .region__location-button-container {
     border: 1px solid var(--see-more-button-border-color);
     background-color: var(--see-more-button-background-color);
+    color: var(--see-more-button-border-color);
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
+    text-decoration: none;
 }
 
 .region__location-button-container:hover {

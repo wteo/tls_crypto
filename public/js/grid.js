@@ -8,7 +8,7 @@ const setContainerVisibility = (containers, numberOfContainers) => {
 // Function to add a "See More" button
 const addSeeMoreButton = (grid) => {
 
-    const container = document.createElement('div');
+    const container = document.createElement('a');
     container.className = 'region__location-button-container';
     
     const span = document.createElement('span');
@@ -24,6 +24,15 @@ const addSeeMoreButton = (grid) => {
     grid.appendChild(container);
 
 };
+
+// Function to add link to each of "See More" Button depending on region
+const addLink = () => {
+    const buttons = document.querySelectorAll('.region__location-button-container');
+    for (let button of buttons) {
+        const region = button.parentElement.dataset.region;
+        button.href = `/${region}`;
+    }
+}
 
 // Configuration object for screen widths and container limits
 const screenConfig = [
@@ -48,6 +57,7 @@ const handleGrids = () => {
         setContainerVisibility(containers, limit);
         if (containers.length > limit && button.length < 1) {
             addSeeMoreButton(grid);
+            addLink();
         }
         
     }

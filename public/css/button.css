@@ -8,14 +8,6 @@ button {
     text-decoration: none;
 }
 
-button a {
-    color: var(--default-button-font-color);
-    text-decoration: none;
-}
-
-button a:hover {
-    color: var(--default-hovered-button-font-color);
-}
 
 button:hover {
     background-color: var(--default-hovered-button-background-color);

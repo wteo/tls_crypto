@@ -28,7 +28,7 @@
             <div class="region__wrapper">
                 <h1 class="region__title"><%= region.region %></h1>
                 <p class="region__description"><%= region.description %></p>
-                <div class="region__location-grid">
+                <div class="region__location-grid" data-region="<%= region.region %>">
                     <% region.locations.forEach( location => { %>
                         <div class="region__location-container">
                             <a href="/<%= region.region %>/<%= location.location %>">

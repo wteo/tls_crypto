@@ -18,8 +18,9 @@
                 <p class="location__breadcrumb">
                     <a href="/<%= region %>"><%= region %></a> > 
                     <a href="/<%= region %>/<%= location %>"><%= location %></a> > 
-                    <%= amenity.amenity %>
+                    <%= amenity %>
                 </p>
+                <% if (region === 'Sydney' && location === 'Bondi' && amenity === 'Education') { %>
                 <div class="article__wrapper">
                     <h1 class="article__title">The Landscape of Education in Bondi, NSW: A Guide for Prospective Homebuyers</h1>
                     <h5 class="article__author">By Jane Doe | 15th August 2023</h5>
@@ -71,6 +72,13 @@
                         </div>
                     </article>
                 </div>
+                <% } else { %>
+                    <section class="error">
+                        <h1 class="error__title">Error 404</h1>
+                        <p class="error__description">The Artile that you were looking for does not exist.</p>
+                        <a href="/"><button class="error__button">Go back to Home</button></a>
+                    </section>
+                <% } %>
             </div>
         </section>
     <%- include('./partials/footer.ejs') %>
