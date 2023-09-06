@@ -15,8 +15,8 @@ const getSelectedLocation = (req, res) => {
     if (noLocationFound) {
         return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
     } else {
-        const { location, mapImageLink, amenities }  = filteredLocations[0];
-        return res.render(path.join(__dirname, '..', 'views', 'location.ejs'), { region, location, mapImageLink, amenities });
+        const { location, description, mapImageLink, amenities }  = filteredLocations[0];
+        return res.render(path.join(__dirname, '..', 'views', 'location.ejs'), { region, location, description, mapImageLink, amenities });
     }
 }
 
