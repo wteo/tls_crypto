@@ -1,8 +1,17 @@
 <nav class="nav">
     <ul class="nav__menu">
-        <li class="nav__menu-title"><a href="/Sydney">Sydney</a></li>
-        <li class="nav__menu-title"><a href="/Melbourne">Melbourne</a></li>
-        <li class="nav__menu-title"><a href="/Brisbane">Brisbane</a></li>
+        <% states.forEach( state => { %>
+            <li class="nav__menu-title"><%= state %>
+                <br/>
+                <ul class="nav__dropdown">
+                    <% regions.forEach( region => { %>
+                        <% if (region.state === state) { %>
+                            <li class="nav__dropdown-title"><a href="/<%= region.region %>"><%= region.region %></a></li>
+                        <% } %>
+                    <% }) %>
+                </ul>
+            </li>
+        <% }) %>
     </ul>
     <div class="nav__search">
         <input class="nav__search-input" type="text" placeholder="Search a location...">

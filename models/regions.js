@@ -1,4 +1,5 @@
 const data = [{
+    state: 'NSW',
     region: 'Sydney',
     description: 'Sydney is Australia\'s largest and most iconic city, featuring world-renowned landmarks like the Sydney Opera House and Harbour Bridge. The city offers a vibrant lifestyle, bustling with various cultural events, outdoor activities, and a diverse culinary scene.',
     locations: [{
@@ -39,6 +40,7 @@ const data = [{
         imageLink: 'https://static.ffx.io/images/$width_800%2C$height_450/t_crop_fill/q_86%2Cf_auto/54b3c838478e58fdb4f21feca71ad8dbe8e319d5'
     }]
 }, {
+    state: 'VIC',
     region: 'Melbourne',
     description: 'Melbourne is often dubbed as Australia\'s cultural capital, boasting an array of art galleries, live music venues, and theaters. The city is also famous for its intricate laneways filled with street art, boutique shops, and cozy cafes, making it a haven for foodies and art lovers alike.',
     locations: [{
@@ -64,6 +66,7 @@ const data = [{
         imageLink: 'https://upload.wikimedia.org/wikipedia/commons/thumb/2/28/South_Melbourne_Townhall.jpg/1200px-South_Melbourne_Townhall.jpg'
     }]
 }, {
+    state: 'QLD',
     region: 'Brisbane',
     description: 'Brisbane is a burgeoning city known for its youthful energy, scenic river views, and outdoor adventure opportunities. With its close proximity to tourist destinations like the Gold Coast and the Great Barrier Reef, it serves as an ideal starting point for exploring Queensland\'s natural wonders.',
     locations: [{
@@ -78,6 +81,13 @@ const data = [{
 class RegionsModel {
     constructor() {
         this.regions = data;
+    }
+
+    getAllStates() {
+        const statesArray = this.regions.map(region => region.state);
+        const statesSet = new Set(statesArray);
+        const states = [...statesSet];
+        return states;
     }
 
     getAllRegions() {

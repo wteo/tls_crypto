@@ -1,6 +1,6 @@
 .nav {
     background-color: var(--navigation-bar-color);
-    padding: 5vh 5vw;
+    padding: 5vh 5vw 4vh;
     margin: auto 0;
     display: grid;
     position: absolute;
@@ -21,16 +21,51 @@
     text-transform: uppercase;
 }
 
-.nav__menu-title a {
+.nav__menu-title, .nav__dropdown-title a {
     margin-right: 5vw; 
     color: var(--navigation-font-color);
-    font-size: 1.5rem;
     text-decoration: none;
 }
 
-.nav__menu-title a:hover {
-    cursor: pointer;
+.nav__menu-title {
+    position: relative;
+    font-size: 1.5rem;
+    padding-bottom: 1vh;
+}
+
+.nav__dropdown-title a {
+    font-size: 1rem;
+}
+
+.nav__dropdown {
+    position: absolute;
+    list-style: none;
+    text-align: center;
+    background-color: var(--navigation-bar-color);
+    padding: 1.5vh 1vw 2vh;
+    margin-top: 1vh;
+    border: 1px solid var(--navigation-font-color);
+    border-radius: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+}
+
+.nav__dropdown-title {
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+}
+
+.nav__menu-title:hover > .nav__dropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav__menu-title:hover, .nav__dropdown-title:hover {
     text-decoration: underline;
+    cursor: pointer;
 }
 
 /* Tablet layout */

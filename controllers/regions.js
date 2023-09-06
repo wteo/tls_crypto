@@ -5,13 +5,19 @@ import RegionsModel from '../models/regions.js';
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
 
+const getStates = (req, res, next) => {
+    res.locals.states = RegionsModel.getAllStates();
+    res.locals.regions = RegionsModel.getAllRegions();
+    next();
+}
+
 const getRegions = (req, res) => {
-    const regions = RegionsModel.getAllRegions();
+    const { regions } = res.locals;
     res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
 }
 
 const getSelectedRegion = (req, res) => {
-    const regions = RegionsModel.getAllRegions();
+    const { regions } = res.locals;
     const filteredRegions = regions.filter(region => region.region === req.params.region);
 
     const noRegionFound = filteredRegions.length === 0;
@@ -24,6 +30,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getRegions, getSelectedRegion };
+const regionsController = { getStates, getRegions, getSelectedRegion };
 
 export default regionsController;
