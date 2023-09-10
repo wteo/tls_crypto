@@ -35,12 +35,13 @@
 
 .nav__dropdown-title a {
     font-size: 1rem;
+    white-space: nowrap;
 }
 
 .nav__dropdown {
     position: absolute;
     list-style: none;
-    text-align: center;
+    text-align: left;
     background-color: var(--navigation-bar-color);
     padding: 1.5vh 1vw 2vh;
     margin-top: 1vh;
