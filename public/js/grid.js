@@ -47,7 +47,7 @@ const handleGrids = () => {
 
     for (let grid of grids) {
         const containers = grid.querySelectorAll('.region__location-container');
-        const button = grid.querySelectorAll('.region__location-button-container');
+        const buttonContainer = grid.querySelector('.region__location-button-container');
         const width = window.innerWidth;
 
         // Find the appropriate configuration for the current screen width
@@ -55,11 +55,12 @@ const handleGrids = () => {
 
         // Set container visibility and add "See More" button if needed
         setContainerVisibility(containers, limit);
-        if (containers.length > limit && button.length < 1) {
+        if (containers.length > limit && !buttonContainer) {
             addSeeMoreButton(grid);
             addLink();
+        } else if (containers.length <= limit && buttonContainer) {
+            buttonContainer.remove();
         }
-        
     }
 };
 
