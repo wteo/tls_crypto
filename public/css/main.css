@@ -88,3 +88,7 @@ section:nth-child(even) .location__amenities-title {
 .region__description, .location__description {
     margin-bottom: 5vh;
 }
+
+.region__description-not-found {
+    margin-bottom: 25vh;
+}

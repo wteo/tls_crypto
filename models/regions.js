@@ -93,6 +93,24 @@ class RegionsModel {
     getAllRegions() {
         return this.regions;
     }
+
+    filterData(searchLocation) {
+        const results = [];
+
+        this.regions.forEach(region => {
+            region.locations.forEach(location => {
+                if (location.location.toLowerCase().includes(searchLocation.toLowerCase())) {
+                    results.push({
+                        region: region.region,
+                        location: location.location,
+                        imageLink: location.imageLink
+                    });
+                }
+            });
+        });
+    
+        return results;
+    }
 }
 
 export default new RegionsModel;

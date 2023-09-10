@@ -12,7 +12,9 @@ const getStates = (req, res, next) => {
 }
 
 const getSearchResults = (req, res) => {
-    console.log(req.query.location);
+    const query = req.query.location;
+    res.locals.results = RegionsModel.filterData(query);
+    return res.render(path.join(__dirname, '..', 'views', 'results.ejs'));
 }
 
 const getRegions = (req, res) => {

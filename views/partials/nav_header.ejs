@@ -18,5 +18,10 @@
         <button class="nav__search-button">
             <img class="nav__search-icon" src="/icons/search.png" alt="Search Icon" />
         </button>
+        <ul class="nav__suggestions-container">
+            <% results.forEach(result => { %>
+                <a class="nav__suggestions" href="/<%= result.region %>/<%= result.location %>"><li><%= result.location %>)</li></a>
+            <% }) %>
+        </ul>
     </form>
 </nav>
