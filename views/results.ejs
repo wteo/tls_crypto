@@ -17,7 +17,7 @@
                 <h1 class="region__title">Result:</h1>
                 <p class="region__description">We found <%= results.length %> location(s)</p>
                 <% if (results.length === 0) { %>
-                    <p class="region__description-not-found">Please try a different search.</p>
+                    <p class="region__description region__description-not-found">Please try a different search.</p>
                 <% } else { %>
                     <div class="region__location-grid">
                         <% results.forEach( result => { %>
