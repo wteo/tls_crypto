@@ -7,7 +7,7 @@ const __dirname = path.dirname(__filename);
 
 const getStates = (req, res, next) => {
     res.locals.states = RegionsModel.getAllStates();
-    res.locals.regions = RegionsModel.getAllRegions();
+    res.locals.regions = RegionsModel.getAllRegionsByAlphabeticalOrder();
     next();
 }
 

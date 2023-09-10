@@ -94,6 +94,13 @@ class RegionsModel {
         return this.regions;
     }
 
+    getAllRegionsByAlphabeticalOrder() {
+        return this.regions.map(region => ({
+            ...region,
+            locations: region.locations.sort((a, b) => a.location.localeCompare(b.location))
+        }));
+    }
+
     filterData(searchLocation) {
         const results = [];
 
