@@ -13,10 +13,10 @@
             </li>
         <% }) %>
     </ul>
-    <div class="nav__search">
-        <input class="nav__search-input" type="text" placeholder="Search a location...">
+    <form class="nav__search" method="GET" action="/results">
+        <input class="nav__search-input" type="text" placeholder="Search a location..." name="location" />
         <button class="nav__search-button">
             <img class="nav__search-icon" src="/icons/search.png" alt="Search Icon" />
         </button>
-    </div>
+    </form>
 </nav>

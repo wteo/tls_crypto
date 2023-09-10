@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+        <section>
+            <div class="region__wrapper">
+                <div class="region__location-grid">
+                    <% results.forEach( result => { %>
+                        <div class="region__location-container">
+                            <a href="/<%= result.region %>/<%= result.location %>">
+                                <img class="region__location-image" src="<%= result.imageLink %>" alt="" />
+                                <h3 class="region__location-title"><%= result.location %></h3>
+                            </a>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

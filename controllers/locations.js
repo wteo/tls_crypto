@@ -20,7 +20,6 @@ const getSelectedLocation = (req, res) => {
     }
 }
 
-
 const locationsController = { getSelectedLocation };
 
 export default locationsController;

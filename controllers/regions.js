@@ -11,6 +11,10 @@ const getStates = (req, res, next) => {
     next();
 }
 
+const getSearchResults = (req, res) => {
+    console.log(req.query.location);
+}
+
 const getRegions = (req, res) => {
     const { regions } = res.locals;
     res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
@@ -30,6 +34,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getRegions, getSelectedRegion };
+const regionsController = { getStates, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;
