@@ -1,29 +1,15 @@
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-import fs from 'fs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
-class LocationsModel {
-    constructor() {
-        this.locations = this.getData();
+export default class LocationsModel {
+    constructor(db) {
+        this.db = db;
+        this.collection = this.db.collection('locations');
     }
 
-    getData() {
+    async getLocation(region, location) {
         try {
-            const filePath = path.resolve(__dirname, 'locations.json');
-            const data = fs.readFileSync(filePath, 'utf8');
-            return JSON.parse(data);
-        } catch (err) {
-            console.error("Error reading JSON data:", err);
-            return [];
+            return await this.collection.findOne({ region, location });
+        } catch (error) {
+            console.error('Error getting location:', error);
+            return null;
         }
     }
-
-    getAllLocations() {
-        return this.locations;
-    }
 }
-
-export default new LocationsModel;
