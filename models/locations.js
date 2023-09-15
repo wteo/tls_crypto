@@ -1,11 +1,16 @@
+import { getDB } from '../utils/database.js';
+
 class LocationsModel {
-    constructor(db) {
-        this.db = db;
-        this.collection = this.db.collection('locations');
+    constructor(location, description, mapImageLink, amenities) {
+        this.location = location;
+        this.description = description;
+        this.mapImageLink = mapImageLink;
+        this.amenities = amenities;
     }
 
-    async getLocation(region, location) {
-        return await this.collection.findOne({ region, location });
+    getLocation(location) {
+        const db = getDB();
+        return db.collection('locations').findOne({ location });
     }
 }
 

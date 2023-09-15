@@ -5,18 +5,15 @@ import LocationsModel from '../models/locations.js';
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
 
-const getSelectedLocation = (db) => async (req, res) => {
-
-    const locationsModel = new LocationsModel(db);
-
-    const region = req.params.region;
-    const locationData = await locationsModel.getLocation(region, req.params.location);
-
-    if (locationData) {
+const getSelectedLocation = async(req, res) => {
+    try {
+        const region = req.params.region;
+        const locationData = await new LocationsModel().getLocation(req.params.location);
         const { location, description, mapImageLink, amenities } = locationData;
         return res.render(path.join(__dirname, '..', 'views', 'location.ejs'), { region, location, description, mapImageLink, amenities });
-    } else {
-        return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
+    } catch (error) {
+        console.log(error);
+        res.status(500).render(path.join(__dirname, '..', 'views', '500.ejs'));
     }
 }
 
