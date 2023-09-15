@@ -24,7 +24,7 @@ app.use(express.urlencoded({extended: false}));
 // app.use(regionsRouter);
 // app.use(locationRouter);
 
-MongoClient.connect(mongoURL, { useNewUrlParser: true, useUnifiedTopology: true }, (err, client) => {
+MongoClient.connect(mongoURL, (err, client) => {
     if (err) {
       console.error(err);
       return;

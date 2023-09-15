@@ -1,61 +1,39 @@
-import { fileURLToPath } from 'url';
-import path, { dirname } from 'path';
-import fs from 'fs';
-
-const __filename = fileURLToPath(import.meta.url);
-const __dirname = dirname(__filename);
-
 class RegionsModel {
-    constructor() {
-        this.regions = this.getData();
+    constructor(db) {
+        this.db = db;
+        this.collection = this.db.collection('regions');
     }
 
-    getData() {
-        try {
-            const filePath = path.resolve(__dirname, 'regions.json');
-            const data = fs.readFileSync(filePath, 'utf8');
-            return JSON.parse(data);
-        } catch (err) {
-            console.error("Error reading JSON data:", err);
-            return [];
-        }
-    }
-
-    getAllStates() {
-        const statesArray = this.regions.map(region => region.state);
-        const statesSet = new Set(statesArray);
-        const states = [...statesSet];
+    async getAllStates() {
+        const states = await this.collection.distinct('state');
         return states;
     }
 
-    getAllRegions() {
-        return this.regions;
+    async getAllRegions() {
+        const regions = await this.collection.find().toArray();
+        return regions;
     }
 
-    getAllRegionsByAlphabeticalOrder() {
-        return this.regions.map(region => ({
-            ...region,
-            locations: region.locations.sort((a, b) => a.location.localeCompare(b.location))
-        }));
-    }
-
-    filterData(searchLocation) {
-        const results = [];
-
-        this.regions.forEach(region => {
-            region.locations.forEach(location => {
-                if (location.location.toLowerCase().includes(searchLocation.toLowerCase())) {
-                    results.push({
-                        region: region.region,
-                        location: location.location,
-                        imageLink: location.imageLink
-                    });
-                }
-            });
+    async getAllRegionsByAlphabeticalOrder() {
+        const regions = await this.collection.find().toArray();
+        regions.forEach(region => {
+            region.locations.sort((a, b) => a.location.localeCompare(b.location));
         });
-    
-        return results;
+        return regions;
+    }
+
+    async filterData(searchLocation) {
+        const results = await this.collection.aggregate([
+            { $unwind: "$locations" },
+            { $match: { "locations.location": { $regex: new RegExp(searchLocation, "i") } } },
+            { $project: { region: 1, "locations.location": 1, "locations.imageLink": 1 } }
+        ]).toArray();
+        return results.map(item => ({
+            region: item.region,
+            location: item.locations.location,
+            imageLink: item.locations.imageLink
+        }));
     }
 }
 
-export default new RegionsModel;
+export default RegionsModel;
