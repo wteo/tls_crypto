@@ -30,9 +30,8 @@ class RegionsModel {
         return regions;
     }
 
-    /*
-    filterData(searchLocation) {
-        const results = this.collection.aggregate([
+    async filterData(searchLocation) {
+        const results = await this.collection.aggregate([
             { $unwind: "$locations" },
             { $match: { "locations.location": { $regex: new RegExp(searchLocation, "i") } } },
             { $project: { region: 1, "locations.location": 1, "locations.imageLink": 1 } }
@@ -43,7 +42,6 @@ class RegionsModel {
             imageLink: item.locations.imageLink
         }));
     }
-    */
 }
 
 export default RegionsModel;

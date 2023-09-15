@@ -30,3 +30,4 @@ app.use((req, res) => {
     res.status(404);
     res.render(path.join(__dirname, 'views', '404.ejs'));
 });
+
