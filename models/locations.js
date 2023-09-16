@@ -8,7 +8,7 @@ class LocationsModel {
         this.amenities = amenities;
     }
 
-    getLocation(location) {
+    static getLocation(location) {
         const db = getDB();
         return db.collection('locations').findOne({ location });
     }

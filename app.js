@@ -21,13 +21,13 @@ app.use(regionsRouter);
 app.use(locationRouter);
 app.use(amenitiesRouter);
 
-mongoConnect((client) => {
-    console.log('client');
-    app.listen(PORT);
-});
-
 app.use((req, res) => {
     res.status(404);
     res.render(path.join(__dirname, 'views', '404.ejs'));
 });
+
+mongoConnect(() => {
+    app.listen(PORT);
+});
+
 
