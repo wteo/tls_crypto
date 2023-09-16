@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url'; 
 import RegionsModel from '../models/regions.js';
+import { Console } from 'console';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
@@ -16,6 +17,19 @@ const getStates = async (req, res, next) => {
     }
 }
 
+const getAdminPage = (req, res) => {
+    const { regions } = res.locals
+    const filteredRegions = regions.filter(region => region.region === req.params.region);
+    const noRegionFound = filteredRegions.length === 0
+
+    if (noRegionFound) {
+        return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
+    } else {
+        const { region, description, locations } = filteredRegions[0];
+        return res.status(500).render(path.join(__dirname, '..', 'views', 'admin.ejs'), { region, description, locations });
+    }
+};
+
 const getSearchResults = async (req, res) => {
     try {
         const query = req.query.location;
@@ -23,13 +37,13 @@ const getSearchResults = async (req, res) => {
         return res.render(path.join(__dirname, '..', 'views', 'results.ejs'));
     } catch (error) {
         console.error(error);
-        res.status(500).render(path.join(__dirname, '..', 'views', '500.ejs'));
+        return res.status(500).render(path.join(__dirname, '..', 'views', '500.ejs'));
     }
 }
     
 const getRegions = (req, res) => {
     const { regions } = res.locals;
-    res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
+    return res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
 }
     
 const getSelectedRegion = (req, res) => {
@@ -37,7 +51,7 @@ const getSelectedRegion = (req, res) => {
     const filteredRegions = regions.filter(region => region.region === req.params.region);
     
     const noRegionFound = filteredRegions.length === 0;
-    
+
     if (noRegionFound) {
         return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
     } else {
@@ -46,6 +60,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminPage, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;

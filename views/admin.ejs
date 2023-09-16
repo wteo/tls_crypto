@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+        <section>
+            <div class="region__wrapper">
+                <h1 class="region__title"><%= region %></h1>
+                <p class="region__description"><%= description %></p>
+                <div class="region__location-grid--admin">
+                    <% locations.forEach( location => { %>
+                        <div class="region__location-container--admin">
+                            <a href="/<%= region %>/<%= location.location %>">
+                                <img class="region__location-image--admin" src="<%= location.imageLink %>" alt="" />
+                                <h3 class="region__location-title--admin"><%= location.location %></h3>
+                                <div class="region__admin-controls">
+                                    <button>Delete</button>
+                                    <button>Update</button>
+                                </div>
+                            </a>
+                        </div>
+                    <% }) %>
+                    <a class="region__location-container--admin region__location-button-container">
+                        <span class="region__location-more">+</span>
+                        <button class="region__location-button">Add more Location</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

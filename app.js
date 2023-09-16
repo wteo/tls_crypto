@@ -26,6 +26,7 @@ app.use((req, res) => {
     res.render(path.join(__dirname, 'views', '404.ejs'));
 });
 
+
 mongoConnect(() => {
     app.listen(PORT);
 });
