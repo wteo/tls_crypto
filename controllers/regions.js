@@ -32,7 +32,12 @@ const getAdminPage = (req, res) => {
 const deleteLocation = async (req, res) => {
     const { region, location } = req.body;
     await new RegionsModel().deleteLocation(location);
+    await RegionsModel.deleteLocationPage(location);
     return res.redirect(`/${region}/admin`);
+}
+
+const getAddLocationForm = (req, res) => {
+    return res.render(path.join(__dirname, '..', 'views', 'location_form.ejs'));
 }
 
 const getSearchResults = async (req, res) => {
@@ -65,6 +70,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getAdminPage, deleteLocation, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminPage, deleteLocation, getAddLocationForm, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;

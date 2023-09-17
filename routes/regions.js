@@ -10,6 +10,8 @@ router.get('/:region/admin', regionsController.getAdminPage);
 
 router.post('/:region/admin/delete', regionsController.deleteLocation);
 
+router.get('/admin/add-location-form', regionsController.getAddLocationForm);
+
 router.get('/results', regionsController.getSearchResults);
 
 router.get('/', regionsController.getRegions);

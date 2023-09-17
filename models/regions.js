@@ -34,6 +34,11 @@ class RegionsModel {
         return this.collection.updateOne({ 'locations.location': selectedLocation }, { $pull: { locations: { location: selectedLocation }} });
     }
 
+    static deleteLocationPage(selectedLocation) {
+        const db = getDB();
+        return db.collection('locations').deleteOne({ location: selectedLocation });
+    }
+
     async filterData(searchLocation) {
         const results = await this.collection.aggregate([
             { $unwind: '$locations' },

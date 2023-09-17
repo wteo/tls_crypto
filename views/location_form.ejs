@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <script src="/js/delete_modal.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+        <section>
+            <form class="location__form" action="/admin/submit" method="POST">
+                <label for="state">State:</label>
+                <input type="text" name="state" required>
+    
+                <label for="region">Region:</label>
+                <input type="text" name="region" required>
+    
+                <label for="location">Location:</label>
+                <input type="text" name="location" required>
+    
+                <label for="imageLink">Image Link:</label>
+                <input type="url" name="imageLink" required>
+    
+                <button type="submit">Add Location</button>
+            </form>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
