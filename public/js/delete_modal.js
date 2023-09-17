@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', (event) => {
     const deleteButtons = document.querySelectorAll('.region__admin-delete-button');
-    const deleteModal = document.getElementById('deleteModal');
-    const closeModal = document.querySelector('.modal-close');
-    const confirmDeleteButton = document.getElementById('confirmDeleteButton');
-    const cancelDeleteButton = document.getElementById('cancelDeleteButton');
+    const deleteModal = document.getElementById('delete__modal');
+    const closeModal = document.querySelector('.modal__close-button');
+    const confirmDeleteButton = document.getElementById('modal__confirm-delete-button');
+    const cancelDeleteButton = document.getElementById('modal__cancel-delete-button');
     let selectedForm;
 
     deleteButtons.forEach(deleteButton => {
