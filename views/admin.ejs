@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Real Estate Website</title>
+    <script src="/js/delete_form.js" defer></script>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -23,7 +24,11 @@
                                 <img class="region__location-image--admin" src="<%= location.imageLink %>" alt="" />
                                 <h3 class="region__location-title--admin"><%= location.location %></h3>
                                 <div class="region__admin-controls">
-                                    <button>Delete</button>
+                                    <form class="region__admin-delete-form" action="/<%= region %>/admin/delete" method="POST">
+                                        <input type="hidden" name="region" value="<%= region %>" />
+                                        <input type="hidden" name="location" value="<%= location.location %>"/>
+                                        <button type="submit" onclick="confirmDelete()">Delete</button>
+                                    </form>
                                     <button>Update</button>
                                 </div>
                             </a>

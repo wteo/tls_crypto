@@ -8,6 +8,8 @@ router.use('/', regionsController.getStates);
 
 router.get('/:region/admin', regionsController.getAdminPage);
 
+router.post('/:region/admin/delete', regionsController.deleteLocation);
+
 router.get('/results', regionsController.getSearchResults);
 
 router.get('/', regionsController.getRegions);

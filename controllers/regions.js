@@ -1,7 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url'; 
 import RegionsModel from '../models/regions.js';
-import { Console } from 'console';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
@@ -29,6 +28,12 @@ const getAdminPage = (req, res) => {
         return res.status(500).render(path.join(__dirname, '..', 'views', 'admin.ejs'), { region, description, locations });
     }
 };
+
+const deleteLocation = async (req, res) => {
+    const { region, location } = req.body;
+    await new RegionsModel().deleteLocation(location);
+    return res.redirect(`/${region}/admin`);
+}
 
 const getSearchResults = async (req, res) => {
     try {
@@ -60,6 +65,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getAdminPage, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminPage, deleteLocation, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;

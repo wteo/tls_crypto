@@ -30,11 +30,15 @@ class RegionsModel {
         return regions;
     }
 
+    deleteLocation(selectedLocation) {
+        return this.collection.updateOne({ 'locations.location': selectedLocation }, { $pull: { locations: { location: selectedLocation }} });
+    }
+
     async filterData(searchLocation) {
         const results = await this.collection.aggregate([
-            { $unwind: "$locations" },
-            { $match: { "locations.location": { $regex: new RegExp(searchLocation, "i") } } },
-            { $project: { region: 1, "locations.location": 1, "locations.imageLink": 1 } }
+            { $unwind: '$locations' },
+            { $match: { 'locations.location': { $regex: new RegExp(searchLocation, 'i') } } },
+            { $project: { region: 1, 'locations.location': 1, 'locations.imageLink': 1 } }
         ]).toArray();
         return results.map(item => ({
             region: item.region,
@@ -45,3 +49,4 @@ class RegionsModel {
 }
 
 export default RegionsModel;
+
