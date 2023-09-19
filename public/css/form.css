@@ -13,10 +13,17 @@
     font-weight: bold;
 }
 
-.location__form input {
+.location__form input, .location__form select, .location__form textarea {
+    box-sizing: border-box; 
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 2rem;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+
+.location__form textarea {
+    resize: vertical;
+    text-align: left;
+    vertical-align: top; 
 }

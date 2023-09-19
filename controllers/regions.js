@@ -37,7 +37,8 @@ const deleteLocation = async (req, res) => {
 }
 
 const getAddLocationForm = (req, res) => {
-    return res.render(path.join(__dirname, '..', 'views', 'location_form.ejs'));
+    const { states, regions } = res.locals;
+    return res.render(path.join(__dirname, '..', 'views', 'location_form.ejs'), { states, regions });
 }
 
 const getSearchResults = async (req, res) => {

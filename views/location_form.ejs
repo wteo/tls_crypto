@@ -15,18 +15,27 @@
     </header>
         <section>
             <form class="location__form" action="/admin/submit" method="POST">
-                <label for="state">State:</label>
-                <input type="text" name="state" required>
-    
                 <label for="region">Region:</label>
-                <input type="text" name="region" required>
-    
+                <select name="region" required>
+                    <option value="">Select a region</option>
+                    <% regions.forEach( region => { %>
+                        <option value="<%= region.region %>"><%= region.region %></option>
+                    <% }) %>
+                </select>
+
                 <label for="location">Location:</label>
                 <input type="text" name="location" required>
-    
-                <label for="imageLink">Image Link:</label>
-                <input type="url" name="imageLink" required>
-    
+                
+                <label for="imageLink">Location Image Link:</label>
+                <input type="url" name="locationImageLink" required>
+
+                <label for="description">Description:</label>
+                <textarea type="text" name="description" rows="4" required>
+                </textarea>
+                
+                <label for="imageLink">Map Image Link:</label>
+                <input type="url" name="mapImageLink" required>
+                
                 <button type="submit">Add Location</button>
             </form>
         </section>
