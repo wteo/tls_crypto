@@ -68,4 +68,8 @@
     .region__location-container--admin {
         height: 200px;
     }
+
+    .region__admin-controls {
+        grid-template-columns: 1fr;
+    }
 }
