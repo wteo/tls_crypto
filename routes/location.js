@@ -8,4 +8,6 @@ router.get('/:region/:location', locationsController.getSelectedLocation);
 
 router.get('/:region/:location/admin', locationsController.getAdminPage);
 
+router.post('/:region/:location/admin/delete', locationsController.deleteAmenity);
+
 export default router;

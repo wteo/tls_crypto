@@ -29,6 +29,12 @@ const getAdminPage = async (req, res) => {
     }
 };
 
-const locationsController = { getSelectedLocation, getAdminPage };
+const deleteAmenity = async (req, res) => {
+    const { location, amenity } = req.body;
+    await new LocationsModel().deleteAmenity(location, amenity);
+    return res.redirect(`/${req.params.region}/${location}/admin`);
+}
+
+const locationsController = { getSelectedLocation, getAdminPage, deleteAmenity };
 
 export default locationsController;

@@ -20,18 +20,16 @@
                 <div class="region__location-grid--admin">
                     <% locations.forEach( location => { %>
                         <div class="region__location-container--admin">
-                            <a href="/<%= region %>/<%= location.location %>">
-                                <img class="region__location-image--admin" src="<%= location.imageLink %>" alt="" />
-                                <h3 class="region__location-title--admin"><%= location.location %></h3>
-                                <div class="region__admin-controls">
-                                    <form class="region__admin-delete-form" action="/<%= region %>/admin/delete" method="POST">
-                                        <input type="hidden" name="region" value="<%= region %>" />
-                                        <input type="hidden" name="location" value="<%= location.location %>"/>
-                                        <button class="region__admin-delete-button">Delete</button>
-                                    </form>
-                                    <a href="/<%= region %>/<%= location.location %>/admin"><button>Update</button></a>
-                                </div>
-                            </a>
+                            <img class="region__location-image--admin" src="<%= location.imageLink %>" alt="" />
+                            <h3 class="region__location-title--admin"><%= location.location %></h3>
+                            <div class="region__admin-controls">
+                                <form class="region__admin-delete-form" action="/<%= region %>/admin/delete" method="POST">
+                                    <input type="hidden" name="region" value="<%= region %>" />
+                                    <input type="hidden" name="location" value="<%= location.location %>"/>
+                                    <button class="admin-delete-button">Delete</button>
+                                </form>
+                                <a href="/<%= region %>/<%= location.location %>/admin"><button>Update</button></a>
+                            </div>
                         </div>
                     <% }) %>
                     <a class="region__location-container--admin region__location-button-container" href="/admin/add-location-form">

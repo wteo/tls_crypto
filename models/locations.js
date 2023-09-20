@@ -12,6 +12,11 @@ class LocationsModel {
         const db = getDB();
         return db.collection('locations').findOne({ location });
     }
+
+    deleteAmenity(location, selectedAmenity) {
+        const db = getDB();
+        return db.collection('locations').updateOne({ location }, { $pull: { amenities: { amenity: selectedAmenity }} });
+    }
 }
 
 export default LocationsModel;

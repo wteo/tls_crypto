@@ -1,6 +1,7 @@
 @import './variables.css';
 @import './nav_header.css';
-@import './admin.css';
+@import './location_admin.css';
+@import './region_admin.css';
 @import './search.css';
 @import './about_us.css';
 @import './button.css';

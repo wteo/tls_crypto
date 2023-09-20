@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', (event) => {
-    const deleteButtons = document.querySelectorAll('.region__admin-delete-button');
+    const deleteButtons = document.querySelectorAll('.admin-delete-button');
     const deleteModal = document.getElementById('delete__modal');
     const closeModal = document.querySelector('.modal__close-button');
     const confirmDeleteButton = document.getElementById('modal__confirm-delete-button');
