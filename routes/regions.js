@@ -12,6 +12,8 @@ router.post('/:region/admin/delete', regionsController.deleteLocation);
 
 router.get('/admin/add-location-form', regionsController.getAddLocationForm);
 
+router.post('/admin/submit', regionsController.postAddLocationForm);
+
 router.get('/results', regionsController.getSearchResults);
 
 router.get('/', regionsController.getRegions);

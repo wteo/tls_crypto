@@ -30,6 +30,10 @@ class RegionsModel {
         return regions;
     }
 
+    async addLocation(region, location, imageLink) {
+        return await this.collection.updateOne({ region }, { $push: { locations: { location, imageLink } } });
+    }
+
     deleteLocation(selectedLocation) {
         return this.collection.updateOne({ 'locations.location': selectedLocation }, { $pull: { locations: { location: selectedLocation }} });
     }
@@ -37,6 +41,11 @@ class RegionsModel {
     static deleteLocationPage(selectedLocation) {
         const db = getDB();
         return db.collection('locations').deleteOne({ location: selectedLocation });
+    }
+
+    static addLocationPage(location, description, mapImageLink) {
+        const db = getDB();
+        return db.collection('locations').insertOne({ location, description, mapImageLink, amenities: [] });
     }
 
     async filterData(searchLocation) {

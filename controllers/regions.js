@@ -41,6 +41,13 @@ const getAddLocationForm = (req, res) => {
     return res.render(path.join(__dirname, '..', 'views', 'location_form.ejs'), { states, regions });
 }
 
+const postAddLocationForm = async (req, res) => {
+    const { region, location, locationImageLink, description, mapImageLink } = req.body
+    await new RegionsModel().addLocation(region, location, locationImageLink);
+    await RegionsModel.addLocationPage(location, description, mapImageLink);
+    return res.redirect(`/${region}/admin`);
+}
+
 const getSearchResults = async (req, res) => {
     try {
         const query = req.query.location;
@@ -71,6 +78,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getAdminPage, deleteLocation, getAddLocationForm, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminPage, deleteLocation, postAddLocationForm, getAddLocationForm, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;
