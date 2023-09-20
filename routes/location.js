@@ -6,4 +6,6 @@ const router = express.Router();
 
 router.get('/:region/:location', locationsController.getSelectedLocation);
 
+router.get('/:region/:location/admin', locationsController.getAdminPage);
+
 export default router;

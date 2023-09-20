@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <script src="/js/amenities_grid.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+        <section>
+            <div class="location__wrapper">
+                <p class="location__breadcrumb"><a href="/<%= region %>"><%= region %></a> > <%= location %></p>
+                <h1 class="location__title"><%= location %></h1>
+                <div class="location__grid">
+                    <div class="location__container">
+                        <p class="location__description"><%= description %></p>
+                    </div>
+                    <div class="location__container">
+                        <img class="location__image" src="<%= mapImageLink %>" alt="Location Map" />
+                    </div>
+                </div>
+                <h1 class="location__amenities-title">Amenities</h1>
+                <div class="location__amenities-grid">
+                    <% amenities.forEach( amenity => { %>
+                        <div class="location__amenities-container">
+                            <a href="<%= amenity.hyperlink %>">
+                                <img class="location__amenities-image" src="<%= amenity.imageLink %>" alt="" />
+                                <h3 class="location__amenities-category"><%= amenity.amenity %></h3>
+                                <div class="region__admin-controls">
+                                    <form class="region__admin-delete-form" action="/<%= region %>/<%= location %>/admin/delete" method="POST">
+                                        <input type="hidden" name="location" value="<%= location %>" />
+                                        <input type="hidden" name="amenity" value="<%= amenity.amenity %>"/>
+                                        <button class="region__admin-delete-button">Delete</button>
+                                    </form>
+                                    <a href="/<%= region %>/<%= location %>/admin"><button>Update</button></a>
+                                </div>
+                            </a>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
