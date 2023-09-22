@@ -43,5 +43,5 @@
     display: grid;
     grid-auto-flow: column;
     gap: 10px;
-    width: 45%;
+    width: fit-content;
 }

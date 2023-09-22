@@ -40,8 +40,9 @@ const getUpdateRegionForm = (req, res) => {
 
 const updateRegion = async (req, res) => {
     const { state, region, description } = req.body;
-    await new RegionsModel().updateRegion(state, region, description);
-    return res.redirect(`/${region}/admin`);
+    console.log({state, region, description})
+    await new RegionsModel().updateRegion(req.params.region, state, region, description);
+    return res.redirect(`/admin`);
 }
 
 const deleteRegion = async (req, res) => {

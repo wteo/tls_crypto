@@ -26,6 +26,10 @@ class RegionsModel {
         return this.collection.insertOne({ state, region, description, locations: [] });
     }
 
+    async updateRegion(paramsRegion, state, region, description) {
+        return await this.collection.updateOne({ region: paramsRegion }, { $set: { state, region, description } });
+    }
+
     async deleteRegion(region) {
         return await this.collection.deleteOne({ region });
     };

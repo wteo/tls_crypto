@@ -24,8 +24,11 @@
 
                 <label for="hyperlink">Link to Article:</label>
                 <input type="url" name="hyperlink" required>
-                
-                <button type="submit">Add Amenity</button>
+
+                <div class="buttons-wrapper">
+                    <button type="submit">Add Amenity</button>
+                    <a href="/<%= region %>/<%= location %>/admin"><button type="button">Cancel</button></a>
+                </div>                
             </form>
         </section>
     <%- include('./partials/footer.ejs') %>

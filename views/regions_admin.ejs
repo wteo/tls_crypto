@@ -41,10 +41,13 @@
                 </div>
                 <br/>
                 <br/>
-                <form class="region__admin-delete-form" action="/admin/delete-region" method="POST">
-                    <input type="hidden" name="region" value="<%= region.region %>" />
-                    <button class="admin-delete-button">Delete</button>
-                </form>
+                <div class="buttons-wrapper">
+                    <form class="region__admin-delete-form" action="/admin/delete-region" method="POST">
+                        <input type="hidden" name="region" value="<%= region.region %>" />
+                        <button class="admin-delete-button">Delete</button>
+                    </form>
+                    <a href="/<%= region.region %>/admin/update-region-form"><button>Update Region</button></a>
+                </div>
             </div>
             <% if (region.locations.length > 0) { %>
                 <div id="delete__modal" class="modal">
