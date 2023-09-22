@@ -23,9 +23,21 @@ class LocationsModel {
         return await db.collection('locations').updateOne({ location }, { $push: { amenities: { amenity, imageLink, hyperlink } } });
     }
 
-    static getAmenity(location, amenity) {
+    async updateAmenity(location, paramsAmenity, amenity, imageLink, hyperlink) {
         const db = getDB();
-        return db.collection('locations').findOne({ location });
+        return await db.collection('locations').updateOne(
+            { 
+                location,
+                "amenities.amenity": paramsAmenity
+            },
+            {
+                $set: {
+                    "amenities.$.amenity": amenity,
+                    "amenities.$.imageLink": imageLink,
+                    "amenities.$.hyperlink": hyperlink
+                }
+            }
+        );
     }
 
 }

@@ -60,6 +60,13 @@ const getUpdateAmenityForm = async (req, res) => {
         });
 }
 
-const locationsController = { getSelectedLocation, getAdminPage, deleteAmenity, getAddAmenityForm, addAmenity, getUpdateAmenityForm };
+const updateAmenity = async (req, res) => {
+    const { region, location } = req.params;
+    const { amenity, imageLink, hyperlink } = req.body;
+    await new LocationsModel().updateAmenity(location, req.params.amenity, amenity, imageLink, hyperlink); 
+    return res.redirect(`/${region}/${location}/admin`);
+}
+
+const locationsController = { getSelectedLocation, getAdminPage, deleteAmenity, getAddAmenityForm, addAmenity, getUpdateAmenityForm, updateAmenity };
 
 export default locationsController;

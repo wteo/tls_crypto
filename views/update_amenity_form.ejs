@@ -14,7 +14,7 @@
         <%- include('./partials/nav_header.ejs') %>
     </header>
         <section>
-            <form class="amenity__form" action="/<%= region %>/<%= location %>/admin/submit-amenity-form" method="POST">
+            <form class="amenity__form" action="/<%= region %>/<%= location %>/<%= amenity %>/admin/update" method="POST">
 
                 <label for="amenity">Amenity:</label>
                 <input type="text" value="<%= amenity %>" name="amenity" required>

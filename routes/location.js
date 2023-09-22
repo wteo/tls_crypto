@@ -16,4 +16,6 @@ router.post('/:region/:location/admin/submit-amenity-form', locationsController.
 
 router.get('/:region/:location/:amenity/admin/update-amenity-form', locationsController.getUpdateAmenityForm);
 
+router.post('/:region/:location/:amenity/admin/update', locationsController.updateAmenity);
+
 export default router;
