@@ -6,7 +6,7 @@
                 <ul class="nav__dropdown">
                     <% regions.forEach( region => { %>
                         <% if (region.state === state) { %>
-                            <li class="nav__dropdown-title"><a href="/<%= region.region %>"><%= region.region %></a></li>
+                            <li class="nav__dropdown-title"><a href="/<%= region.region %>/admin"><%= region.region %></a></li>
                         <% } %>
                     <% }) %>
                 </ul>

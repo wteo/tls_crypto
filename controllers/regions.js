@@ -17,6 +17,10 @@ const getStates = async (req, res, next) => {
     }
 }
 
+const getAdminMainPage = (req, res) => {
+    return res.render(path.join(__dirname, '..', 'views', 'regions_admin.ejs'));
+}
+
 const getRegionForm = (req, res) => {
     return res.render(path.join(__dirname, '..', 'views', 'region_form.ejs'));
 }
@@ -27,7 +31,7 @@ const addRegion = async (req, res) => {
     return res.redirect(`/${region}/admin`);
 }
 
-const getAdminPage = (req, res) => {
+const getAdminRegionPage = (req, res) => {
     const { regions } = res.locals
     const filteredRegions = regions.filter(region => region.region === req.params.region);
     const noRegionFound = filteredRegions.length === 0
@@ -111,6 +115,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getRegionForm, addRegion, getAdminPage, deleteLocation, addLocation, getAddLocationForm, getUpdateLocationForm, updateLocation, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminMainPage, getRegionForm, addRegion, getAdminRegionPage, deleteLocation, addLocation, getAddLocationForm, getUpdateLocationForm, updateLocation, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <script src="/js/see_more_button.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header_admin.ejs') %>
+    </header>
+    <section class="about__wrapper">
+        <div class="about__description-container">
+            <h1 class="about__title">About Us</h1>
+            <p class="about__description">
+                We aim to be the top website in Australia on real estates. Can't find your favourite surburbs? Let us know! And we'll commit to adding this to our website.
+            </p>
+            <br/>
+            <button class="about__button">Contact Us</button>
+        </div>
+    </section>
+    <% regions.forEach( region => { %>
+        <section>
+            <div class="region__wrapper">
+                <h1 class="region__title"><%= region.region %></h1>
+                <p class="region__description"><%= region.description %></p>
+                <div class="region__location-grid" data-region="<%= region.region %>">
+                    <% region.locations.forEach( location => { %>
+                        <div class="region__location-container">
+                            <a href="/<%= region.region %>/<%= location.location %>/admin">
+                                <img class="region__location-image" src="<%= location.imageLink %>" alt="" />
+                                <h3 class="region__location-title"><%= location.location %></h3>
+                            </a>
+                        </div>
+                    <% }) %>
+                </div>
+                <br/>
+                <br/>
+                <button>Delete Region</button>
+            </div>
+        </section>
+    <% }) %>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>
+
