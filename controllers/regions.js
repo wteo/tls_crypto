@@ -21,13 +21,26 @@ const getAdminMainPage = (req, res) => {
     return res.render(path.join(__dirname, '..', 'views', 'regions_admin.ejs'));
 }
 
-const getRegionForm = (req, res) => {
-    return res.render(path.join(__dirname, '..', 'views', 'region_form.ejs'));
+const getAddRegionForm = (req, res) => {
+    return res.render(path.join(__dirname, '..', 'views', 'add_region_form.ejs'));
 }
 
 const addRegion = async (req, res) => {
     const { state, region, description } = req.body;
     await new RegionsModel().addRegion(state, region, description);
+    return res.redirect(`/${region}/admin`);
+}
+
+const getUpdateRegionForm = (req, res) => {
+    const { regions } = res.locals;
+    const filteredRegion = regions.filter(region => region.region === req.params.region )
+    const { state, region, description } = filteredRegion[0];
+    return res.render(path.join(__dirname, '..', 'views', 'update_region_form.ejs'), { state, region, description });
+}
+
+const updateRegion = async (req, res) => {
+    const { state, region, description } = req.body;
+    await new RegionsModel().updateRegion(state, region, description);
     return res.redirect(`/${region}/admin`);
 }
 
@@ -120,6 +133,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getAdminMainPage, getRegionForm, addRegion, deleteRegion, getAdminRegionPage, deleteLocation, addLocation, getAddLocationForm, getUpdateLocationForm, updateLocation, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminMainPage, getAddRegionForm, addRegion, getUpdateRegionForm, updateRegion, deleteRegion, getAdminRegionPage, deleteLocation, addLocation, getAddLocationForm, getUpdateLocationForm, updateLocation, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;

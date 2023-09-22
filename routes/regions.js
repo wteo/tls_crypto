@@ -8,9 +8,13 @@ router.use('/', regionsController.getStates);
 
 router.get('/admin', regionsController.getAdminMainPage);
 
-router.get('/admin/region-form', regionsController.getRegionForm);
+router.get('/admin/add-region-form', regionsController.getAddRegionForm);
 
-router.post('/admin/submit-region-form', regionsController.addRegion);
+router.post('/admin/submit-add-region-form', regionsController.addRegion);
+
+router.get('/:region/admin/update-region-form', regionsController.getUpdateRegionForm);
+
+router.post('/:region/admin/submit-update-region-form', regionsController.updateRegion);
 
 router.post('/admin/delete-region', regionsController.deleteRegion);
 
