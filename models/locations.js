@@ -28,12 +28,6 @@ class LocationsModel {
         return db.collection('locations').findOne({ location });
     }
 
-    /*
-    async updateAmenity(location, amenity, imageLink, hyperlink) {
-        const db = getDB();
-        return await db.collection('locations').updateOne({ location }, { $push: { amenities: { amenity, imageLink, hyperlink } } });
-    }
-    */
 }
 
 export default LocationsModel;
