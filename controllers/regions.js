@@ -1,6 +1,7 @@
 import path from 'path';
 import { fileURLToPath } from 'url'; 
 import RegionsModel from '../models/regions.js';
+import LocationsModel from '../models/locations.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
@@ -41,12 +42,32 @@ const getAddLocationForm = (req, res) => {
     return res.render(path.join(__dirname, '..', 'views', 'add_location_form.ejs'), { states, regions });
 }
 
-const postAddLocationForm = async (req, res) => {
+const addLocation = async (req, res) => {
     const { region, location, locationImageLink, description, mapImageLink } = req.body
     await new RegionsModel().addLocation(region, location, locationImageLink);
     await RegionsModel.addLocationPage(location, description, mapImageLink);
     return res.redirect(`/${region}/admin`);
 }
+
+const getUpdateLocationForm = async(req, res) => {
+    const { regions } = res.locals;
+    const filteredRegion = regions.filter(region => region.region === req.params.region);
+    const filteredLocation = filteredRegion[0].locations.filter(location => location.location === req.params.location);
+    const locationData = await LocationsModel.getLocation(req.params.location);
+    const { description, mapImageLink } = locationData;
+    return res.render(path.join(__dirname, '..', 'views', 'update_location_form.ejs'), { 
+        region: req.params.region, 
+        paramsLocation: req.params.location, 
+        location: filteredLocation[0].location,
+        locationImageLink: filteredLocation[0].imageLink,
+        description, 
+        mapImageLink
+    });
+};
+
+const updateLocation = (req, res) => {
+
+};
 
 const getSearchResults = async (req, res) => {
     try {
@@ -78,6 +99,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getAdminPage, deleteLocation, postAddLocationForm, getAddLocationForm, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminPage, deleteLocation, addLocation, getAddLocationForm, getUpdateLocationForm, updateLocation, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;
