@@ -65,8 +65,10 @@ const getUpdateLocationForm = async(req, res) => {
     });
 };
 
-const updateLocation = (req, res) => {
-
+const updateLocation = async (req, res) => {
+    const { location, locationImageLink, description, mapImageLink } = req.body;
+    await new RegionsModel().updateLocation(req.params.region, req.params.location, location, locationImageLink, description, mapImageLink); 
+    return res.redirect(`/${req.params.region}/${req.body.location}/admin`);
 };
 
 const getSearchResults = async (req, res) => {

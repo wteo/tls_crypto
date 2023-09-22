@@ -48,6 +48,33 @@ class RegionsModel {
         return db.collection('locations').insertOne({ location, description, mapImageLink, amenities: [] });
     }
 
+    async updateLocation(region, paramsLocation, location, locationImageLink, description, mapImageLink) {
+        const db = getDB();
+        await db.collection('locations').updateOne(
+            { 
+                location: paramsLocation 
+            }, { 
+                $set: {
+                    location,
+                    description, 
+                    mapImageLink 
+                }
+            });
+        await this.collection.updateOne(
+            { 
+                region,
+                "locations.location": paramsLocation
+            },
+            {
+                $set: {
+                    "locations.$.location": location,
+                    "locations.$.imageLink": locationImageLink,
+                }
+            }
+        );
+        return;
+    }
+
     async filterData(searchLocation) {
         const results = await this.collection.aggregate([
             { $unwind: '$locations' },

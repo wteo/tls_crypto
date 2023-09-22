@@ -16,7 +16,7 @@ router.post('/admin/submit-location-form', regionsController.addLocation);
 
 router.get('/:region/:location/admin/update-location-form', regionsController.getUpdateLocationForm);
 
-router.get('/:region/:location/admin/update', regionsController.updateLocation);
+router.post('/:region/:location/admin/update', regionsController.updateLocation);
 
 router.get('/results', regionsController.getSearchResults);
 
