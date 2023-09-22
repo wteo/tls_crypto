@@ -26,6 +26,10 @@ class RegionsModel {
         return this.collection.insertOne({ state, region, description, locations: [] });
     }
 
+    async deleteRegion(region) {
+        return await this.collection.deleteOne({ region });
+    };
+
     async getAllRegionsByAlphabeticalOrder() {
         const regions = await this.getAllRegions();
         regions.forEach(region => {

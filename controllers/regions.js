@@ -31,6 +31,11 @@ const addRegion = async (req, res) => {
     return res.redirect(`/${region}/admin`);
 }
 
+const deleteRegion = async (req, res) => {
+    await new RegionsModel().deleteRegion(req.body.region);
+    return res.redirect('/admin');
+}
+
 const getAdminRegionPage = (req, res) => {
     const { regions } = res.locals
     const filteredRegions = regions.filter(region => region.region === req.params.region);
@@ -115,6 +120,6 @@ const getSelectedRegion = (req, res) => {
     }
 }
 
-const regionsController = { getStates, getAdminMainPage, getRegionForm, addRegion, getAdminRegionPage, deleteLocation, addLocation, getAddLocationForm, getUpdateLocationForm, updateLocation, getSearchResults, getRegions, getSelectedRegion };
+const regionsController = { getStates, getAdminMainPage, getRegionForm, addRegion, deleteRegion, getAdminRegionPage, deleteLocation, addLocation, getAddLocationForm, getUpdateLocationForm, updateLocation, getSearchResults, getRegions, getSelectedRegion };
 
 export default regionsController;
