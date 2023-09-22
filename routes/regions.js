@@ -6,6 +6,10 @@ const router = express.Router();
 
 router.use('/', regionsController.getStates);
 
+router.get('/admin/region-form', regionsController.getRegionForm);
+
+router.post('/admin/submit-region-form', regionsController.addRegion);
+
 router.get('/:region/admin', regionsController.getAdminPage);
 
 router.post('/:region/admin/delete', regionsController.deleteLocation);

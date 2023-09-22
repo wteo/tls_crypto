@@ -22,6 +22,10 @@ class RegionsModel {
         });
     }
 
+    async addRegion(state, region, description) {
+        return this.collection.insertOne({ state, region, description, locations: [] });
+    }
+
     async getAllRegionsByAlphabeticalOrder() {
         const regions = await this.getAllRegions();
         regions.forEach(region => {
