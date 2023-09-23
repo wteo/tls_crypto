@@ -5,10 +5,10 @@ import { fileURLToPath } from 'url';
 import globalRegionRouter from './routes/global_regions.js';
 import adminPagesRouter from './routes/admin/pages.js';
 import adminFormsRouter from './routes/admin/forms.js';
-// import regionsRouter from './routes/regions.js';
-// import locationRouter from './routes/location.js';
-// import amenitiesRouter from './routes/amenities.js';
- import { mongoConnect } from './utils/database.js';
+import regionsRouter from './routes/regions.js';
+import locationRouter from './routes/location.js';
+import amenitiesRouter from './routes/amenities.js';
+import { mongoConnect } from './utils/database.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);  
@@ -23,9 +23,9 @@ app.use(express.urlencoded({extended: false}));
 app.use(globalRegionRouter);
 app.use(adminPagesRouter);
 app.use(adminFormsRouter);
-// app.use(regionsRouter);
-// app.use(locationRouter);
-// app.use(amenitiesRouter);
+app.use(regionsRouter);
+app.use(locationRouter);
+app.use(amenitiesRouter);
 
 
 app.use((req, res) => {

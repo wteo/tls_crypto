@@ -10,8 +10,10 @@ router.post('/:region/admin/submit-update-region-form', regionsController.update
 
 router.post('/admin/delete-region', regionsController.deleteRegion);
 
-router.post('/:region/admin/delete', regionsController.deleteLocation);
+router.post('/admin/submit-add-location-form', regionsController.addLocation);
 
 router.post('/:region/:location/admin/update', regionsController.updateLocation);
+
+router.post('/:region/admin/delete', regionsController.deleteLocation);
 
 export default router;

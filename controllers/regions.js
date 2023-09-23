@@ -23,10 +23,10 @@ const deleteRegion = async (req, res) => {
     return res.redirect('/admin');
 }
 
-const deleteLocation = async (req, res) => {
-    const { region, location } = req.body;
-    await new RegionsModel().deleteLocation(location);
-    await LocationsModel.deleteLocationPage(location);
+const addLocation = async (req, res) => {
+    const { region, location, locationImageLink, description, mapImageLink } = req.body
+    await new RegionsModel().addLocation(region, location, locationImageLink);
+    await new LocationsModel(location, description, mapImageLink).addLocationPage();
     return res.redirect(`/${region}/admin`);
 }
 
@@ -37,6 +37,13 @@ const updateLocation = async (req, res) => {
     return res.redirect(`/${req.params.region}/${req.body.location}/admin`);
 };
 
-const regionsController = { addRegion, updateRegion, deleteRegion, deleteLocation, updateLocation };
+const deleteLocation = async (req, res) => {
+    const { region, location } = req.body;
+    await new RegionsModel().deleteLocation(location);
+    await LocationsModel.deleteLocationPage(location);
+    return res.redirect(`/${region}/admin`);
+}
+
+const regionsController = { addRegion, updateRegion, deleteRegion, addLocation, updateLocation, deleteLocation };
 
 export default regionsController;
