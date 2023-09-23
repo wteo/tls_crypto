@@ -13,6 +13,32 @@ class LocationsModel {
         return db.collection('locations').findOne({ location });
     }
 
+    static deleteLocationPage(selectedLocation) {
+        const db = getDB();
+        return db.collection('locations').deleteOne({ location: selectedLocation });
+    }
+
+    async addLocationPage() {
+        const { location, description, mapImageLink } = this;
+        const db = getDB();
+        return await db.collection('locations').insertOne({ location, description, mapImageLink, amenities: [] });
+    }
+
+    async updateLocation(paramsLocation) {
+        const { location, description, mapImageLink } = this;
+        const db = getDB();
+        return await db.collection('locations').updateOne(
+            { 
+                location: paramsLocation 
+            }, { 
+                $set: {
+                    location,
+                    description, 
+                    mapImageLink 
+                }
+            });
+    }
+
     deleteAmenity(location, selectedAmenity) {
         const db = getDB();
         return db.collection('locations').updateOne({ location }, { $pull: { amenities: { amenity: selectedAmenity }} });
