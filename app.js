@@ -3,9 +3,11 @@ import path from 'path';
 import { fileURLToPath } from 'url'; 
 
 import globalRegionRouter from './routes/global_regions.js';
+
 import adminPagesRouter from './routes/admin/pages.js';
 import adminFormsRouter from './routes/admin/forms.js';
 import regionsRouter from './routes/regions.js';
+
 import locationRouter from './routes/location.js';
 import amenitiesRouter from './routes/amenities.js';
 import { mongoConnect } from './utils/database.js';

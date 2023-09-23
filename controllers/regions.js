@@ -23,6 +23,20 @@ const deleteRegion = async (req, res) => {
     return res.redirect('/admin');
 }
 
+const fetchRegion = (req, res) => {
+    const { regions } = res.locals;
+    const filteredRegions = regions.filter(region => region.region === req.params.region);
+    
+    const noRegionFound = filteredRegions.length === 0;
+
+    if (noRegionFound) {
+        return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
+    } else {
+        const { region, description, locations } = filteredRegions[0];
+        return res.render(path.join(__dirname, '..', 'views', 'region.ejs'), { region, description, locations });
+    }
+}
+
 const addLocation = async (req, res) => {
     const { region, location, locationImageLink, description, mapImageLink } = req.body
     await new RegionsModel().addLocation(region, location, locationImageLink);
@@ -44,6 +58,6 @@ const deleteLocation = async (req, res) => {
     return res.redirect(`/${region}/admin`);
 }
 
-const regionsController = { addRegion, updateRegion, deleteRegion, addLocation, updateLocation, deleteLocation };
+const regionsController = { addRegion, updateRegion, deleteRegion, fetchRegion, addLocation, updateLocation, deleteLocation };
 
 export default regionsController;
