@@ -18,7 +18,7 @@ const getRegionPage = (req, res) => {
         return res.status(404).render(path.join(__dirname, '..', '..', 'views', '404.ejs'));
     } else {
         const { region, description, locations } = filteredRegions[0];
-        return res.status(500).render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'region.ejs'), { region, description, locations });
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'region.ejs'), { region, description, locations });
     }
 };
 

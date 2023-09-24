@@ -1,5 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url'; 
+
 import GlobalRegionsModel from '../models/global_regions.js';
 
 const __filename = fileURLToPath(import.meta.url); 
@@ -11,24 +12,28 @@ const getStates = async (req, res, next) => {
         res.locals.regions = await new GlobalRegionsModel().getRegionsWithSortedLocations();
         next();
     } catch (error) {
-        console.error(error);
-        return res.status(500).render(path.join(__dirname, '..', 'views', '500.ejs'));
+        next(error);
     }
 }
 
 const getRegions = (req, res) => {
     const { regions } = res.locals;
-    return res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
+    const noRegionFound = regions.length === 0;
+
+    if (noRegionFound) {
+        return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
+    } else {
+        return res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
+    }
 }
 
-const fetchSearchResults = async (req, res) => {
+const fetchSearchResults = async (req, res, next) => {
     try {
         const query = req.query.location;
         res.locals.results = await new GlobalRegionsModel().searchByLocation(query);
         return res.render(path.join(__dirname, '..', 'views', 'results.ejs'));
     } catch (error) {
-        console.error(error);
-        return res.status(500).render(path.join(__dirname, '..', 'views', '500.ejs'));
+        next(error);
     }
 }
 

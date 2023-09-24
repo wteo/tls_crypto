@@ -19,6 +19,7 @@ const app = express();
 const PORT = 3000;
 
 app.set('view engine', 'ejs'); 
+
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
 
@@ -29,6 +30,11 @@ app.use(regionsRouter);
 app.use(locationRouter);
 app.use(amenitiesRouter);
 
+// This is a catch-all error for any internal server errors
+app.use((err, req, res, next) => {
+    console.error(err.message);
+    res.status(500).render(path.join(__dirname, 'views', '500.ejs'));
+});
 
 app.use((req, res) => {
     res.status(404);

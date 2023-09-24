@@ -5,14 +5,8 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const getSelectedAmenity = (req, res) => {
-
     const { region, location, amenity } = req.params;
-    try {
-        return res.render(path.join(__dirname, '..', 'views', 'article.ejs'), { region, location, amenity });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ message: 'Server error' });
-    }
+    return res.render(path.join(__dirname, '..', 'views', 'article.ejs'), { region, location, amenity });
 };
 
 const AmenitiesController = { getSelectedAmenity };
