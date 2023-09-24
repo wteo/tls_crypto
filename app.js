@@ -9,7 +9,6 @@ import adminFormsRouter from './routes/admin/forms.js';
 import regionsRouter from './routes/regions.js';
 
 import locationRouter from './routes/location.js';
-import amenitiesRouter from './routes/amenities.js';
 import { mongoConnect } from './utils/database.js';
 
 const __filename = fileURLToPath(import.meta.url); 
@@ -28,7 +27,6 @@ app.use(adminPagesRouter);
 app.use(adminFormsRouter);
 app.use(regionsRouter);
 app.use(locationRouter);
-app.use(amenitiesRouter);
 
 // This is a catch-all error for any internal server errors
 app.use((err, req, res, next) => {
