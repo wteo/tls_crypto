@@ -35,12 +35,12 @@ const getAddLocationForm = (req, res) => {
     }
 }
 
-const getUpdateLocationForm = async(req, res, next) => {
+const getUpdateLocationForm = (req, res, next) => {
     try {
         const { regions } = res.locals;
         const filteredRegion = regions.filter(region => region.region === req.params.region);
         const filteredLocation = filteredRegion[0].locations.filter(location => location.location === req.params.location);
-        const locationData = await LocationsModel.getLocation(req.params.location);
+        const locationData = new LocationsModel().getLocation(req.params.location);
         const { description, mapImageLink } = locationData;
         return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_location.ejs'), { 
             region: req.params.region, 
@@ -55,6 +55,32 @@ const getUpdateLocationForm = async(req, res, next) => {
     }
 };
 
-const regionsController = { getAddRegionForm, getUpdateRegionForm, getAddLocationForm, getUpdateLocationForm };
+const getAddAmenityForm = async (req, res, next) => {
+    try {
+        const { region, location } = req.params;
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'add_amenity.ejs'), { region, location });
+    } catch (error) {
+        next(error);
+    }
+}
+
+const getUpdateAmenityForm = async (req, res, next) => {
+    try {
+        const locationData = await new LocationsModel().getLocation(req.params.location);
+        const amenity = locationData.amenities.filter(amenity => amenity.amenity === req.params.amenity);
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_amenity.ejs'), 
+            { 
+                region: req.params.region, 
+                location: req.params.location, 
+                amenity: amenity[0].amenity, 
+                imageLink: amenity[0].imageLink, 
+                hyperlink: amenity[0].hyperlink 
+            });
+    } catch (error) {
+        next(error);
+    }
+}
+
+const regionsController = { getAddRegionForm, getUpdateRegionForm, getAddLocationForm, getUpdateLocationForm, getAddAmenityForm, getUpdateAmenityForm };
 
 export default regionsController;

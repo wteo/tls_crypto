@@ -8,26 +8,26 @@ class LocationsModel {
         this.amenities = amenities;
     }
 
-    static getLocation(location) {
-        const db = getDB();
-        return db.collection('locations').findOne({ location });
+    get collection() {
+        return getDB().collection('locations');
     }
 
-    static deleteLocationPage(selectedLocation) {
-        const db = getDB();
-        return db.collection('locations').deleteOne({ location: selectedLocation });
+    async getLocation(location) {
+        return await this.collection.findOne({ location });
+    }
+
+    async deleteLocationPage(selectedLocation) {
+        return await this.collection.deleteOne({ location: selectedLocation });
     }
 
     async addLocationPage() {
         const { location, description, mapImageLink } = this;
-        const db = getDB();
-        return await db.collection('locations').insertOne({ location, description, mapImageLink, amenities: [] });
+        return await this.collection.insertOne({ location, description, mapImageLink, amenities: [] });
     }
 
     async updateLocation(paramsLocation) {
         const { location, description, mapImageLink } = this;
-        const db = getDB();
-        return await db.collection('locations').updateOne(
+        return await this.collection.updateOne(
             { 
                 location: paramsLocation 
             }, { 
@@ -39,19 +39,16 @@ class LocationsModel {
             });
     }
 
-    deleteAmenityfromArray(location, selectedAmenity) {
-        const db = getDB();
-        return db.collection('locations').updateOne({ location }, { $pull: { amenities: { amenity: selectedAmenity }} });
+    async deleteAmenityfromArray(location, selectedAmenity) {
+        return await this.collection.updateOne({ location }, { $pull: { amenities: { amenity: selectedAmenity }} });
     }
 
     async addAmenityToArray(location, amenity, imageLink, hyperlink) {
-        const db = getDB();
-        return await db.collection('locations').updateOne({ location }, { $push: { amenities: { amenity, imageLink, hyperlink } } });
+        return await this.collection.updateOne({ location }, { $push: { amenities: { amenity, imageLink, hyperlink } } });
     }
 
     async updateAmenityInArray(location, paramsAmenity, amenity, imageLink, hyperlink) {
-        const db = getDB();
-        return await db.collection('locations').updateOne(
+        return await this.collection.updateOne(
             { 
                 location,
                 "amenities.amenity": paramsAmenity

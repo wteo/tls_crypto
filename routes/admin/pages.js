@@ -8,4 +8,6 @@ router.get('/admin', adminPagesController.getMainPage);
 
 router.get('/:region/admin', adminPagesController.getRegionPage);
 
+router.get('/:region/:location/admin', adminPagesController.getLocationPage);
+
 export default router;

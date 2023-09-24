@@ -75,7 +75,7 @@ const deleteLocation = async (req, res, next) => {
     try {
         const { region, location } = req.body;
         await new RegionsModel().deleteLocationFromArray(location);
-        await LocationsModel.deleteLocationPage(location);
+        await new LocationsModel().deleteLocationPage(location);
         return res.redirect(`/${region}/admin`);
     } catch (error) {
         next(error);
