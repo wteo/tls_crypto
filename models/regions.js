@@ -11,16 +11,6 @@ class RegionsModel {
         return getDB().collection('regions');
     }
 
-    getAllStates() {
-        return this.collection.distinct('state');
-    }
-
-    getAllRegions() {
-        return this.collection.find().toArray().then(regions => {
-            return regions;
-        });
-    }
-
     async addRegion() {
         const { state, region, description } = this;
         return this.collection.insertOne({ state, region, description, locations: [] });
@@ -35,15 +25,12 @@ class RegionsModel {
         return await this.collection.deleteOne({ region });
     };
 
-    async addLocation(region, location, imageLink) {
+    async addLocationToArray(region, location, imageLink) {
         return await this.collection.updateOne({ region }, { $push: { locations: { location, imageLink } } });
     }
 
-    deleteLocation(selectedLocation) {
-        return this.collection.updateOne({ 'locations.location': selectedLocation }, { $pull: { locations: { location: selectedLocation }} });
-    }
-
-    async updateLocation(region, paramsLocation, location, locationImageLink) {
+    
+    async updateLocationInArray(region, paramsLocation, location, locationImageLink) {
         return await this.collection.updateOne(
             { 
                 region,
@@ -56,6 +43,10 @@ class RegionsModel {
                 }
             }
         );
+    }
+
+    deleteLocationFromArray(selectedLocation) {
+        return this.collection.updateOne({ 'locations.location': selectedLocation }, { $pull: { locations: { location: selectedLocation }} });
     }
 }
 
