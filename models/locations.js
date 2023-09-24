@@ -39,17 +39,17 @@ class LocationsModel {
             });
     }
 
-    deleteAmenity(location, selectedAmenity) {
+    deleteAmenityfromArray(location, selectedAmenity) {
         const db = getDB();
         return db.collection('locations').updateOne({ location }, { $pull: { amenities: { amenity: selectedAmenity }} });
     }
 
-    async addAmenity(location, amenity, imageLink, hyperlink) {
+    async addAmenityToArray(location, amenity, imageLink, hyperlink) {
         const db = getDB();
         return await db.collection('locations').updateOne({ location }, { $push: { amenities: { amenity, imageLink, hyperlink } } });
     }
 
-    async updateAmenity(location, paramsAmenity, amenity, imageLink, hyperlink) {
+    async updateAmenityInArray(location, paramsAmenity, amenity, imageLink, hyperlink) {
         const db = getDB();
         return await db.collection('locations').updateOne(
             { 

@@ -30,7 +30,7 @@ const getAdminPage = async (req, res, next) => {
 const deleteAmenity = async (req, res, next) => {
     try {
         const { location, amenity } = req.body;
-        await new LocationsModel().deleteAmenity(location, amenity);
+        await new LocationsModel().deleteAmenityfromArray(location, amenity);
         return res.redirect(`/${req.params.region}/${location}/admin`);
     } catch (error) {
         next(error);
@@ -50,7 +50,7 @@ const addAmenity = async (req, res, next) => {
     try {
         const { region, location } = req.params;
         const { amenity, imageLink, hyperlink } = req.body
-        await new LocationsModel().addAmenity(location, amenity, imageLink, hyperlink);
+        await new LocationsModel().addAmenityToArray(location, amenity, imageLink, hyperlink);
         return res.redirect(`/${region}/${location}/admin`);
     } catch (error) {
         next(error);
@@ -78,7 +78,7 @@ const updateAmenity = async (req, res, next) => {
     try {
         const { region, location } = req.params;
         const { amenity, imageLink, hyperlink } = req.body;
-        await new LocationsModel().updateAmenity(location, req.params.amenity, amenity, imageLink, hyperlink); 
+        await new LocationsModel().updateAmenityInArray(location, req.params.amenity, amenity, imageLink, hyperlink); 
         return res.redirect(`/${region}/${location}/admin`);
     } catch (error) {
         next(error);
