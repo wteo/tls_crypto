@@ -22,7 +22,7 @@ const getAdminPage = async (req, res) => {
         const region = req.params.region;
         const locationData = await LocationsModel.getLocation(req.params.location);
         const { location, description, mapImageLink, amenities } = locationData;
-        return res.render(path.join(__dirname, '..', 'views', 'location_admin.ejs'), { region, location, description, mapImageLink, amenities });
+        return res.render(path.join(__dirname, '..', 'views', 'admin', 'pages', 'location.ejs'), { region, location, description, mapImageLink, amenities });
     } catch (error) {
         console.log(error);
         return res.status(500).render(path.join(__dirname, '..', 'views', '500.ejs'));
@@ -37,7 +37,7 @@ const deleteAmenity = async (req, res) => {
 
 const getAddAmenityForm = async (req, res) => {
     const { region, location } = req.params;
-    return res.render(path.join(__dirname, '..', 'views', 'add_amenity_form.ejs'), { region, location });
+    return res.render(path.join(__dirname, '..', 'views', 'admin', 'forms', 'add_amenity.ejs'), { region, location });
 }
 
 const addAmenity = async (req, res) => {
@@ -50,7 +50,7 @@ const addAmenity = async (req, res) => {
 const getUpdateAmenityForm = async (req, res) => {
     const locationData = await LocationsModel.getLocation(req.params.location);
     const amenity = locationData.amenities.filter(amenity => amenity.amenity === req.params.amenity);
-    return res.render(path.join(__dirname, '..', 'views', 'update_amenity_form.ejs'), 
+    return res.render(path.join(__dirname, '..', 'views', 'admin', 'forms', 'update_amenity.ejs'), 
         { 
             region: req.params.region, 
             location: req.params.location, 
