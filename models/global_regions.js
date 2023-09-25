@@ -1,6 +1,7 @@
 import { getDB } from '../utils/database.js';
+import RegionsModel from './regions.js';
 
-class GlobalRegionsModel {
+class GlobalRegionsModel extends RegionsModel {
     constructor() {
     }
 
