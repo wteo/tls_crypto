@@ -3,10 +3,7 @@ import RegionsModel from './regions.js';
 
 class GlobalRegionsModel extends RegionsModel {
     constructor() {
-    }
-
-    get collection() {
-        return getDB().collection('regions');
+        super();
     }
 
     getAllStates() {
