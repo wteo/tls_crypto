@@ -4,6 +4,7 @@ import { fileURLToPath } from 'url';
 
 import globalRegionRouter from './routes/global_regions.js';
 
+import usersRouter from './routes/auth/users.js';
 import adminPagesRouter from './routes/admin/pages.js';
 import adminFormsRouter from './routes/admin/forms.js';
 import regionsRouter from './routes/regions.js';
@@ -23,6 +24,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
 
 app.use(globalRegionRouter);
+app.use(usersRouter);
 app.use(adminPagesRouter);
 app.use(adminFormsRouter);
 app.use(regionsRouter);
