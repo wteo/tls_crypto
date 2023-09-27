@@ -21,13 +21,7 @@ const getStates = async (req, res, next) => {
 
 const getRegions = (req, res) => {
     const { regions } = res.locals;
-    const noRegionFound = regions.length === 0;
-
-    if (noRegionFound) {
-        return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
-    } else {
-        return res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
-    }
+    return res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
 }
 
 const fetchSearchResults = async (req, res, next) => {
