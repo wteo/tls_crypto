@@ -10,10 +10,22 @@ const getLoginForm = (req, res) => {
     return res.render(path.join(__dirname, '..', 'views', 'auth', 'login.ejs'), { username: 'username', password: 'password' });
 }
 
-const postLoginForm = (req, res) => {
-    return res.redirect(`/admin`);
+const postLoginForm = (req, res, next) => {
+    req.session.isLoggedIn = true;
+    console.log(req.url.toLowerCase().includes('admin'));
+    console.log(req.session);
+    res.redirect(`/admin`);
 }
 
-const usersController = { getLoginForm, postLoginForm };
+
+const checkAuth = (req, res, next) => {
+    if (req.session.isLoggedIn === true) {
+        next();
+    } else {
+        res.redirect('/login');
+    }
+}
+
+const usersController = { getLoginForm, postLoginForm, checkAuth };
 
 export default usersController;

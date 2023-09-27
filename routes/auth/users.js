@@ -8,4 +8,6 @@ router.get('/login', usersController.getLoginForm);
 
 router.post('/login', usersController.postLoginForm);
 
+router.get(/admin/, usersController.checkAuth);
+
 export default router;

@@ -1,6 +1,7 @@
 import express from 'express';
 import path from 'path';
-import { fileURLToPath } from 'url'; 
+import { fileURLToPath } from 'url';
+import session from 'express-session';
 
 import globalRegionRouter from './routes/global_regions.js';
 
@@ -22,11 +23,16 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({extended: false}));
+app.use(session({
+    secret: 'My Secret Key',
+    resave: false,
+    saveUninitialized: false
+}));
 
 app.use(globalRegionRouter);
 app.use(usersRouter);
-app.use(adminPagesRouter);
 app.use(adminFormsRouter);
+app.use(adminPagesRouter);
 app.use(regionsRouter);
 app.use(locationRouter);
 
