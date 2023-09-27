@@ -1,29 +1,33 @@
 import path from 'path';
 import { fileURLToPath } from 'url'; 
-import RegionsModel from '../models/regions.js';
-import LocationsModel from '../models/locations.js';
+import Regions from '../models/regions.js';
+import Locations from '../models/locations.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
 
-const fetchRegion = (req, res, next) => {
-    const { regions } = res.locals;
-    const filteredRegions = regions.filter(region => region.region === req.params.region);
-        
-    const noRegionFound = filteredRegions.length === 0;
+const fetchRegion = async(req, res, next) => {
+    try {
+        const regionData = await Regions.findOne({ region: req.params.region });
     
-    if (noRegionFound) {
-        return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
-    } else {
-        const { region, description, locations } = filteredRegions[0];
-        return res.render(path.join(__dirname, '..', 'views', 'region.ejs'), { region, description, locations });
+        if (!regionData) {
+          return res.status(404).render(path.join(__dirname, '..', 'views', '404.ejs'));
+        } else {
+          return res.render(path.join(__dirname, '..', 'views', 'region.ejs'), { 
+            region: regionData.region, 
+            description: regionData.description, 
+            locations: regionData.locations 
+          });
+        }
+    } catch (error) {
+        next(error);
     }
 }
 
 const addRegion = async (req, res, next) => {
     try {
         const { state, region, description } = req.body;
-        await new RegionsModel(state, region, description).addRegion();
+        await Regions.create({ state, region, description });
         return res.redirect(`/${region}/admin`);
     } catch (error) {
         next(error);
@@ -33,7 +37,8 @@ const addRegion = async (req, res, next) => {
 const updateRegion = async (req, res, next) => {
     try {
         const { state, region, description } = req.body;
-        await new RegionsModel(state, region, description).updateRegion(req.params.region);
+        const query = { region: req.params.region };
+        await Regions.updateOne (query, { state, region, description });
         return res.redirect(`/admin`);
     } catch (error) {
         next(error);
@@ -42,7 +47,7 @@ const updateRegion = async (req, res, next) => {
 
 const deleteRegion = async (req, res, next) => {
     try {
-        await new RegionsModel().deleteRegion(req.body.region);
+        await Regions.deleteOne({ region: req.body.region });
         return res.redirect('/admin');
     } catch (error) {
         next(error);
@@ -52,8 +57,8 @@ const deleteRegion = async (req, res, next) => {
 const addLocation = async (req, res, next) => {
     try {
         const { region, location, locationImageLink, description, mapImageLink } = req.body
-        await new RegionsModel().addLocationToArray(region, location, locationImageLink);
-        await new LocationsModel(location, description, mapImageLink).addLocationPage();
+        await Regions.updateOne({ region }, { $push: { locations: { location, imageLink: locationImageLink } } });
+        await Locations.create({ location, description, mapImageLink, amenities: [] });
         return res.redirect(`/${region}/admin`);
     } catch (error) {
         next(error);
@@ -63,8 +68,15 @@ const addLocation = async (req, res, next) => {
 const updateLocation = async (req, res, next) => {
     try {
         const { location, locationImageLink, description, mapImageLink } = req.body;
-        await new RegionsModel().updateLocationInArray(req.params.region, req.params.location, location, locationImageLink); 
-        await new LocationsModel(location, description, mapImageLink).updateLocation(req.params.location);
+        const conditions = { region: req.params.region, 'locations.location': req.params.location };
+        const update = {
+            $set: {
+                'locations.$.location': location,
+                'locations.$.imageLink': locationImageLink
+            }
+        };
+        await Regions.updateOne(conditions, update);
+        await Locations.updateOne({ location: req.params.location }, { location, description, mapImageLink})
         return res.redirect(`/${req.params.region}/${req.body.location}/admin`);
     } catch (error) {
         next(error);
@@ -74,8 +86,10 @@ const updateLocation = async (req, res, next) => {
 const deleteLocation = async (req, res, next) => {
     try {
         const { region, location } = req.body;
-        await new RegionsModel().deleteLocationFromArray(location);
-        await new LocationsModel().deleteLocationPage(location);
+        const conditions = { 'locations.location': location };
+        const update = { $pull: { locations: { location }} };
+        await Regions.updateOne (conditions, update);
+        await Locations.deleteOne({ location });
         return res.redirect(`/${region}/admin`);
     } catch (error) {
         next(error);

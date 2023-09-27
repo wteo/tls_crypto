@@ -1,25 +1,16 @@
-import { MongoClient } from 'mongodb';
+import mongoose from 'mongoose';
 
-const url = 'mongodb://localhost:27017';
-let _db;
+const url = 'mongodb://localhost:27017/realestates';
 
 export const mongoConnect = (callback) => {
-    MongoClient.connect(url)
+    mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })
     .then(client => {
         console.log('Connected!');
-        _db = client.db('realestates');
         callback();
     })
     .catch(err => {
         console.log(err);
         throw new Error('Connection error');
     });
-}
-
-export const getDB = () => {
-    if(_db) {
-        return _db;
-    }
-    throw new Error('No database found!');
-}
+};
 

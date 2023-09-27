@@ -1,6 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
-import LocationsModel from '../../models/locations.js';
+import Locations from '../../models/locations.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
@@ -35,12 +35,12 @@ const getAddLocationForm = (req, res) => {
     }
 }
 
-const getUpdateLocationForm = (req, res, next) => {
+const getUpdateLocationForm = async(req, res, next) => {
     try {
         const { regions } = res.locals;
         const filteredRegion = regions.filter(region => region.region === req.params.region);
         const filteredLocation = filteredRegion[0].locations.filter(location => location.location === req.params.location);
-        const locationData = new LocationsModel().getLocation(req.params.location);
+        const locationData = await Locations.findOne({ location: req.params.location});
         const { description, mapImageLink } = locationData;
         return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_location.ejs'), { 
             region: req.params.region, 
@@ -66,7 +66,7 @@ const getAddAmenityForm = async (req, res, next) => {
 
 const getUpdateAmenityForm = async (req, res, next) => {
     try {
-        const locationData = await new LocationsModel().getLocation(req.params.location);
+        const locationData = await Locations.findOne({ location: req.params.location });
         const amenity = locationData.amenities.filter(amenity => amenity.amenity === req.params.amenity);
         return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_amenity.ejs'), 
             { 
