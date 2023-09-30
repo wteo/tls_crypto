@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real Estate Website</title>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+        <section>
+            <div class="location__wrapper">
+                <p class="location__breadcrumb">
+                    <a href="/<%= region %>"><%= region %></a> > 
+                    <a href="/<%= region %>/<%= location %>"><%= location %></a> > 
+                    <%= amenity %>
+                </p>
+                <% if (region === 'Sydney' && location === 'Bondi' && amenity === 'Education') { %>
+                <div class="article__wrapper">
+                    <h1 class="article__title">The Landscape of Education in Bondi, NSW: A Guide for Prospective Homebuyers</h1>
+                    <h5 class="article__author">By Jane Doe | 15th August 2023</h5>
+                    <article class="article__content">
+                        <aside class="article_column">
+                            <figure class="article__image-container">
+                                <img class="article__image" src="https://psa.asn.au/wp-content/uploads/2020/01/iStock-944394126.jpg" />
+                            </figure>
+                            <blockquote class="article__quote-container">
+                                <p class="content__quotation_mark">"</p>
+                                <p class="content__quote">Its diverse range of schools and focus on holistic education make Bondi a suburb worth considering for families with educational priorities</p>
+                            </blockquote>
+                        </aside>
+                        <div class="article__column">
+                            <p class="article__text-content">
+                                When you think of Bondi, the first image that likely comes to mind is its world-famous beach, a mecca for surfers and sunbathers alike. However, beyond the golden sands and rolling waves, Bondi is also a thriving residential community with a robust educational landscape. For families contemplating a move to this iconic Sydney suburb, understanding the educational options available is crucial.
+                            </p>
+                            <h3 class="article__subheading">Public Education in Bondi</h3>
+                            <p class="article__text-content">
+                                Bondi is home to several public schools that offer a comprehensive curriculum with a strong focus on literacy and numeracy. Bondi Public School, located on Wellington Street, is a cornerstone of the community, providing a balanced education that also includes various extracurricular activities like sports and arts. Closer to the beach, Bondi Beach Public School is known for its progressive educational approach and strong community involvement, with a particular focus on environmental sustainability.
+                            </p>
+                            <p class="article__text-content">
+                                For secondary education, while Bondi itself doesn't have a public high school, the nearby Rose Bay Secondary College serves the area. This co-educational institution offers a broad curriculum, including a performing arts program that attracts students from various parts of Sydney.
+                            </p>
+                            <h3 class="article__subheading">Private Education Options</h3>
+                                If you're considering private education, Bondi has several options that cater to both primary and secondary levels. Reddam House is an independent, co-educational school known for its rigorous academic program and strong focus on arts and sports. For families interested in alternative educational philosophies, Montessori East offers a Montessori-based approach for children from preschool to primary levels.
+                            <p class="article__text-content">
+                            </p>                
+                            <h3 class="article__subheading">Special Education Services</h3>
+                            <p class="article__text-content">
+                                For families with specialized educational needs, Bondi is in proximity to Aspect Vern Barnett School, which focuses on education for children with autism. This institution is one of the few schools in New South Wales that offer such specialized services, making Bondi an attractive option for families requiring these resources.
+                            </p>
+                            <h3 class="article__subheading">Extracurricular and Community Education</h3>
+                            <p class="article__text-content">
+                                Beyond formal education, Bondi offers a plethora of extracurricular activities. The Bondi Pavilion, a community cultural center, provides various workshops and classes for both children and adults. Whether it's surf schools for the adventurous or art classes for the creatively inclined, Bondi's extracurricular landscape is as diverse as its population.
+                            </p>
+                            <h3 class="article__subheading">The Educational Philosophy in Bondi</h3>
+                            <p class="article__text-content">
+                                Schools in Bondi generally adopt a balanced educational philosophy that combines academic rigor with a focus on holistic development. Themes of environmental sustainability, community involvement, and cultural awareness are prevalent across educational institutions in the area.
+                            </p>
+                            <h3 class="article__subheading">Future Developments</h3>
+                            <p class="article__text-content">
+                                It's worth noting that the New South Wales government has plans to invest in educational infrastructure in the coming years. While specifics are yet to be announced, this will likely include upgrades to existing schools and potentially new educational facilities in the Bondi area.
+                            </p>
+                            <h3 class="article__subheading">Conclusion</h3>
+                            <p class="article__text-content">
+                                It's worth noting that the New South Wales government has plans to invest in educational infrastructure in the coming years. While specifics are yet to be announced, this will likely include upgrades to existing schools and potentially new educational facilities in the Bondi area.
+                            </p>
+                        </div>
+                    </article>
+                </div>
+                <% } else { %>
+                    <section class="error">
+                        <h1 class="error__title">Error 404</h1>
+                        <p class="error__description">The Artile that you were looking for does not exist.</p>
+                        <a href="/"><button class="error__button">Go back to Home</button></a>
+                    </section>
+                <% } %>
+            </div>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

@@ -12,11 +12,13 @@ import regionsRouter from './routes/regions.js';
 
 import locationRouter from './routes/location.js';
 import { mongoConnect } from './utils/database.js';
+import { MongoDBStore } from './utils/store.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);  
 
 const app = express();
+
 const PORT = 3000;
 
 app.set('view engine', 'ejs'); 
@@ -26,7 +28,8 @@ app.use(express.urlencoded({extended: false}));
 app.use(session({
     secret: 'My Secret Key',
     resave: false,
-    saveUninitialized: false
+    saveUninitialized: false,
+    store: MongoDBStore
 }));
 
 app.use(globalRegionRouter);
