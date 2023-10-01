@@ -12,6 +12,7 @@ const getLoginForm = (req, res) => {
 
 
 const postLoginForm = async (req, res, next) => {
+    
     try {
         const user = await Users.findOne({ username: req.body.username });
         console.log(user);
@@ -24,11 +25,11 @@ const postLoginForm = async (req, res, next) => {
         
         if (isPasswordCorrect) {
             req.session.isLoggedIn = true;
-            return res.redirect(`/admin`);
+            req.session.user = user;
+            return req.session.save(error => error ? next(error) : res.redirect(`/admin`));
         } else {
             console.log('Invalid password!');
         }   
-
 
     } catch (error) {
         next(error);
