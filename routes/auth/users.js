@@ -4,6 +4,10 @@ import usersController from '../../controllers/users.js';
 
 const router = express.Router();
 
+router.get('/register', usersController.getRegisterForm);
+
+router.post('/register', usersController.postRegisterForm);
+
 router.get('/login', usersController.getLoginForm);
 
 router.post('/login', usersController.postLoginForm);
