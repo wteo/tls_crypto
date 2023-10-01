@@ -21,7 +21,6 @@ const getStates = async (req, res, next) => {
 
 const getRegions = (req, res) => {
     const { regions } = res.locals;
-    req.session.isLoggedIn = false;
     return res.render(path.join(__dirname, '..', 'views', 'regions.ejs'), { regions });
 }
 

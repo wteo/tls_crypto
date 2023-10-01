@@ -45,6 +45,11 @@ const checkAuth = (req, res, next) => {
     }
 }
 
-const usersController = { getLoginForm, postLoginForm, checkAuth };
+const postLogout = (req, res, next) => {
+    console.log('You are now logged out!');
+   return req.session.destroy(error => error ? next(error) : res.redirect('/'));
+}
+
+const usersController = { getLoginForm, postLoginForm, checkAuth, postLogout };
 
 export default usersController;

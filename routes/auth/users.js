@@ -10,4 +10,6 @@ router.post('/login', usersController.postLoginForm);
 
 router.get(/admin/, usersController.checkAuth);
 
+router.post('/logout', usersController.postLogout);
+
 export default router;
