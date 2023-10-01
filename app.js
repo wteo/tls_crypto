@@ -5,7 +5,7 @@ import session from 'express-session';
 
 import globalRegionRouter from './routes/global_regions.js';
 
-import usersRouter from './routes/auth/users.js';
+import authRouter from './routes/auth.js';
 import adminPagesRouter from './routes/admin/pages.js';
 import adminFormsRouter from './routes/admin/forms.js';
 import regionsRouter from './routes/regions.js';
@@ -33,7 +33,7 @@ app.use(session({
 }));
 
 app.use(globalRegionRouter);
-app.use(usersRouter);
+app.use(authRouter);
 app.use(adminFormsRouter);
 app.use(adminPagesRouter);
 app.use(regionsRouter);

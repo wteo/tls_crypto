@@ -67,20 +67,11 @@ const postLoginForm = async (req, res, next) => {
     }
 }
 
-
-const checkAuth = (req, res, next) => {
-    if (req.session.isLoggedIn === true) {
-        next();
-    } else {
-        res.redirect('/login');
-    }
-}
-
 const postLogout = (req, res, next) => {
     console.log('You are now logged out!');
    return req.session.destroy(error => error ? next(error) : res.redirect('/'));
 }
 
-const usersController = { getRegisterForm, postRegisterForm, getLoginForm, postLoginForm, checkAuth, postLogout };
+const usersController = { getRegisterForm, postRegisterForm, getLoginForm, postLoginForm, postLogout };
 
 export default usersController;
