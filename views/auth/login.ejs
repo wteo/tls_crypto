@@ -24,10 +24,10 @@
                 <% } %>
 
                 <label for="username">Username:</label>
-                <input type="text" name="username" required>
+                <input type="text" name="username" value="<%= oldInput.username %>" required>
                 
                 <label for="password">Password:</label>
-                <input type="password" name="password" required>
+                <input type="password" name="password" value="<%= oldInput.password %>" required>
 
                 <p class="login__form-text">Don't have an account? Register <a href="/register">here</a>.</p>
                 <br />

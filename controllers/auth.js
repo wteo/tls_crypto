@@ -7,7 +7,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const getRegisterForm = (req, res) => {
-    return res.render(path.join(__dirname, '..', 'views', 'auth', 'register.ejs'), { errorMessage: req.flash('error')[0] });
+    return res.render(path.join(__dirname, '..', 'views', 'auth', 'register.ejs'), 
+        { 
+            errorMessage: req.flash('error')[0],
+            oldInput: req.session.oldInput || {}
+        });
 }
 
 const postRegisterForm = async (req, res, next) => {
@@ -16,21 +20,38 @@ const postRegisterForm = async (req, res, next) => {
         const user = await Users.findOne({ username: req.body.username });
         const { username, password, confirmedPassword } = req.body;
 
+        if (username.length < 5) {
+            req.flash('error', 'Please choose a longer username.');
+            return res.redirect('/register');
+        }
+
         if (!user) {
+
+            // password conditions
+            const passwordMinimumLength = password.length < 8 
+            const passwordCriteria = !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
+
+            if (passwordMinimumLength || passwordCriteria) {
+                req.flash('error', 'Your password must be at least 8 characters long and contains at least 1 alphabet and 1 number.');
+                req.session.oldInput = { username };
+                return req.session.save(error => error ? next(error) : res.redirect('/register'));
+            }
             if (password !== confirmedPassword) {
                 console.log('Passwords do not match.');
                 req.flash('error', 'Passwords do not match.');
-                return res.redirect('/register');
+                req.session.oldInput = { username };
+                return req.session.save(error => error ? next(error) : res.redirect('/register'));
             }
             const hashedPassword = await bcrypt.hash(password, 10);
             await Users.create({ username, password: hashedPassword });
             console.log('New User created!');
             req.flash('success', 'New User created!');
-            return res.redirect('/login');
+            return req.session.destroy(error => error ? next(error) : res.redirect('/login'));
         } else {
             console.log('This username is already registered. Please login.');
             req.flash('error', 'This username is already registered. Please login.');
-            return res.redirect('/register');
+            req.session.oldInput = { username };
+            return req.session.save(error => error ? next(error) : res.redirect('/register'));
         }
 
     } catch(error) {
@@ -39,7 +60,12 @@ const postRegisterForm = async (req, res, next) => {
 }
 
 const getLoginForm = (req, res) => {
-    return res.render(path.join(__dirname, '..', 'views', 'auth', 'login.ejs'), { successMessage: req.flash('success')[0], errorMessage: req.flash('error')[0] });
+    return res.render(path.join(__dirname, '..', 'views', 'auth', 'login.ejs'), 
+        { 
+            successMessage: req.flash('success')[0], 
+            errorMessage: req.flash('error')[0],
+            oldInput: req.session.oldInput || {}
+        });
 }
 
 
@@ -64,7 +90,8 @@ const postLoginForm = async (req, res, next) => {
         } else {
             console.log('Invalid password!');
             req.flash('error', 'Invalid password!');
-            return res.redirect('/login');
+            req.session.oldInput = { username: req.body.username };
+            return req.session.save(error => error ? next(error) : res.redirect('/login'));
         }   
 
     } catch (error) {

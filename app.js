@@ -34,7 +34,10 @@ app.use(session({
     secret: 'My Secret Key',
     resave: false,
     saveUninitialized: false,
-    store: MongoDBStore
+    store: MongoDBStore,
+    cookie: {
+        maxAge: 600000 
+    }
 }));
 
 app.use(CSRFProtection.generateCSRFToken);

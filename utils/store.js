@@ -5,5 +5,7 @@ const Store = connectMongoDBSession(session);
 
 export const MongoDBStore = new Store({
   uri: 'mongodb://localhost:27017/realestates',
-  collection: 'sessions'
+  collection: 'sessions',
+  autoRemove: 'interval',
+  autoRemoveInterval: 10
 });
