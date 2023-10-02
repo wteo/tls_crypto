@@ -17,6 +17,7 @@
         <a href="/admin/add-region-form"><button class="nav__menu-button">Add Region</button></a>
         <a href="/logout">
             <form action="/logout" method="POST">
+                <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                 <button class="nav__menu-button" type="submit">Logout</button>
             </form>
         </a>

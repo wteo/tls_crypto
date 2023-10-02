@@ -25,6 +25,8 @@
                 <textarea type="text" name="description" rows="4" required>
                     <%= description %>
                 </textarea>
+
+                <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                 
                 <div class="buttons-wrapper">
                     <button type="submit">Update Region</button>

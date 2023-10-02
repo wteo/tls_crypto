@@ -24,6 +24,8 @@
                 <label for="confirmedPassword">Confirm Password:</label>
                 <input type="password" name="confirmedPassword" required>
 
+                <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
+
                 <div class="buttons-wrapper">
                     <button type="submit">Register</button>
                 </div>                

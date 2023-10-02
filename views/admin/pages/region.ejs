@@ -26,6 +26,7 @@
                                 <form class="region__admin-delete-form" action="/<%= region %>/admin/delete" method="POST">
                                     <input type="hidden" name="region" value="<%= region %>" />
                                     <input type="hidden" name="location" value="<%= location.location %>"/>
+                                    <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                                     <button class="admin-delete-button">Delete</button>
                                 </form>
                                 <a href="/<%= region %>/<%= location.location %>/admin"><button>Update</button></a>

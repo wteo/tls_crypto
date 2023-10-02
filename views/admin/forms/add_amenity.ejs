@@ -25,6 +25,8 @@
                 <label for="hyperlink">Link to Article:</label>
                 <input type="url" name="hyperlink" required>
 
+                <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
+
                 <div class="buttons-wrapper">
                     <button type="submit">Add Amenity</button>
                     <a href="/<%= region %>/<%= location %>/admin"><button type="button">Cancel</button></a>

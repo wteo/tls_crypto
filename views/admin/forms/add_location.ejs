@@ -35,6 +35,8 @@
                 
                 <label for="imageLink">Map Image Link:</label>
                 <input type="url" name="mapImageLink" required>
+
+                <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                 
                 <div class="buttons-wrapper">
                     <button type="submit">Add Location</button>
