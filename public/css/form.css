@@ -32,3 +32,7 @@
     text-align: left;
     vertical-align: top; 
 }
+
+.login__form .login__form-text {
+    margin: 0;
+}
