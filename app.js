@@ -6,6 +6,7 @@ import session from 'express-session';
 import { mongoConnect } from './utils/database.js';
 import { MongoDBStore } from './utils/store.js';
 import CSRFProtection from './middlewares/csrf_protection.js';
+import flash from 'connect-flash';
 
 import globalRegionRouter from './routes/global_regions.js';
 
@@ -37,9 +38,9 @@ app.use(session({
 }));
 
 app.use(CSRFProtection.generateCSRFToken);
+app.use(flash());
 
 app.use(globalRegionRouter);
-
 app.use(authRouter);
 app.use(adminFormsRouter);
 app.use(adminPagesRouter);
