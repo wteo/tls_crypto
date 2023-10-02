@@ -37,18 +37,15 @@ const postRegisterForm = async (req, res, next) => {
                 return req.session.save(error => error ? next(error) : res.redirect('/register'));
             }
             if (password !== confirmedPassword) {
-                console.log('Passwords do not match.');
                 req.flash('error', 'Passwords do not match.');
                 req.session.oldInput = { username };
                 return req.session.save(error => error ? next(error) : res.redirect('/register'));
             }
             const hashedPassword = await bcrypt.hash(password, 10);
             await Users.create({ username, password: hashedPassword });
-            console.log('New User created!');
             req.flash('success', 'New User created!');
             return req.session.destroy(error => error ? next(error) : res.redirect('/login'));
         } else {
-            console.log('This username is already registered. Please login.');
             req.flash('error', 'This username is already registered. Please login.');
             req.session.oldInput = { username };
             return req.session.save(error => error ? next(error) : res.redirect('/register'));
@@ -73,10 +70,8 @@ const postLoginForm = async (req, res, next) => {
     
     try {
         const user = await Users.findOne({ username: req.body.username });
-        console.log(user);
 
         if (user === null) {
-            console.log('No username exists. Please register a new account.');
             req.flash('error', 'No username exists. Please register a new account.');
             return res.redirect('/login');
         }
@@ -88,7 +83,6 @@ const postLoginForm = async (req, res, next) => {
             req.session.user = user;
             return req.session.save(error => error ? next(error) : res.redirect(`/admin`));
         } else {
-            console.log('Invalid password!');
             req.flash('error', 'Invalid password!');
             req.session.oldInput = { username: req.body.username };
             return req.session.save(error => error ? next(error) : res.redirect('/login'));
@@ -100,7 +94,6 @@ const postLoginForm = async (req, res, next) => {
 }
 
 const postLogout = (req, res, next) => {
-    console.log('You are now logged out!');
     return req.session.destroy(error => error ? next(error) : res.redirect('/'));
 }
 
