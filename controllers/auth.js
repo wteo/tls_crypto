@@ -1,5 +1,6 @@
 import path from 'path';
 import { fileURLToPath } from 'url';
+import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
 import Users from '../models/users.js';
 
@@ -113,7 +114,13 @@ const postPasswordResetForm = async (req, res, next) => {
         if (user === null) {
             req.flash('error', 'This username doesn\'t exist.');
         } else {
+            const resetToken = crypto.randomBytes(20).toString('hex');
+            user.resetToken = resetToken;
+            const tokenExpiration = Date.now() + 3600000; // expires 1 hour from now;
+            user.tokenExpiration = tokenExpiration;
+            console.log(tokenExpiration);
             req.flash('success', 'We have emailed you a new password. Please check your inbox.');
+            user.save();
         }
         return res.redirect('/forgot-password');
 
