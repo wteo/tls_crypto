@@ -51,14 +51,14 @@ app.use(regionsRouter);
 app.use(locationRouter);
 
 // This is a catch-all error for any internal server errors
-app.use((err, req, res, next) => {
+app.use((err, req, res) => {
     console.error(err.message);
-    res.status(500).render(path.join(__dirname, 'views', '500.ejs'));
+    return res.status(500).render(path.join(__dirname, 'views', '500.ejs'));
 });
 
 app.use((req, res) => {
     res.status(404);
-    res.render(path.join(__dirname, 'views', '404.ejs'));
+    return res.render(path.join(__dirname, 'views', '404.ejs'));
 });
 
 
