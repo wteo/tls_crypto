@@ -15,4 +15,8 @@ router.post('/login', CSRFProtection.verifyCSRFToken, authController.postLoginFo
 
 router.post('/logout', CSRFProtection.verifyCSRFToken, authController.postLogout);
 
+router.get('/forgot-password', authController.getPasswordResetForm);
+
+router.post('/forgot-password', CSRFProtection.verifyCSRFToken, authController.postPasswordResetForm);
+
 export default router;

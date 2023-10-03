@@ -93,10 +93,35 @@ const postLoginForm = async (req, res, next) => {
     }
 }
 
-const postLogout = (req, res, next) => {
+const postLogout = (req, res) => {
     return req.session.destroy(error => error ? next(error) : res.redirect('/'));
 }
 
-const usersController = { getRegisterForm, postRegisterForm, getLoginForm, postLoginForm, postLogout };
+const getPasswordResetForm = (req, res) => {
+    return res.render(path.join(__dirname, '..', 'views', 'auth', 'forgot_password.ejs'), 
+        {
+            successMessage: req.flash('success')[0],
+            errorMessage: req.flash('error')[0],
+        });
+}
+
+const postPasswordResetForm = async (req, res, next) => {
+
+    try {
+        const user = await Users.findOne({ username: req.body.username });
+
+        if (user === null) {
+            req.flash('error', 'This username doesn\'t exist.');
+        } else {
+            req.flash('success', 'We have emailed you a new password. Please check your inbox.');
+        }
+        return res.redirect('/forgot-password');
+
+    } catch (error) {
+        next(error);
+    }
+}
+
+const usersController = { getRegisterForm, postRegisterForm, getLoginForm, postLoginForm, postLogout, getPasswordResetForm, postPasswordResetForm };
 
 export default usersController;
