@@ -2,10 +2,17 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import crypto from 'crypto';
 import bcrypt from 'bcryptjs';
+import Mailjet from 'node-mailjet';
+import { config } from 'dotenv';
+
 import Users from '../models/users.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
+
+config();
+
+const mailjet = Mailjet.apiConnect(process.env.API_KEY, process.env.API_SECRET);
 
 const getRegisterForm = (req, res) => {
     return res.render(path.join(__dirname, '..', 'views', 'auth', 'register.ejs'), 
@@ -29,7 +36,7 @@ const postRegisterForm = async (req, res, next) => {
         if (!user) {
 
             // password conditions
-            const passwordMinimumLength = password.length < 8 
+            const passwordMinimumLength = password.length < 8; 
             const passwordCriteria = !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
 
             if (passwordMinimumLength || passwordCriteria) {
@@ -118,7 +125,33 @@ const postPasswordResetForm = async (req, res, next) => {
             user.resetToken = resetToken;
             const tokenExpiration = Date.now() + 3600000; // expires 1 hour from now;
             user.tokenExpiration = tokenExpiration;
-            console.log(tokenExpiration);
+
+            mailjet
+                .post('send', { 'version': 'v3.1' })
+                .request({
+                    Messages: [
+                        {
+                            From: {
+                                Email: process.env.SENDER_EMAIL,
+                                Name: 'Admin'
+                            },
+                            To: [
+                                {
+                                    Email: req.body.username,
+                                    Name: 'User'
+                                }
+                            ],
+                            Subject: 'Resetting your password',
+                            HTMLPart: `
+                                <p>You requested a password reset.</p>
+                                <p>Click <a href="http://localhost:3000/reset/${resetToken}">here</a> to set a new password.</p>
+                                `
+                        }
+                    ]
+                })
+                .then(result => console.log(result.body.Messages))
+                .catch(error => console.log(error.statusCode));
+
             req.flash('success', 'We have emailed you a new password. Please check your inbox.');
             user.save();
         }
@@ -129,6 +162,56 @@ const postPasswordResetForm = async (req, res, next) => {
     }
 }
 
-const usersController = { getRegisterForm, postRegisterForm, getLoginForm, postLoginForm, postLogout, getPasswordResetForm, postPasswordResetForm };
+const getNewPasswordForm = async (req, res, next) => {
+    const token = req.params.token;
+    const user = await Users.findOne({ resetToken: token, tokenExpiration: { $gt: Date.now() } });
+    
+    try {
+        if (user === null) {
+            return res.render(path.join(__dirname, '..', 'views', '404.ejs'));
+        } else {
+            return res.render(path.join(__dirname, '..', 'views', 'auth', 'new_password.ejs'), 
+                {
+                    userId: user._id.toString(),
+                    errorMessage: req.flash('error')[0],
+                    passwordToken: token,
+                });
+        }
+    } catch (error) {
+        next(next);
+    }
+}
+
+const postNewPasswordForm = async (req, res, next) => {
+
+    const { newPassword, confirmedNewPassword, passwordToken, userId } = req.body;
+
+    try {
+        // password conditions
+        const passwordMinimumLength = newPassword.length < 8; 
+        const passwordCriteria = !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(newPassword)
+        
+        if (passwordMinimumLength || passwordCriteria) {
+            req.flash('error', 'Your password must be at least 8 characters long and contains at least 1 alphabet and 1 number.');
+            return req.session.save(error => error ? next(error) : res.redirect(`/reset/${passwordToken}`));
+        }
+        if (newPassword !== confirmedNewPassword) {
+            req.flash('error', 'Passwords do not match.');
+            return req.session.save(error => error ? next(error) : res.redirect(`/reset/${passwordToken}`));
+        } else {
+            const user = await Users.findOne({ resetToken: passwordToken, tokenExpiration: { $gt: Date.now() }, _id: userId  });
+            const hashedPassword = await bcrypt.hash(newPassword, 10);
+            user.password = hashedPassword;
+            user.resetToken = undefined;
+            user.tokenExpiration = undefined;
+            user.save();
+            return res.redirect('/login');
+        }
+    } catch (error) {
+        next(error);
+    }
+}
+
+const usersController = { getRegisterForm, postRegisterForm, getLoginForm, postLoginForm, postLogout, getPasswordResetForm, postPasswordResetForm, getNewPasswordForm, postNewPasswordForm };
 
 export default usersController;

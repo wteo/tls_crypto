@@ -19,4 +19,8 @@ router.get('/forgot-password', authController.getPasswordResetForm);
 
 router.post('/reset', CSRFProtection.verifyCSRFToken, authController.postPasswordResetForm);
 
+router.get('/reset/:token', authController.getNewPasswordForm);
+
+router.post('/new-password', CSRFProtection.verifyCSRFToken, authController.postNewPasswordForm);
+
 export default router;
