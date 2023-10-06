@@ -1,39 +1,39 @@
 import path from 'path';
 import { fileURLToPath } from 'url'; 
-import Locations from '../../models/locations.js';
+import Coins from '../../models/coins.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);
 
 
 const getMainPage = (req, res) => {
-    return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'regions.ejs'));
+    return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'groups.ejs'));
 }
 
-const getRegionPage = (req, res) => {
-    const { regions } = res.locals
-    const filteredRegions = regions.filter(region => region.region === req.params.region);
-    const noRegionFound = filteredRegions.length === 0
+const getGroupPage = (req, res) => {
+    const { groups } = res.locals
+    const filteredGroups = groups.filter(group => group.group === req.params.group);
+    const noGroupFound = filteredGroups.length === 0
 
-    if (noRegionFound) {
+    if (noGroupFound) {
         return res.status(404).render(path.join(__dirname, '..', '..', 'views', '404.ejs'));
     } else {
-        const { region, description, locations } = filteredRegions[0];
-        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'region.ejs'), { region, description, locations });
+        const { group, description, coins } = filteredGroups[0];
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'group.ejs'), { group, description, coins });
     }
 };
 
-const getLocationPage = async (req, res, next) => {
+const getCoinPage = async (req, res, next) => {
     try {
-        const region = req.params.region;
-        const locationData = await Locations.findOne({ location: req.params.location });
-        const { location, description, mapImageLink, amenities } = locationData;
-        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'location.ejs'), { region, location, description, mapImageLink, amenities });
+        const group = req.params.group;
+        const coinData = await Coins.findOne({ coin: req.params.coin });
+        const { coin, description, mapImageLink, resources } = coinData;
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'pages', 'coin.ejs'), { group, coin, description, mapImageLink, resources });
     } catch (error) {
         next(error);
     }
 };
 
-const regionsController = { getMainPage, getRegionPage, getLocationPage };
+const groupsController = { getMainPage, getGroupPage, getCoinPage };
 
-export default regionsController;
+export default groupsController;

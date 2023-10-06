@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLS Crypto Index</title>
+    <script src="/js/delete_modal.js" defer></script>
+    <script src="/js/resources_grid.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('../partials/nav_header.ejs') %>
+    </header>
+        <section>
+            <div class="coin__wrapper">
+                <p class="coin__breadcrumb"><a href="/<%= group %>/admin"><%= group %></a> > <%= coin %></p>
+                <a href="/<%= group %>/<%= coin %>/admin/update-coin-form"><button>Update Coin</button></a>
+                <h1 class="coin__title"><%= coin %></h1>
+                <div class="coin__grid">
+                    <div class="coin__container">
+                        <p class="coin__description"><%= description %></p>
+                    </div>
+                    <div class="coin__container">
+                        <img class="coin__image" src="<%= mapImageLink %>" alt="coin Map" />
+
+                    </div>
+                </div>
+                <h1 class="coin__resources-title">Resources</h1>
+                <div class="coin__resources-grid--admin">
+                    <% resources.forEach( resource => { %>
+                        <div class="coin__resources-container--admin">
+                            <img class="coin__resources-image--admin" src="<%= resource.imageLink %>" alt="" />
+                            <h3 class="coin__resources-group--admin"><%= resource.resource %></h3>
+                            <div class="coin__admin-controls">
+                                <form class="coin__admin-delete-form" action="/<%= group %>/<%= coin %>/admin/delete" method="POST">
+                                    <input type="hidden" name="coin" value="<%= coin %>" />
+                                    <input type="hidden" name="resource" value="<%= resource.resource %>"/>
+                                    <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
+                                    <button class="admin-delete-button">Delete</button>
+                                </form>
+                                <a href="/<%= group %>/<%= coin %>/<%= resource.resource %>/admin/update-resource-form"><button>Update</button></a>
+                            </div>
+                        </div>
+                    <% }) %>
+                    <a class="coin__resources-container--admin coin__resource-button-container" href="/<%= group %>/<%= coin  %>/admin/add-resource-form">
+                        <span class="coin__resource-more">+</span>
+                        <button class="coin__resource-button">Add more resource</button>
+                    </a>
+                </div>
+            </div>
+        </section>
+    <%- include('../../partials/footer.ejs') %>
+    <div id="delete__modal" class="modal">
+        <div class="modal__content">
+            <span class="modal__close-button">&times;</span>
+            <p class="modal__message">Are you sure you want to delete this resource?</p>
+            <div class="modal__buttons-wrapper">
+                <button id="modal__confirm-delete-button">Yes</button>
+                <button id="modal__cancel-delete-button">Cancel</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

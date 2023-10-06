@@ -1,4 +1,4 @@
-.location__form, .amenity__form, .login__form, .register__form {
+.coin__form, .resource__form, .login__form, .register__form {
     max-width: 500px;
     margin: 2rem auto;
     padding: 5rem;
@@ -7,8 +7,8 @@
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 }
 
-.location__form label,
-.amenity__form label,
+.coin__form label,
+.resource__form label,
 .login__form label,
 .register__form label {
     display: block;
@@ -16,8 +16,8 @@
     font-weight: bold;
 }
 
-.location__form input, .location__form select, .location__form textarea,
-.amenity__form input, .amenity__form select, .amenity__form textarea,
+.coin__form input, .coin__form select, .coin__form textarea,
+.resource__form input, .resource__form select, .resource__form textarea,
 .login__form input, .register__form input {
     box-sizing: border-box; 
     width: 100%;
@@ -27,7 +27,7 @@
     border-radius: 4px;
 }
 
-.location__form textarea, .amenity__form textarea {
+.coin__form textarea, .resource__form textarea {
     resize: vertical;
     text-align: left;
     vertical-align: top; 

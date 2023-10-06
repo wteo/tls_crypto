@@ -1,15 +1,15 @@
 @import './variables.css';
 @import './nav_header.css';
-@import './location_admin.css';
-@import './region_admin.css';
+@import './coin_admin.css';
+@import './group_admin.css';
 @import './search.css';
 @import './about_us.css';
 @import './button.css';
 @import './modal.css';
 @import './form.css';
 @import './flash_message.css';
-@import './amenities_grid.css';
-@import './location_grid.css';
+@import './resources_grid.css';
+@import './coin_grid.css';
 @import './error.css';
 @import './footer.css';
 
@@ -36,18 +36,18 @@ section:nth-child(even) {
     background-color: var(--main-background-color);
 }
 
-.region__title, 
-.location__title, 
-.location__amenities-title,
+.group__title, 
+.coin__title, 
+.coin__resources-title,
 .about__title {
     text-transform: uppercase;
 }
 
-.location__breadcrumb a {
+.coin__breadcrumb a {
     text-decoration: none;
 }
 
-.location__breadcrumb a:hover {
+.coin__breadcrumb a:hover {
     text-decoration: underline;
 }
 
@@ -55,13 +55,13 @@ section:nth-child(even) .error__title,
 section:nth-child(even) .error__description,
 section:nth-child(odd) .about__title,
 section:nth-child(odd) .about__description,
-section:nth-child(odd) .region__title, 
-section:nth-child(odd) .location__title,
-section:nth-child(odd) .location__breadcrumb,
-section:nth-child(odd) .location__breadcrumb a, 
-section:nth-child(odd) .region__description,
-section:nth-child(odd) .location__description,
-section:nth-child(odd) .location__amenities-title {
+section:nth-child(odd) .group__title, 
+section:nth-child(odd) .coin__title,
+section:nth-child(odd) .coin__breadcrumb,
+section:nth-child(odd) .coin__breadcrumb a, 
+section:nth-child(odd) .group__description,
+section:nth-child(odd) .coin__description,
+section:nth-child(odd) .coin__resources-title {
     color: var(--secondary-font-color);
 }
 
@@ -69,30 +69,30 @@ section:nth-child(even) .error__title,
 section:nth-child(even) .error__description,
 section:nth-child(even) .about__title,
 section:nth-child(even) .about__description,
-section:nth-child(even) .region__title, 
-section:nth-child(even) .location__title,
-section:nth-child(even) .location__breadcrumb,
-section:nth-child(even) .location__breadcrumb a, 
-section:nth-child(even) .region__description,
-section:nth-child(even) .location__description,
-section:nth-child(even) .location__amenities-title {
+section:nth-child(even) .group__title, 
+section:nth-child(even) .coin__title,
+section:nth-child(even) .coin__breadcrumb,
+section:nth-child(even) .coin__breadcrumb a, 
+section:nth-child(even) .group__description,
+section:nth-child(even) .coin__description,
+section:nth-child(even) .coin__resources-title {
     color: var(--main-font-color);
 }
 
-.region__wrapper, .location__wrapper {
+.group__wrapper, .coin__wrapper {
     margin-left: 10vw;
     margin-right: 10vw;
 }
 
 
-.region__title, .location__title  {
+.group__title, .coin__title  {
     font-size: 3rem;
 }
 
-.region__description, .location__description {
+.group__description, .coin__description {
     margin-bottom: 5vh;
 }
 
-.region__description-not-found {
+.group__description-not-found {
     margin-bottom: 25vh;
 }

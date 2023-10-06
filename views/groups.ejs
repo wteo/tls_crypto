@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLS Crypto Index</title>
+    <script src="/js/see_more_button.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+    <%- include('./partials/contact_us.ejs') %>
+    <% groups.forEach( group => { %>
+        <section>
+            <div class="group__wrapper">
+                <h1 class="group__title"><%= group.group %></h1>
+                <p class="group__description"><%= group.description %></p>
+                <div class="group__coin-grid" data-group="<%= group.group %>">
+                    <% group.coins.forEach( coin => { %>
+                        <div class="group__coin-container">
+                            <a href="/<%= group.group %>/<%= coin.coin %>">
+                                <img class="group__coin-image" src="<%= coin.imageLink %>" alt="" />
+                                <h3 class="group__coin-title"><%= coin.coin %></h3>
+                            </a>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    <% }) %>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

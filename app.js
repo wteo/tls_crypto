@@ -8,14 +8,14 @@ import { MongoDBStore } from './utils/store.js';
 import CSRFProtection from './middlewares/csrf_protection.js';
 import flash from 'connect-flash';
 
-import globalRegionRouter from './routes/global_regions.js';
+import globalGroupsRouter from './routes/global_groups.js';
 
 import authRouter from './routes/auth.js';
 import adminPagesRouter from './routes/admin/pages.js';
 import adminFormsRouter from './routes/admin/forms.js';
-import regionsRouter from './routes/regions.js';
+import groupsRouter from './routes/groups.js';
 
-import locationRouter from './routes/location.js';
+import Router from './routes/coins.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);  
@@ -42,12 +42,12 @@ app.use(session({
 app.use(CSRFProtection.generateCSRFToken);
 app.use(flash());
 
-app.use(globalRegionRouter);
+app.use(globalGroupsRouter);
 app.use(authRouter);
 app.use(adminFormsRouter);
 app.use(adminPagesRouter);
-app.use(regionsRouter);
-app.use(locationRouter);
+app.use(groupsRouter);
+app.use(Router);
 
 // This is a catch-all error for any internal server errors
 app.use((err, req, res) => {

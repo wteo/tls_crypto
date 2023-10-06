@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TLS Crypto Index</title>
+    <script src="/js/resources_grid.js" defer></script>
+    <link rel="stylesheet" href="/css/main.css">
+</head>
+
+<body>
+    <header>
+        <%- include('./partials/nav_header.ejs') %>
+    </header>
+        <section>
+            <div class="coin__wrapper">
+                <p class="coin__breadcrumb"><a href="/<%= group %>"><%= group %></a> > <%= coin %></p>
+                <h1 class="coin__title"><%= coin %></h1>
+                <div class="coin__grid">
+                    <div class="coin__container">
+                        <p class="coin__description"><%= description %></p>
+                    </div>
+                    <div class="coin__container">
+                        <img class="coin__image" src="<%= mapImageLink %>" alt="Coin Map" />
+                    </div>
+                </div>
+                <h1 class="coin__resources-title">Resources</h1>
+                <div class="coin__resources-grid">
+                    <% resources.forEach( resource => { %>
+                        <div class="coin__resources-container">
+                            <a href="<%= resource.hyperlink %>">
+                                <img class="coin__resources-image" src="<%= resource.imageLink %>" alt="" />
+                                <h3 class="coin__resources-group"><%= resource.resource %></h3>
+                            </a>
+                        </div>
+                    <% }) %>
+                </div>
+            </div>
+        </section>
+    <%- include('./partials/footer.ejs') %>
+</body>
+
+</html>

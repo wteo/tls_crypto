@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Website</title>
+    <title>TLS Crypto Index</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -13,18 +13,18 @@
         <%- include('./partials/nav_header.ejs') %>
     </header>
         <section>
-            <div class="region__wrapper">
-                <h1 class="region__title">Result:</h1>
-                <p class="region__description">We found <%= results.length %> location(s)</p>
+            <div class="group__wrapper">
+                <h1 class="group__title">Result:</h1>
+                <p class="group__description">We found <%= results.length %> coin(s)</p>
                 <% if (results.length === 0) { %>
-                    <p class="region__description region__description-not-found">Please try a different search.</p>
+                    <p class="group__description group__description-not-found">Please try a different search.</p>
                 <% } else { %>
-                    <div class="region__location-grid">
+                    <div class="group__coin-grid">
                         <% results.forEach( result => { %>
-                            <div class="region__location-container">
-                                <a href="/<%= result.region %>/<%= result.location %>">
-                                    <img class="region__location-image" src="<%= result.imageLink %>" alt="" />
-                                    <h3 class="region__location-title"><%= result.location %></h3>
+                            <div class="group__coin-container">
+                                <a href="/<%= result.group %>/<%= result.coin %>">
+                                    <img class="group__coin-image" src="<%= result.imageLink %>" alt="" />
+                                    <h3 class="group__coin-title"><%= result.coin %></h3>
                                 </a>
                             </div>
                         <% }) %>

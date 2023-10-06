@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Real Estate Website</title>
+    <title>TLS Crypto Index</title>
     <link rel="stylesheet" href="/css/main.css">
 </head>
 
@@ -13,13 +13,13 @@
         <%- include('./partials/nav_header.ejs') %>
     </header>
         <section>
-            <div class="location__wrapper">
-                <p class="location__breadcrumb">
-                    <a href="/<%= region %>"><%= region %></a> > 
-                    <a href="/<%= region %>/<%= location %>"><%= location %></a> > 
-                    <%= amenity %>
+            <div class="coin__wrapper">
+                <p class="coin__breadcrumb">
+                    <a href="/<%= group %>"><%= group %></a> > 
+                    <a href="/<%= group %>/<%= coin %>"><%= coin %></a> > 
+                    <%= resource %>
                 </p>
-                <% if (region === 'Sydney' && location === 'Bondi' && amenity === 'Education') { %>
+                <% if (group === 'Sydney' && coin === 'Bondi' && resource === 'Education') { %>
                 <div class="article__wrapper">
                     <h1 class="article__title">The Landscape of Education in Bondi, NSW: A Guide for Prospective Homebuyers</h1>
                     <h5 class="article__author">By Jane Doe | 15th August 2023</h5>

@@ -1,30 +1,30 @@
 
-/* At Location Page */
-.location__grid {
+/* At Coin Page */
+.coin__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
 }
 
-.location__container, .location__image {
+.coin__container, .coin__image {
     width: 100%;
 }
 
-/* At Main Regions Page Page */
-.region__location-grid {
+/* At Main Groups Page */
+.group__coin-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
     gap: 5px;
 }
 
-.region__location-container {
+.group__coin-container {
     position: relative;
     overflow: hidden;
     width: 100%;
     height: 300px;
 }
 
-.region__location-image {
+.group__coin-image {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -33,13 +33,13 @@
     transition: all 0.5s ease; 
 }
 
-.region__location-image:hover {
+.group__coin-image:hover {
     filter: brightness(80%);
     transform: scale(1.1); 
     cursor: pointer;
 }
 
-.region__location-title {
+.group__coin-title {
     color: var(--secondary-font-color);
     opacity: 0.7;
     position: absolute;
@@ -50,13 +50,13 @@
     transition: all 0.5s ease; 
 }
 
-.region__location-container:hover .region__location-title {
+.group__coin-container:hover .group__coin-title {
     opacity: 1;
     transform: scale(1.25);
     right: 20px;
 }
 
-.region__location-button-container {
+.group__coin-button-container {
     border: 1px solid var(--see-more-button-border-color);
     background-color: var(--see-more-button-background-color);
     color: var(--see-more-button-border-color);
@@ -66,30 +66,30 @@
     text-decoration: none;
 }
 
-.region__location-button-container:hover {
+.group__coin-button-container:hover {
     cursor: pointer;
     background-color: var(--see-more-hovered-button-background-color);
     transition: all 0.5s ease;
 }
 
-.region__location-button-container:hover .region__location-more,
-.region__location-button-container:hover .region__location-button {
+.group__coin-button-container:hover .group__coin-more,
+.group__coin-button-container:hover .group__coin-button {
     cursor: pointer;
     transform: scale(1.25);
 }
 
-.region__location-more, 
-.region__location-button {
+.group__coin-more, 
+.group__coin-button {
     color: var(--see-more-button-font-color);
     font-size: 1.5rem;
     transition: all 0.5s ease;
 }
 
-.region__location-more {
+.group__coin-more {
     margin-top: 50%;
 }
 
-.region__location-button {
+.group__coin-button {
     background-color: transparent;
     border: none;
 }
@@ -97,16 +97,16 @@
 /* Tablet layout */
 @media (min-width: 751px) and (max-width: 1200px) {
 
-    .location__grid {
+    .coin__grid {
         grid-template-columns: 1fr;
         gap: 20px;
     }
 
-    .region__location-grid {
+    .group__coin-grid {
         grid-template-columns: repeat(4, 1fr);
     }
 
-    .region__location-container {
+    .group__coin-container {
         height: 250px;
     }
 }
@@ -114,16 +114,16 @@
 /* Mobile layout */
 @media (max-width: 750px) {
 
-    .location__grid {
+    .coin__grid {
         grid-template-columns: 1fr;
         gap: 5px;
     }
 
-    .region__location-grid {
+    .group__coin-grid {
         grid-template-columns: repeat(3, 1fr);
     }
 
-    .region__location-container {
+    .group__coin-container {
         height: 200px;
     }
 }

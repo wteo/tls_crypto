@@ -7,8 +7,8 @@ const router = express.Router();
 
 router.get('/admin', checkAuth, adminPagesController.getMainPage); 
 
-router.get('/:region/admin', checkAuth, adminPagesController.getRegionPage);
+router.get('/:group/admin', checkAuth, adminPagesController.getGroupPage);
 
-router.get('/:region/:location/admin', checkAuth, adminPagesController.getLocationPage);
+router.get('/:group/:coin/admin', checkAuth, adminPagesController.getCoinPage);
 
 export default router;

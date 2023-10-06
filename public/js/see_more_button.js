@@ -9,32 +9,32 @@ const setContainerVisibility = (containers, numberOfContainers) => {
 const addSeeMoreButton = (grid) => {
 
     const container = document.createElement('a');
-    container.className = 'region__location-button-container';
+    container.className = 'group__coin-button-container';
     
     const span = document.createElement('span');
     span.textContent = '...';
-    span.className = 'region__location-more'
+    span.className = 'group__coin-more'
     container.appendChild(span);
     
     const button = document.createElement('button');
     button.textContent = 'See More';
-    button.className = 'region__location-button'
+    button.className = 'group__coin-button'
     container.appendChild(button);
 
     grid.appendChild(container);
 
 };
 
-// Function to add link to each of "See More" Button depending on region
+// Function to add link to each of "See More" Button depending on group
 const addLink = () => {
-    const buttons = document.querySelectorAll('.region__location-button-container');
-    const isAdmin = window.location.href.includes('admin');
+    const buttons = document.querySelectorAll('.group__coin-button-container');
+    const isAdmin = window.coin.href.includes('admin');
     for (let button of buttons) {
-        const region = button.parentElement.dataset.region;
+        const group = button.parentElement.dataset.group;
         if (isAdmin) {
-            button.href = `/${region}/admin`;
+            button.href = `/${group}/admin`;
         } else {
-            button.href = `/${region}`;
+            button.href = `/${group}`;
         }
     }
 }
@@ -48,11 +48,11 @@ const screenConfig = [
 
 // Main function to handle grids
 const handleGrids = () => {
-    const grids = document.querySelectorAll('.region__location-grid');
+    const grids = document.querySelectorAll('.group__coin-grid');
 
     for (let grid of grids) {
-        const containers = grid.querySelectorAll('.region__location-container');
-        const buttonContainer = grid.querySelector('.region__location-button-container');
+        const containers = grid.querySelectorAll('.group__coin-container');
+        const buttonContainer = grid.querySelector('.group__coin-button-container');
         const width = window.innerWidth;
 
         // Find the appropriate configuration for the current screen width

@@ -1,26 +1,26 @@
 # Real-Estate Web Application
 
-A web application that provides information about various regions, locations, and amenities related to real estate.
+A web application that provides information about various types of coins, and resources related to cryptocurrency.
 
 ## Features
 
-- **Regions**: Browse through different regions and view details about each region.
-- **Locations**: Explore various locations within a region and get insights about each location.
-- **Amenities**: Dive into the amenities available in a specific location.
+- **Types**: Browse through different regions and view details about each region.
+- **Coins**: Explore various coins within a region and get insights about each coin.
+- **Resources**: Dive into the resources available in a specific coin.
 
 ## Structure
 
 - **Main Entry Point**: `app.js` - Initializes and starts the Express server.
 - **Controllers**: Handle the application's logic.
-  - `amenities.js`: Logic related to amenities.
-  - `locations.js`: Logic related to locations.
+  - `resources.js`: Logic related to resources.
+  - `coins.js`: Logic related to coins.
   - `regions.js`: Logic related to regions.
 - **Models**: Define the structure of the data.
-  - `locations.js`: Data model for locations.
+  - `coins.js`: Data model for coins.
   - `regions.js`: Data model for regions.
 - **Routes**: Define the application's endpoints.
-  - `amenities.js`: Routes related to amenities.
-  - `location.js`: Routes related to locations.
+  - `resources.js`: Routes related to resources.
+  - `coin.js`: Routes related to coins.
   - `regions.js`: Routes related to regions.
 - **Views**: EJS templates for rendering the views.
 

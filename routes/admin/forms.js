@@ -5,16 +5,16 @@ import checkAuth from '../../middlewares/is_auth.js';
 
 const router = express.Router();
 
-router.get('/admin/add-region-form', checkAuth, adminFormsController.getAddRegionForm);
+router.get('/admin/add-group-form', checkAuth, adminFormsController.getAddGroupForm);
 
-router.get('/:region/admin/update-region-form', checkAuth, adminFormsController.getUpdateRegionForm);
+router.get('/:group/admin/update-group-form', checkAuth, adminFormsController.getUpdateGroupForm);
 
-router.get('/admin/add-location-form', checkAuth, adminFormsController.getAddLocationForm);
+router.get('/admin/add-coin-form', checkAuth, adminFormsController.getAddCoinForm);
 
-router.get('/:region/:location/admin/update-location-form', checkAuth, adminFormsController.getUpdateLocationForm);
+router.get('/:group/:coin/admin/update-coin-form', checkAuth, adminFormsController.getUpdateCoinForm);
 
-router.get('/:region/:location/admin/add-amenity-form', checkAuth, adminFormsController.getAddAmenityForm);
+router.get('/:group/:coin/admin/add-resource-form', checkAuth, adminFormsController.getAddResourceForm);
 
-router.get('/:region/:location/:amenity/admin/update-amenity-form', checkAuth, adminFormsController.getUpdateAmenityForm);
+router.get('/:group/:coin/:resource/admin/update-resource-form', checkAuth, adminFormsController.getUpdateResourceForm);
 
 export default router;
