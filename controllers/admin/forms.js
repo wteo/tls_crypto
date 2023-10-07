@@ -41,14 +41,14 @@ const getUpdateCoinForm = async(req, res, next) => {
         const filteredGroup = groups.filter(group => group.group === req.params.group);
         const filteredCoin = filteredGroup[0].coins.filter(coin => coin.coin === req.params.coin);
         const coinData = await Coins.findOne({ coin: req.params.coin});
-        const { description, mapImageLink } = coinData;
+        const { description, imageLink } = coinData;
         return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_coin.ejs'), { 
             group: req.params.group, 
             paramsCoin: req.params.coin, 
             coin: filteredCoin[0].coin,
-            coinImageLink: filteredCoin[0].imageLink,
+            coinLogoLink: filteredCoin[0].coinLogoLink,
             description, 
-            mapImageLink
+            imageLink
         });
     } catch (error) {
         next(error)
@@ -81,6 +81,6 @@ const getUpdateResourceForm = async (req, res, next) => {
     }
 }
 
-const groupsController = { getAddGroupForm, GroupCoinForm, getUpdateCoinForm, getAddResourceForm, getUpdateResourceForm };
+const groupsController = { getAddGroupForm, getUpdateGroupForm, getAddCoinForm, getUpdateCoinForm, getAddResourceForm, getUpdateResourceForm };
 
 export default groupsController;

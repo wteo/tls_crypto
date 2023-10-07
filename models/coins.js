@@ -10,7 +10,7 @@ const ResourceSchema = new mongoose.Schema({
 const CoinsSchema = new mongoose.Schema({
     coin: String,
     description: String,
-    mapImageLink: String,
+    imageLink: String,
     resources: [ResourceSchema]
 });
 

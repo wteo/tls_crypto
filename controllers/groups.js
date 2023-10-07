@@ -56,9 +56,9 @@ const deleteGroup = async (req, res, next) => {
 
 const addCoin = async (req, res, next) => {
     try {
-        const { group, coin, coinImageLink, description, mapImageLink } = req.body
-        await Groups.updateOne({ group }, { $push: { coins: { coin, imageLink: coinImageLink } } });
-        await Coins.create({ coin, description, mapImageLink, resources: [] });
+        const { group, coin, coinLogoLink, description, imageLink } = req.body
+        await Groups.updateOne({ group }, { $push: { coins: { coin, coinLogoLink } } });
+        await Coins.create({ coin, description, imageLink, resources: [] });
         return res.redirect(`/${group}/admin`);
     } catch (error) {
         next(error);
@@ -67,16 +67,16 @@ const addCoin = async (req, res, next) => {
 
 const updateCoin = async (req, res, next) => {
     try {
-        const { coin, coinImageLink, description, mapImageLink } = req.body;
+        const { coin, coinLogoLink, description, imageLink } = req.body;
         const conditions = { group: req.params.group, 'coins.coin': req.params.coin };
         const update = {
             $set: {
                 'coins.$.coin': coin,
-                'coins.$.imageLink': coinImageLink
+                'coins.$.coinLogoLink': coinLogoLink
             }
         };
         await Groups.updateOne(conditions, update);
-        await Coins.updateOne({ coin: req.params.coin }, { coin, description, mapImageLink})
+        await Coins.updateOne({ coin: req.params.coin }, { coin, description, imageLink})
         return res.redirect(`/${req.params.group}/${req.body.coin}/admin`);
     } catch (error) {
         next(error);

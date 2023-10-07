@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 
-const url = 'mongodb://localhost:27017/realestates';
+const url = 'mongodb://localhost:27017/tls';
 
 export const mongoConnect = (callback) => {
     mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })

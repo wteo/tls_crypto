@@ -9,8 +9,8 @@ const getSelectedCoin = async (req, res, next) => {
     try {
         const group = req.params.group;
         const coinData = await Coins.findOne({ coin: req.params.coin });
-        const { coin, description, mapImageLink, resources } = coinData;
-        return res.render(path.join(__dirname, '..', 'views', 'coin.ejs'), { group, coin, description, mapImageLink, resources });
+        const { coin, description, imageLink, resources } = coinData;
+        return res.render(path.join(__dirname, '..', 'views', 'coin.ejs'), { group, coin, description, imageLink, resources });
     } catch (error) {
         next(error);
     }
@@ -57,6 +57,6 @@ const updateResource = async (req, res, next) => {
     }
 }
 
-const coinsController = { getSelectedCoins, deleteResource, addResource, updateResource };
+const coinsController = { getSelectedCoin, deleteResource, addResource, updateResource };
 
 export default coinsController;

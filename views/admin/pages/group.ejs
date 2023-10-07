@@ -20,7 +20,7 @@
                 <div class="group__coin-grid--admin">
                     <% coins.forEach( coin => { %>
                         <div class="group__coin-container--admin">
-                            <img class="group__coin-image--admin" src="<%= coin.imageLink %>" alt="" />
+                            <img class="group__coin-image--admin" src="<%= coin.coinLogoLink %>" alt="" />
                             <h3 class="group__coin-title--admin"><%= coin.coin %></h3>
                             <div class="group__admin-controls">
                                 <form class="group__admin-delete-form" action="/<%= group %>/admin/delete" method="POST">

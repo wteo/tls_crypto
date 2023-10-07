@@ -2,7 +2,7 @@ import mongoose from 'mongoose';
 
 const coinSchema = new mongoose.Schema({
   coin: String,
-  imageLink: String
+  coinLogoLink: String
 });
 
 const groupSchema = new mongoose.Schema({
@@ -12,6 +12,6 @@ const groupSchema = new mongoose.Schema({
   coins: [coinSchema]
 });
 
-const Categories = mongoose.model('Categories', groupSchema);
+const groups = mongoose.model('Groups', groupSchema);
 
-export default Categories;
+export default groups;

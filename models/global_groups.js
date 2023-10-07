@@ -17,12 +17,12 @@ class GlobalGroupsModel {
         const results = await Groups.aggregate([
             { $unwind: '$coins' },
             { $match: { 'coins.coin': { $regex: new RegExp(searchCoin, 'i') } } },
-            { $project: { group: 1, 'coins.coin': 1, 'coins.imageLink': 1 } }
+            { $project: { group: 1, 'coins.coin': 1, 'coins.coinLogoLink': 1 } }
         ]);
         return results.map(item => ({
             group: item.group,
             coin: item.coins.coin,
-            imageLink: item.coins.imageLink
+            imageLink: item.coins.coinLogoLink
         }));
     }
 }

@@ -1,21 +1,21 @@
-.coin__resouces-title {
+.coin__resources-title {
     margin-top: 10vh;    
 }
 
-.coin__resouces-grid--admin {
+.coin__resources-grid--admin {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     grid-auto-rows: 100px; 
     gap: 5px;
 }
 
-.coin__resouces-container--admin {
+.coin__resources-container--admin {
     position: relative; 
     overflow: hidden;
     width: 100%;
 }
 
-.coin__resouces-image--admin {
+.coin__resources-image--admin {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -24,7 +24,7 @@
     transition: all 0.5s ease;
 }
 
-.coin__resouces-group--admin {
+.coin__resources-group--admin {
     color: var(--secondary-font-color);
     opacity: 0.7;
     position: absolute;
@@ -34,17 +34,17 @@
     transition: all 0.5s ease; 
 }
 
-.coin__resouces-container--admin:nth-child(5n + 1) {
+.coin__resources-container--admin:nth-child(5n + 1) {
     grid-column-end: span 2;
     grid-row-end: span 6;
 }
 
-.coin__resouces-container--admin:nth-child(5n + 2),
-.coin__resouces-container--admin:nth-child(5n + 3),
-.coin__resouces-container--admin:nth-child(5n + 4),
-.coin__resouces-container--admin:nth-child(5n + 5),
-.coin__resouces-container--admin:nth-child(5n + 6),
-.coin__resouces-container--admin:nth-child(5n + 7) {
+.coin__resources-container--admin:nth-child(5n + 2),
+.coin__resources-container--admin:nth-child(5n + 3),
+.coin__resources-container--admin:nth-child(5n + 4),
+.coin__resources-container--admin:nth-child(5n + 5),
+.coin__resources-container--admin:nth-child(5n + 6),
+.coin__resources-container--admin:nth-child(5n + 7) {
     grid-column-end: span 1;
     grid-row-end: span 2;
 }
@@ -103,17 +103,17 @@
 
 /* Mobile layout */
 @media (max-width: 750px) {
-    .coin__resouces-container--admin:nth-child(5n + 1) {
+    .coin__resources-container--admin:nth-child(5n + 1) {
         grid-column-end: span 2;
         grid-row-end: span 3;
     }
     
-    .coin__resouces-container--admin:nth-child(5n + 2),
-    .coin__resouces-container--admin:nth-child(5n + 3),
-    .coin__resouces-container--admin:nth-child(5n + 4),
-    .coin__resouces-container--admin:nth-child(5n + 5),
-    .coin__resouces-container--admin:nth-child(5n + 6),
-    .coin__resouces-container--admin:nth-child(5n + 7) {
+    .coin__resources-container--admin:nth-child(5n + 2),
+    .coin__resources-container--admin:nth-child(5n + 3),
+    .coin__resources-container--admin:nth-child(5n + 4),
+    .coin__resources-container--admin:nth-child(5n + 5),
+    .coin__resources-container--admin:nth-child(5n + 6),
+    .coin__resources-container--admin:nth-child(5n + 7) {
         grid-column-end: span 1;
         grid-row-end: span 1;
     }

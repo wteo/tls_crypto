@@ -28,7 +28,8 @@ const addSeeMoreButton = (grid) => {
 // Function to add link to each of "See More" Button depending on group
 const addLink = () => {
     const buttons = document.querySelectorAll('.group__coin-button-container');
-    const isAdmin = window.coin.href.includes('admin');
+    const isAdmin = window.location.href.includes('admin');
+    console.log(isAdmin);
     for (let button of buttons) {
         const group = button.parentElement.dataset.group;
         if (isAdmin) {
