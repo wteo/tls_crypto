@@ -31,7 +31,13 @@ const getAddCoinForm = (req, res) => {
     if (noCategories || noGroupFound) {
         return res.status(404).render(path.join(__dirname, '..', '..', 'views', '404.ejs'));
     } else {
-        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'add_coin.ejs'), { categories, groups });
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'add_coin.ejs'), 
+            { 
+                categories, 
+                groups, 
+                errorMessage: req.flash('error')[0],
+                oldInput: req.session.oldInput || {} 
+            });
     }
 }
 

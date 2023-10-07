@@ -56,10 +56,19 @@ const deleteGroup = async (req, res, next) => {
 
 const addCoin = async (req, res, next) => {
     try {
+
         const { group, coin, coinLogoLink, description, imageLink } = req.body
-        await Groups.updateOne({ group }, { $push: { coins: { coin, coinLogoLink } } });
-        await Coins.create({ coin, description, imageLink, resources: [] });
-        return res.redirect(`/${group}/admin`);
+        const coinCheck = await Coins.findOne({ coin }) === null;
+
+        if (coinCheck) {
+            await Groups.updateOne({ group }, { $push: { coins: { coin, coinLogoLink } } });
+            await Coins.create({ coin, description, imageLink, resources: [] });
+            return req.session.destroy(error => error ? next(error) : res.redirect(`/${group}/admin`));
+        } else {
+            req.flash('error', 'This coin already exists in our database. Please update the existing coin or choose a different name.');
+            req.session.oldInput = { group, coin, coinLogoLink, description, imageLink };
+            return req.session.save(error => error ? next(error) : res.redirect('/admin/add-coin-form'));
+        }
     } catch (error) {
         next(error);
     }

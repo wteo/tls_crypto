@@ -17,7 +17,12 @@
             <form class="coin__form" action="/admin/submit-add-group-form" method="POST">
 
                 <label for="category">Category:</label>
-                <input type="text" name="category" required>
+                <select name="category" required>
+                    <option value="">Select a Category</option>
+                    <option value="Coins">Coins</option>
+                    <option value="NFTs">NFTs</option>
+                    <option value="Tokens">Tokens</option>
+                </select>
                 
                 <label for="group">Group:</label>
                 <input type="text" name="group" required>

@@ -24,18 +24,23 @@
                     <% }) %>
                 </select>
 
+                <% if (errorMessage) { %>
+                    <p class="flash-message invalid"><%= errorMessage %></p>
+                <% } %>
+
                 <label for="coin">Coin:</label>
-                <input type="text" name="coin" required>
+                <input type="text" name="coin" value="<%= oldInput.coin %>" required>
                 
                 <label for="coinLogoLink">Coin Logo Link:</label>
-                <input type="url" name="coinLogoLink" required>
+                <input type="url" name="coinLogoLink" value="<%= oldInput.coinLogoLink %>"  required>
 
                 <label for="description">Description:</label>
                 <textarea type="text" name="description" rows="4" required>
+                    <%= oldInput.description %>
                 </textarea>
                 
                 <label for="imageLink">Image Link:</label>
-                <input type="url" name="imageLink" required>
+                <input type="url" name="imageLink" value="<%= oldInput.imageLink %>" required>
 
                 <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                 
