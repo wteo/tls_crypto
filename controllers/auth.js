@@ -28,8 +28,10 @@ const postRegisterForm = async (req, res, next) => {
         const user = await Users.findOne({ username: req.body.username });
         const { username, password, confirmedPassword } = req.body;
 
-        if (username.length < 5) {
-            req.flash('error', 'Please choose a longer username.');
+        const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/;
+
+        if (!emailPattern.test(username)) {
+            req.flash('error', 'Your username must be a valid email.');
             return res.redirect('/register');
         }
 
@@ -37,10 +39,10 @@ const postRegisterForm = async (req, res, next) => {
 
             // password conditions
             const passwordMinimumLength = password.length < 8; 
-            const passwordCriteria = !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(password)
+            const passwordCriteria = !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d.@!?]{8,}$/.test(password);
 
             if (passwordMinimumLength || passwordCriteria) {
-                req.flash('error', 'Your password must be at least 8 characters long and contains at least 1 alphabet and 1 number.');
+                req.flash('error', `Your password must be at least 8 characters long and contains at least 1 alphabet and 1 number. Only special characters '.', '@', '!' and '?' are allowed.`);
                 req.session.oldInput = { username };
                 return req.session.save(error => error ? next(error) : res.redirect('/register'));
             }
@@ -189,10 +191,10 @@ const postNewPasswordForm = async (req, res, next) => {
     try {
         // password conditions
         const passwordMinimumLength = newPassword.length < 8; 
-        const passwordCriteria = !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$/.test(newPassword)
+        const passwordCriteria = !/^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d.@!?]{8,}$/.test(newPassword);
         
         if (passwordMinimumLength || passwordCriteria) {
-            req.flash('error', 'Your password must be at least 8 characters long and contains at least 1 alphabet and 1 number.');
+            req.flash('error', `Your password must be at least 8 characters long and contains at least 1 alphabet and 1 number. Only special characters '.', '@', '!' and '?' are allowed.`);
             return req.session.save(error => error ? next(error) : res.redirect(`/reset/${passwordToken}`));
         }
         if (newPassword !== confirmedNewPassword) {
