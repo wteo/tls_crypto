@@ -9,8 +9,13 @@ const getSelectedCoin = async (req, res, next) => {
     try {
         const group = req.params.group;
         const coinData = await Coins.findOne({ coin: req.params.coin });
-        const { coin, description, imageLink, resources } = coinData;
-        return res.render(path.join(__dirname, '..', 'views', 'coin.ejs'), { group, coin, description, imageLink, resources });
+
+        if (coinData === null) {
+            return res.render(path.join(__dirname, '..', 'views', '404.ejs'));
+        } else {
+            const { coin, description, imageLink, resources } = coinData;
+            return res.render(path.join(__dirname, '..', 'views', 'coin.ejs'), { group, coin, description, imageLink, resources });
+        }
     } catch (error) {
         next(error);
     }

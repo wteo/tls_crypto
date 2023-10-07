@@ -15,7 +15,7 @@ import adminPagesRouter from './routes/admin/pages.js';
 import adminFormsRouter from './routes/admin/forms.js';
 import groupsRouter from './routes/groups.js';
 
-import Router from './routes/coins.js';
+import coinsRouter from './routes/coins.js';
 
 const __filename = fileURLToPath(import.meta.url); 
 const __dirname = path.dirname(__filename);  
@@ -47,7 +47,7 @@ app.use(authRouter);
 app.use(adminFormsRouter);
 app.use(adminPagesRouter);
 app.use(groupsRouter);
-app.use(Router);
+app.use(coinsRouter);
 
 // This is a catch-all error for any internal server errors
 app.use((err, req, res) => {
