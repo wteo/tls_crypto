@@ -35,7 +35,7 @@ app.use(session({
     saveUninitialized: false,
     store: MongoDBStore,
     cookie: {
-        maxAge: 600000 
+        maxAge: 3600000 // 1 hour session before user is automatically logged out 
     }
 }));
 
