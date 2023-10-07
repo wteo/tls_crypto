@@ -19,13 +19,9 @@ body {
     font-family: 'proxima-nova', sans-serif;
 }
 
-header {
-    margin-bottom: 10vh;
-}
-
 section {
-    padding-top: 10vh;
-    padding-bottom: 20vh;
+    padding-top: 20vh;
+    padding-bottom: 30vh;
 }
 
 section:nth-child(odd) {

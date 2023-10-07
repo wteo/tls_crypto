@@ -45,3 +45,24 @@ button:hover {
     color: var(--default-button-font-color);
 }
 
+
+@media (max-width: 750px) {
+    .nav__menu-buttons-wrapper {
+        position: absolute;
+        top: 15px;
+        right: 30px;
+        display: grid;
+        grid-auto-flow: column;
+        justify-content: end; 
+        gap: 10px;
+    }
+
+    .nav__menu-button {
+        white-space: nowrap;
+        max-width: 30vw; 
+    }
+    
+}
+
+
+
