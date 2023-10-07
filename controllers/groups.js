@@ -16,7 +16,7 @@ const fetchGroup = async(req, res, next) => {
           return res.render(path.join(__dirname, '..', 'views', 'group.ejs'), { 
             group: groupData.group, 
             description: groupData.description, 
-            coins: groupData.coins 
+            coins: groupData.coins.sort() 
           });
         }
     } catch (error) {
