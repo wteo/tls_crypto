@@ -54,7 +54,8 @@ const getUpdateCoinForm = async(req, res, next) => {
             coin: filteredCoin[0].coin,
             coinLogoLink: filteredCoin[0].coinLogoLink,
             description, 
-            imageLink
+            imageLink,
+            errorMessage: req.flash('error')[0]
         });
     } catch (error) {
         next(error)

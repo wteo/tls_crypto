@@ -17,6 +17,10 @@
         <section>
             <form class="coin__form" action="/<%= group %>/<%= coin %>/admin/update" method="POST">
 
+                <% if (errorMessage) { %>
+                    <p class="flash-message invalid"><%= errorMessage %></p>
+                <% } %>
+
                 <label for="coin">Coin:</label>
                 <input type="text" value="<%= coin %>" name="coin" required>
                 

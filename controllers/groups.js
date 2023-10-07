@@ -63,7 +63,8 @@ const addCoin = async (req, res, next) => {
         if (coinCheck) {
             await Groups.updateOne({ group }, { $push: { coins: { coin, coinLogoLink } } });
             await Coins.create({ coin, description, imageLink, resources: [] });
-            return req.session.destroy(error => error ? next(error) : res.redirect(`/${group}/admin`));
+            req.session.oldInput = {};
+            return res.redirect(`/${group}/admin`);
         } else {
             req.flash('error', 'This coin already exists in our database. Please update the existing coin or choose a different name.');
             req.session.oldInput = { group, coin, coinLogoLink, description, imageLink };
@@ -84,9 +85,18 @@ const updateCoin = async (req, res, next) => {
                 'coins.$.coinLogoLink': coinLogoLink
             }
         };
-        await Groups.updateOne(conditions, update);
-        await Coins.updateOne({ coin: req.params.coin }, { coin, description, imageLink})
-        return res.redirect(`/${req.params.group}/${req.body.coin}/admin`);
+
+        const coinData = await Coins.findOne({ coin });
+
+        if (coinData === null || coinData.coin === req.params.coin ) {
+            await Groups.updateOne(conditions, update);
+            await Coins.updateOne({ coin: req.params.coin }, { coin, description, imageLink})
+            return res.redirect(`/${req.params.group}/${req.body.coin}/admin`);
+        } else {
+            req.flash('error', 'This coin already exists in our database. Please update the existing coin or choose a different name.');
+            return req.session.save(error => error ? next(error) : res.redirect(`/${req.params.group}/${req.params.coin}/admin/update-coin-form`)); 
+        }
+
     } catch (error) {
         next(error);
     }
