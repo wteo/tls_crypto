@@ -1,6 +1,9 @@
 import mongoose from 'mongoose';
+import { config } from 'dotenv';
 
-const url = 'mongodb://localhost:27017/tls';
+config();
+
+const url = process.env.MongoDBURI;
 
 export const mongoConnect = (callback) => {
     mongoose.connect(url, { useNewUrlParser: true, useUnifiedTopology: true })

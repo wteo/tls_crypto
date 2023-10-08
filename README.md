@@ -92,7 +92,7 @@ TLS Crypto Hub is structured around a hierarchical organization of cryptocurrenc
 
 4. Start the application:
    ```
-   npm start
+   npm run start:dev
    ```
 
 5. Open your browser and navigate to `http://localhost:3000` (or the port you've configured).
