@@ -1,39 +1,38 @@
 :root {
 
     /* Header Navigation */
-    --navigation-bar-color: #323031;
-    --navigation-font-color: #FFFFFF;
+    --navigation-bar-color: #1E4E79; /* Deep ocean blue */
+    --navigation-font-color: #FDF6E3; /* Soft sand color */
 
     /* Search Bar */
-    --navigation-border-search-color: #C1BDB3;
-
+    --navigation-border-search-color: #FFB459; /* Warm sunset orange */
 
     /* Body sections */
-    --main-background-color: #FFFFFF;
-    --secondary-background-color: #7F7979;
-    --main-font-color: #7F7979;
-    --secondary-font-color: #FFFFFF;
+    --main-background-color: #FDF6E3; /* Soft sand color */
+    --secondary-background-color: #FFB459; /* Warm sunset orange */
+    --main-font-color: #1E4E79; /* Deep ocean blue */
+    --secondary-font-color: #FDF6E3; /* Soft sand color */
 
     /* See More Button */
-    --see-more-button-font-color: #3D3B3C;
-    --see-more-button-border-color: #3D3B3C;
+    --see-more-button-font-color: #1E4E79; /* Deep ocean blue */
+    --see-more-button-border-color: #1E4E79; /* Deep ocean blue */
     --see-more-button-background-color: transparent;
-    --see-more-hovered-button-background-color: #BFC0C0;
+    --see-more-hovered-button-background-color: #FFB459; /* Warm sunset orange */
 
     /* Default Buttons */
-    --default-button-font-color: #FFFFFF;
-    --default-button-border-color: #3D3B3C;
-    --default-button-background-color: #3D3B3C;
-    --default-hovered-button-font-color: #3D3B3C;
-    --default-hovered-button-background-color: transparent;
+    --default-button-font-color: #FDF6E3; /* Soft sand color */
+    --default-button-border-color: #1E4E79; /* Deep ocean blue */
+    --default-button-background-color: #1E4E79; /* Deep ocean blue */
+    --default-hovered-button-font-color: #1E4E79; /* Deep ocean blue */
+    --default-hovered-button-background-color: #FFB459; /* Warm sunset orange */
 
     /* Article */
     --article-background-color: transparent;
-    --article-font-color: #7F7979;
+    --article-font-color: #1E4E79; /* Deep ocean blue */
 
     /* Modal */
-    --modal-border-color: #C1BDB3;
-    --modal-background-color: #FFFFFF;
-    --modal-close-button-color: #C1BDB3;
-    --model-hovered-close-button-color: #000000F;
+    --modal-border-color: #FFB459; /* Warm sunset orange */
+    --modal-background-color: #FDF6E3; /* Soft sand color */
+    --modal-close-button-color: #1E4E79; /* Deep ocean blue */
+    --model-hovered-close-button-color: #FFB459; /* Warm sunset orange */
 }
