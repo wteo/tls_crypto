@@ -31,12 +31,12 @@ TLS Crypto Hub is structured around a hierarchical organization of cryptocurrenc
 
 ### 1. Category
 
-- **Description**: Categories are the highest level of organization and represent broad classifications of cryptocurrencies or related topics. Examples include "Platform", "Digital Coin", "DeFi", and "Meme Coins".
+- **Description**: Categories are the highest level of organization and represent broad classifications of cryptocurrencies or related topics. Examples include "Coins", "NFTs", and "Tokens".
 - **Implementation**: Categories are defined in the `models` directory, specifically in the `category.js` model. They are managed through the corresponding controller in the `controllers` directory.
 
 ### 2. Group
 
-- **Description**: Groups are subdivisions within a category, providing a more granular classification. For instance, under the "Platform" category, you might have groups like "Ethereum-based", "Binance Smart Chain-based", etc.
+- **Description**: Groups are subdivisions within a category, providing a more granular classification based on the group's general purpose or use case. For instance, under the "Coins" category, you might have groups like "Privacy Coins", "Memes", "Metaverse", etc.
 - **Implementation**: Groups are associated with a specific category and are defined in the `models` directory, in the `group.js` model. They are managed through the corresponding controller.
 
 ### 3. Coin/Token
