@@ -3,8 +3,6 @@
 
 TLS Crypto Hub is a centralized directory for cryptocurrency resources, designed to allow users to discover, link, and organize external cryptocurrency-related content. The platform aims to simplify the vast landscape of crypto resources, providing a user-friendly interface for easy navigation.
 
-Of course! Here's a draft of a table of contents (index) for your README:
-
 
 ## Table of Contents
 
