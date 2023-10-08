@@ -1,8 +1,8 @@
 {
-  "name": "TLS Crypto Index",
+  "name": "TLS Crypto Hub",
   "type": "module",
   "version": "1.0.0",
-  "description": "A simple and clean layout for a cryptocurrency index website",
+  "description": "A web platform designed to serve as a centralized directory for cryptocurrency resources.",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
