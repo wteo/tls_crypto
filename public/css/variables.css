@@ -1,38 +1,38 @@
 :root {
 
     /* Header Navigation */
-    --navigation-bar-color: #1E4E79; /* Deep ocean blue */
-    --navigation-font-color: #FDF6E3; /* Soft sand color */
+    --navigation-bar-color: #1E4E79;
+    --navigation-font-color: #FDF6E3;
 
     /* Search Bar */
-    --navigation-border-search-color: #FFB459; /* Warm sunset orange */
+    --navigation-border-search-color: #FFB459; 
 
     /* Body sections */
-    --main-background-color: #FDF6E3; /* Soft sand color */
-    --secondary-background-color: #FFB459; /* Warm sunset orange */
-    --main-font-color: #1E4E79; /* Deep ocean blue */
-    --secondary-font-color: #FDF6E3; /* Soft sand color */
+    --main-background-color: #FDF6E3;
+    --secondary-background-color: #FFB459; 
+    --main-font-color: #1E4E79;
+    --secondary-font-color: #FDF6E3;
 
     /* See More Button */
-    --see-more-button-font-color: #1E4E79; /* Deep ocean blue */
-    --see-more-button-border-color: #1E4E79; /* Deep ocean blue */
+    --see-more-button-font-color: #1E4E79;
+    --see-more-button-border-color: #1E4E79;
     --see-more-button-background-color: transparent;
-    --see-more-hovered-button-background-color: #FFB459; /* Warm sunset orange */
+    --see-more-hovered-button-background-color: #FFB459; 
 
     /* Default Buttons */
-    --default-button-font-color: #FDF6E3; /* Soft sand color */
-    --default-button-border-color: #1E4E79; /* Deep ocean blue */
-    --default-button-background-color: #1E4E79; /* Deep ocean blue */
-    --default-hovered-button-font-color: #1E4E79; /* Deep ocean blue */
-    --default-hovered-button-background-color: #FFB459; /* Warm sunset orange */
+    --default-button-font-color: #FDF6E3;
+    --default-button-border-color: #1E4E79;
+    --default-button-background-color: #1E4E79;
+    --default-hovered-button-font-color: #1E4E79;
+    --default-hovered-button-background-color: #FFB459; 
 
     /* Article */
     --article-background-color: transparent;
-    --article-font-color: #1E4E79; /* Deep ocean blue */
+    --article-font-color: #1E4E79;
 
     /* Modal */
-    --modal-border-color: #FFB459; /* Warm sunset orange */
-    --modal-background-color: #FDF6E3; /* Soft sand color */
-    --modal-close-button-color: #1E4E79; /* Deep ocean blue */
-    --model-hovered-close-button-color: #FFB459; /* Warm sunset orange */
+    --modal-border-color: #FFB459; 
+    --modal-background-color: #FDF6E3;
+    --modal-close-button-color: #1E4E79;
+    --model-hovered-close-button-color: #FFB459; 
 }
