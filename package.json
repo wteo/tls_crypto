@@ -1,5 +1,4 @@
 {
-  "name": "TLS Crypto Hub",
   "type": "module",
   "version": "1.0.0",
   "description": "A web platform designed to serve as a centralized directory for cryptocurrency resources.",
