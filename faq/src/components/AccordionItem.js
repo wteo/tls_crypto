@@ -12,8 +12,11 @@ function AccordionItem({ question, answer }) {
 
     return (
         <div className={styles.accordion__item}>
-            <button onClick={clickHandler} className={styles.accordion__header}>{ question }</button>
-            <div className={styles.accordion__content} style={{ display: isClicked ? 'block' : 'none' }}>
+            <button onClick={clickHandler} className={styles.accordion__header}>
+                <h4>{ question }</h4>
+                <i>{ isClicked ? '-' : '+'}</i>
+            </button>
+            <div className={styles.accordion__content} style={{ maxHeight: isClicked ? '300px' : '0' }}>
                 <p>{ answer }</p>
             </div>
         </div>

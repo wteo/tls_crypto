@@ -1,3 +1,7 @@
+.accordion__item {
+    border: 1px solid black;
+}
+
 .accordion__header {
     background-color: #f7f7f7;
     color: #333;
@@ -9,6 +13,14 @@
     outline: none;
     font-size: 1.2rem;
     transition: background-color 0.6s;
+    display: grid;
+    grid-template-columns: 1fr 30px;
+    gap: 20px;
+}
+
+.accordion__header h4 {
+    margin: auto 0;
+    padding: 0;
 }
 
 .accordion__header:hover {
@@ -18,5 +30,13 @@
 .accordion__content {
     background-color: white;
     border-top: 1px solid #f7f7f7;
+    max-height: 0; 
+    overflow: hidden;
+    transition: max-height 0.6s ease-in-out;
+}
+
+.accordion__content p {
     padding: 1rem;
 }
+
+
