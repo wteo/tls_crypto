@@ -38,11 +38,11 @@
                             <div class="coin__admin-controls">
                                 <form class="coin__admin-delete-form" action="/<%= group %>/<%= coin %>/admin/delete" method="POST">
                                     <input type="hidden" name="coin" value="<%= coin %>" />
-                                    <input type="hidden" name="resource" value="<%= resource.resource %>"/>
+                                    <input type="hidden" name="resourceId" value="<%= resource._id %>"/>
                                     <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                                     <button class="admin-delete-button">Delete</button>
                                 </form>
-                                <a href="/<%= group %>/<%= coin %>/<%= resource.resource %>/admin/update-resource-form"><button>Update</button></a>
+                                <a href="/<%= group %>/<%= coin %>/<%= resource._id %>/admin/update-resource-form"><button>Update</button></a>
                             </div>
                         </div>
                     <% }) %>

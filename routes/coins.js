@@ -11,6 +11,6 @@ router.post('/:group/:coin/admin/delete', CSRFProtection.verifyCSRFToken, coinsC
 
 router.post('/:group/:coin/admin/submit-resource-form', CSRFProtection.verifyCSRFToken, coinsController.addResource);
 
-router.post('/:group/:coin/:resource/admin/update', CSRFProtection.verifyCSRFToken, coinsController.updateResource);
+router.post('/:group/:coin/:resourceId/admin/update', CSRFProtection.verifyCSRFToken, coinsController.updateResource);
 
 export default router;

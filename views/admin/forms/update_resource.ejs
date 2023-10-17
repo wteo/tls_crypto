@@ -26,6 +26,8 @@
                 <label for="hyperlink">Link to Resource:</label>
                 <input type="url" value="<%= hyperlink %>" name="hyperlink" required>
 
+                <input type="hidden" name="resourceId" value="<%= resourceId %>">
+
                 <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                 
                 <div class="buttons-wrapper">

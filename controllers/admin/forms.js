@@ -74,14 +74,17 @@ const getAddResourceForm = async (req, res, next) => {
 const getUpdateResourceForm = async (req, res, next) => {
     try {
         const coinData = await Coins.findOne({ coin: req.params.coin });
-        const resource = coinData.resources.filter(resource => resource.resource === req.params.resource);
+        // console.log(coinData);
+        const resource = coinData.resources.filter(resource => resource._id.toString() === req.params.resourceId);
+        console.log(resource);
         return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_resource.ejs'), 
             { 
                 group: req.params.group, 
                 coin: req.params.coin, 
                 resource: resource[0].resource, 
                 imageLink: resource[0].imageLink, 
-                hyperlink: resource[0].hyperlink 
+                hyperlink: resource[0].hyperlink,
+                resourceId: resource[0]._id
             });
     } catch (error) {
         next(error);
