@@ -15,7 +15,7 @@
         <%- include('../partials/nav_header.ejs') %>
     </header>
         <section>
-            <form class="resource__form" action="/<%= group %>/<%= coin %>/admin/submit-resource-form" method="POST">
+            <form class="resource__form" action="/<%= encode(group) %>/<%= encode(coin) %>/admin/submit-resource-form" method="POST">
 
                 <label for="resource">Resource:</label>
                 <input type="text" name="resource" required>

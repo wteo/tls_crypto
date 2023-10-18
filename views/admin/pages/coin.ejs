@@ -36,7 +36,7 @@
                             <img class="coin__resources-image--admin" src="<%= resource.imageLink %>" alt="" />
                             <h3 class="coin__resources-group--admin"><%= resource.resource %></h3>
                             <div class="coin__admin-controls">
-                                <form class="coin__admin-delete-form" action="/<%= group %>/<%= coin %>/admin/delete" method="POST">
+                                <form class="coin__admin-delete-form" action="/<%= encode(group) %>/<%= encode(coin) %>/admin/delete" method="POST">
                                     <input type="hidden" name="coin" value="<%= coin %>" />
                                     <input type="hidden" name="resourceId" value="<%= resource._id %>"/>
                                     <input type="hidden" name="csrfToken" value="<%= csrfToken %>">

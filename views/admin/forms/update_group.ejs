@@ -14,7 +14,7 @@
         <%- include('../partials/nav_header.ejs') %>
     </header>
         <section>
-            <form class="coin__form" action="/<%= group %>/admin/submit-update-group-form" method="POST">
+            <form class="coin__form" action="/<%= encode(group) %>/admin/submit-update-group-form" method="POST">
 
                 <label for="category">Category:</label>
                 <select name="category" required>

@@ -15,7 +15,7 @@
         <%- include('../partials/nav_header.ejs') %>
     </header>
         <section>
-            <form class="coin__form" action="/<%= group %>/<%= coin %>/admin/update" method="POST">
+            <form class="coin__form" action="/<%= encode(group) %>/<%= encode(coin) %>/admin/update" method="POST">
 
                 <% if (errorMessage) { %>
                     <p class="flash-message invalid"><%= errorMessage %></p>

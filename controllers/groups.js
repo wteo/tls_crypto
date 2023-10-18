@@ -28,7 +28,7 @@ const addGroup = async (req, res, next) => {
     try {
         const { category, group, description } = req.body;
         await Groups.create({ category, group, description });
-        return res.redirect(`/${group}/admin`);
+        return res.redirect(`/${encodeURIComponent(group)}/admin`);
     } catch (error) {
         next(error);
     }
@@ -64,7 +64,7 @@ const addCoin = async (req, res, next) => {
             await Groups.updateOne({ group }, { $push: { coins: { coin, coinLogoLink } } });
             await Coins.create({ coin, description, imageLink, resources: [] });
             req.session.oldInput = {};
-            return res.redirect(`/${group}/admin`);
+            return res.redirect(`/${encodeURIComponent(group)}/admin`);
         } else {
             req.flash('error', 'This coin already exists in our database. Please update the existing coin or choose a different name.');
             req.session.oldInput = { group, coin, coinLogoLink, description, imageLink };
@@ -91,10 +91,10 @@ const updateCoin = async (req, res, next) => {
         if (coinData === null || coinData.coin === req.params.coin ) {
             await Groups.updateOne(conditions, update);
             await Coins.updateOne({ coin: req.params.coin }, { coin, description, imageLink})
-            return res.redirect(`/${req.params.group}/${req.body.coin}/admin`);
+            return res.redirect(`/${req.params.group}/${encodeURIComponent(req.body.coin)}/admin`);
         } else {
             req.flash('error', 'This coin already exists in our database. Please update the existing coin or choose a different name.');
-            return req.session.save(error => error ? next(error) : res.redirect(`/${req.params.group}/${req.params.coin}/admin/update-coin-form`)); 
+            return req.session.save(error => error ? next(error) : res.redirect(`/${encodeURIComponent(req.params.group)}/${encodeURIComponent(req.params.coin)}/admin/update-coin-form`)); 
         }
 
     } catch (error) {
@@ -109,7 +109,7 @@ const deleteCoin = async (req, res, next) => {
         const update = { $pull: { coins: { coin }} };
         await Groups.updateOne (conditions, update);
         await Coins.deleteOne({ coin });
-        return res.redirect(`/${group}/admin`);
+        return res.redirect(`/${encodeURIComponent(group)}/admin`);
     } catch (error) {
         next(error);
     }
