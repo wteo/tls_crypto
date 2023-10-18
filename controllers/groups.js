@@ -91,7 +91,7 @@ const updateCoin = async (req, res, next) => {
         if (coinData === null || coinData.coin === req.params.coin ) {
             await Groups.updateOne(conditions, update);
             await Coins.updateOne({ coin: req.params.coin }, { coin, description, imageLink})
-            return res.redirect(`/${req.params.group}/${encodeURIComponent(req.body.coin)}/admin`);
+            return res.redirect(`/${encodeURIComponent(req.params.group)}/${encodeURIComponent(req.body.coin)}/admin`);
         } else {
             req.flash('error', 'This coin already exists in our database. Please update the existing coin or choose a different name.');
             return req.session.save(error => error ? next(error) : res.redirect(`/${encodeURIComponent(req.params.group)}/${encodeURIComponent(req.params.coin)}/admin/update-coin-form`)); 
