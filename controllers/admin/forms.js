@@ -6,7 +6,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const getAddGroupForm = (req, res) => {
-    return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'add_group.ejs'));
+    return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'add_group.ejs'), 
+        { 
+            errorMessage: req.flash('error')[0],
+            oldInput: req.session.oldInput || {} 
+        });
 }
 
 const getUpdateGroupForm = (req, res) => {
@@ -19,7 +23,13 @@ const getUpdateGroupForm = (req, res) => {
         return res.status(404).render(path.join(__dirname, '..', '..', 'views', '404.ejs'));
     } else {
         const { category, group, description } = filteredGroup[0];
-        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_group.ejs'), { category, group, description });
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_group.ejs'), 
+            { 
+                category, 
+                group, 
+                description,            
+                errorMessage: req.flash('error')[0],
+            });
     }
 }
 

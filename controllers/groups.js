@@ -27,8 +27,18 @@ const fetchGroup = async(req, res, next) => {
 const addGroup = async (req, res, next) => {
     try {
         const { category, group, description } = req.body;
-        await Groups.create({ category, group, description });
-        return res.redirect(`/${encodeURIComponent(group)}/admin`);
+
+        const groupCheck = await Groups.findOne({ group }) === null;
+        
+        if (groupCheck) {
+            await Groups.create({ category, group, description });
+            req.session.oldInput = {};
+            return res.redirect(`/${encodeURIComponent(group)}/admin`);
+        } else {
+            req.flash('error', 'This group already exists in our database. Please update the existing group or choose a different group name.');
+            req.session.oldInput = { category, group, description };
+            return req.session.save(error => error ? next(error) : res.redirect('/admin/add-group-form'));
+        }
     } catch (error) {
         next(error);
     }
@@ -37,9 +47,17 @@ const addGroup = async (req, res, next) => {
 const updateGroup = async (req, res, next) => {
     try {
         const { category, group, description } = req.body;
-        const query = { group: req.params.group };
-        await Groups.updateOne (query, { category, group, description });
-        return res.redirect(`/admin`);
+
+        const groupData = await Groups.findOne({ group });
+
+        if (groupData === null || groupData.group === req.params.group) {
+            const query = { group: req.params.group };
+            await Groups.updateOne (query, { category, group, description });
+            return res.redirect(`/admin`);
+        } else {
+            req.flash('error', 'This group already exists in our database. Please update the existing group or choose a different group name.');
+            return req.session.save(error => error ? next(error) : res.redirect(`/${encodeURIComponent(req.params.group)}/admin/update-group-form`));
+        }
     } catch (error) {
         next(error);
     }
@@ -88,7 +106,7 @@ const updateCoin = async (req, res, next) => {
 
         const coinData = await Coins.findOne({ coin });
 
-        if (coinData === null || coinData.coin === req.params.coin ) {
+        if (coinData === null || coinData.coin === req.params.coin) {
             await Groups.updateOne(conditions, update);
             await Coins.updateOne({ coin: req.params.coin }, { coin, description, imageLink})
             return res.redirect(`/${encodeURIComponent(req.params.group)}/${encodeURIComponent(req.body.coin)}/admin`);
