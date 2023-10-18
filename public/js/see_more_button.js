@@ -33,9 +33,9 @@ const addLink = () => {
     for (let button of buttons) {
         const group = button.parentElement.dataset.group;
         if (isAdmin) {
-            button.href = `/${group}/admin`;
+            button.href = `/${encodeURIComponent(group)}/admin`;
         } else {
-            button.href = `/${group}`;
+            button.href = `/${encodeURIComponent(group)}`;
         }
     }
 }

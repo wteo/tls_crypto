@@ -17,8 +17,8 @@
     </header>
         <section>
             <div class="coin__wrapper">
-                <p class="coin__breadcrumb"><a href="/<%= group %>/admin"><%= group %></a> > <%= coin %></p>
-                <a href="/<%= group %>/<%= coin %>/admin/update-coin-form"><button>Update Coin</button></a>
+                <p class="coin__breadcrumb"><a href="/<%= encode(group) %>/admin"><%= group %></a> > <%= coin %></p>
+                <a href="/<%= encode(group) %>/<%= encode(coin) %>/admin/update-coin-form"><button>Update Coin</button></a>
                 <h1 class="coin__title"><%= coin %></h1>
                 <div class="coin__grid">
                     <div class="coin__container">
@@ -42,11 +42,11 @@
                                     <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                                     <button class="admin-delete-button">Delete</button>
                                 </form>
-                                <a href="/<%= group %>/<%= coin %>/<%= resource._id %>/admin/update-resource-form"><button>Update</button></a>
+                                <a href="/<%= encode(group) %>/<%= encode(coin) %>/<%= resource._id %>/admin/update-resource-form"><button>Update</button></a>
                             </div>
                         </div>
                     <% }) %>
-                    <a class="coin__resources-container--admin coin__resource-button-container" href="/<%= group %>/<%= coin  %>/admin/add-resource-form">
+                    <a class="coin__resources-container--admin coin__resource-button-container" href="/<%= encode(group) %>/<%= encode(coin)  %>/admin/add-resource-form">
                         <span class="coin__resource-more">+</span>
                         <button class="coin__resource-button">Add more resource</button>
                     </a>

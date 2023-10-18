@@ -20,7 +20,7 @@
                 <div class="group__coin-grid">
                     <% coins.forEach( coin => { %>
                         <div class="group__coin-container">
-                            <a href="/<%= group %>/<%= coin.coin %>">
+                            <a href="/<%= encode(group) %>/<%= encode(coin.coin) %>">
                                 <img class="group__coin-image" src="<%= coin.coinLogoLink %>" alt="" />
                                 <h3 class="group__coin-title"><%= coin.coin %></h3>
                             </a>

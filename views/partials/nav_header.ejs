@@ -14,7 +14,7 @@
                 <ul class="nav__dropdown">
                     <% groups.forEach( group => { %>
                         <% if (group.category === category) { %>
-                            <li class="nav__dropdown-title"><a href="/<%= group.group %>"><%= group.group %></a></li>
+                            <li class="nav__dropdown-title"><a href="/<%= encode(group.group) %>"><%= group.group %></a></li>
                         <% } %>
                     <% }) %>
                 </ul>

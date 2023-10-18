@@ -23,7 +23,7 @@
                     <div class="group__coin-grid">
                         <% results.forEach( result => { %>
                             <div class="group__coin-container">
-                                <a href="/<%= result.group %>/<%= result.coin %>">
+                                <a href="/<%= encode(result.group) %>/<%= encode(result.coin) %>">
                                     <img class="group__coin-image" src="<%= result.imageLink %>" alt="Coin Logo" />
                                     <h3 class="group__coin-title"><%= result.coin %></h3>
                                 </a>
