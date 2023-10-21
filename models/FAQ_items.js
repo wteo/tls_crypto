@@ -1,6 +1,7 @@
 import mongoose from 'mongoose';
 
 const FAQItemSchema = new mongoose.Schema({
+    category: String,
     question: String,
     answer: String,
 });

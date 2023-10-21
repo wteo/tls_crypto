@@ -1,0 +1,13 @@
+section {
+    padding: 20vh 10vw 30vh;
+}
+
+section:nth-child(odd) {
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-font-color);
+}
+
+section:nth-child(even) {
+    background-color: var(--main-background-color);
+    color: var(--main-font-color);
+}

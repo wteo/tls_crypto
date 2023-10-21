@@ -1,0 +1,24 @@
+:root {
+    /* Header Navigation */
+    --navigation-bar-color: #1E4E79;
+    --navigation-font-color: #FDF6E3;
+
+    /* Body sections */
+    --main-background-color: #FDF6E3;
+    --secondary-background-color: #FFB459; 
+    --main-font-color: #1E4E79;
+    --secondary-font-color: #FDF6E3;
+
+    /* Style for accordion components */
+    --border-color: #5C8DAD;
+    --separation-line-color: #3E6A8D;
+    --accordion-header-color: #5C8DAD;
+    --accordion-header-hovered-color: #3E6A8D;
+}
+
+body {
+    margin: 0;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+      sans-serif;
+}
