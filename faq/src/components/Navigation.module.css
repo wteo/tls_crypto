@@ -13,6 +13,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    transition: transform 0.3s;
 }
 
 .nav__menu {
@@ -69,7 +70,17 @@ header {
 
 .nav__top__bar {
     display: none;
+    transition: transform 0.3s;
 }
+
+.nav__menu__mobile {
+    display: none;
+}
+
+.hidden {
+    transform: translateY(-100%); /* This will move the elements up out of view */
+}
+
     
 /* Mobile layout */
 @media (max-width: 750px) {
@@ -78,10 +89,30 @@ header {
     }
 
     .nav {
-        bottom: 0;
+        display: none;
+    }
+
+    .nav__menu__mobile {
+        display: flex;
+        gap: 5vh;
+        flex-direction: column;
+        position: fixed;
+        top: 0;
         right: 50%;
+        bottom: 0;
+        left: 0;
+        background-color: var(--navigation-bar-color);
+        list-style: none; 
+        margin: 0;
+        padding: 25vh 10vw; 
+        text-transform: uppercase;
+        z-index: 100;
         transform: translateX(-100%);
-        opacity: 0;
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .nav__menu__mobile.navOpen {
+        transform: translateX(0);
     }
 
     .nav__top__bar {
@@ -103,21 +134,6 @@ header {
     }
     
 
-    .nav.navOpen {
-        transform: translateX(0); 
-        opacity: 1;
-        transition: all 0.5s;
-    }
-
-    .nav__menu {
-        flex-direction: column;
-        gap: 5vh;
-        align-items: start;
-        position: relative;
-        margin-top: 20vh;
-        margin-left: 3vw;
-    }
-
     .nav__icon__wrapper {
         display: none;
     }
@@ -138,4 +154,6 @@ header {
     } 
     
 }
+
+
 
