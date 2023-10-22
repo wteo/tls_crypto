@@ -36,7 +36,7 @@ section:nth-child(even) {
 }
 
 .checklist__overlay {
-    background-color: rgba(0,0,0, 0.7);
+    background-color: rgba(0,0,0, 0.5);
     position: fixed;
     top: 0;
     right: 0;

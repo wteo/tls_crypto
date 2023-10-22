@@ -13,7 +13,6 @@ header {
     top: 0;
     left: 0;
     right: 0;
-    transition: all 0.5s;
 }
 
 .nav__menu {
@@ -47,10 +46,11 @@ header {
 }
 
 .nav__hamburger {
+    font-size: xx-large;
     display: none;
     position: fixed;
-    top: 15px;
-    left: 15px;
+    top: 30px;
+    left: 30px;
     width: 45px;
     height: 45px;
     background-color: rgba(0,0,0,0.3);
@@ -65,14 +65,22 @@ header {
 .nav__hamburger:hover {
     background-color: rgba(0,0,0,0.5);
     cursor: pointer;
-    font-size: larger;
 }
 
+.nav__top__bar {
+    display: none;
+}
 
 /* Tablet layout */
 @media (min-width: 751px) and (max-width: 1200px) {
 
 }
+
+.hidden {
+    transform: translateY(-100%); /* This will move the header up out of view */
+    transition: transform 0.3s ease-in-out;
+}
+
     
 /* Mobile layout */
 @media (max-width: 750px) {
@@ -83,6 +91,33 @@ header {
     .nav {
         bottom: 0;
         right: 50%;
+        transform: translateX(-100%);
+        opacity: 0;
+        transition: all 0.25s;
+    }
+
+    .nav__top__bar {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        background-color: var(--navigation-bar-color);
+    }
+    
+    .nav__icon__image__mobile {
+        max-width: 50px;
+        max-height: auto;
+        width: 100%;
+        margin: 15px 50px;
+        float: right;
+    }
+    
+
+    .nav.navOpen {
+        transform: translateX(0); 
+        opacity: 1;
     }
 
     .nav__menu {
@@ -90,12 +125,28 @@ header {
         gap: 5vh;
         align-items: start;
         position: relative;
-        margin-top: 10vh;
+        margin-top: 20vh;
         margin-left: 3vw;
+    }
+
+    .nav__icon__wrapper {
+        display: none;
     }
 
     .nav__hamburger {
         display: block;
     }
 
+    .nav__overlay {
+        position: fixed;
+        z-index: 50;
+        background-color: black;
+        opacity: 0.5;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    } 
+    
 }
+
