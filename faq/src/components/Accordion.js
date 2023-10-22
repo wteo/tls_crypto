@@ -27,7 +27,14 @@ function Accordion(props) {
     return (
         <div className={styles.accordion}>
             <h1 className={styles.accordion__title}>{ props.title }</h1>
-            { accordionItems.map((item, index) => <AccordionItem key={index} question={item.question} answer={item.answer} />) }
+            { accordionItems.map((item, index) => 
+                <AccordionItem 
+                    key={index} 
+                    question={item.question} 
+                    answer={item.answer} 
+                    list={item.list ?? []} 
+                />) 
+            }
         </div>
     );
 }

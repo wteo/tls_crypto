@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styles from './AccordionItem.module.css';
 
-function AccordionItem({ question, answer }) {
+function AccordionItem({ question, answer, list }) {
 
     const [isClicked, setIsClicked] = useState(false);
 
@@ -18,6 +18,9 @@ function AccordionItem({ question, answer }) {
             </button>
             <div className={styles.accordion__content} style={{ maxHeight: isClicked ? '300px' : '0' }}>
                 <p>{ answer }</p>
+                <ul>
+                    { list.map((item, index) => <li key={index}>{item}</li>) }
+                </ul>
             </div>
         </div>
     );

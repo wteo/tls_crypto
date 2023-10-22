@@ -7,6 +7,12 @@
 .tiers__container {
     border: 1px solid black;
     padding: 3vh 1vw;
+    transition: all 0.5s;
+}
+
+.tiers__container:hover {
+    box-shadow: 10px 10px 20px rgba(246, 123, 0, 0.2);
+    cursor: pointer;
 }
 
 .tiers__container h3, .tiers__container h6 {

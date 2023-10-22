@@ -14,8 +14,8 @@ function Navigation() {
                   </a>
               </li>
               <li className={styles.nav__menu__title}>About Us</li>
+              <li className={styles.nav__menu__title}>The Team</li>
               <li className={styles.nav__menu__title}>FAQ</li>
-              <li className={styles.nav__menu__title}>Contact Us</li>
           </ul>
         </nav>
       </header>

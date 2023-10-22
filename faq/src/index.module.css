@@ -14,6 +14,13 @@
     --separation-line-color: #3E6A8D;
     --accordion-header-color: #5C8DAD;
     --accordion-header-hovered-color: #3E6A8D;
+
+    /* Style for button */
+    --primary-button-color: #1E4E79;
+    --primary-border-button-color: #1E4E79;
+    --primary-font-button-color: white;
+
+
 }
 
 body {
