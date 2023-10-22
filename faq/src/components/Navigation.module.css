@@ -70,17 +70,6 @@ header {
 .nav__top__bar {
     display: none;
 }
-
-/* Tablet layout */
-@media (min-width: 751px) and (max-width: 1200px) {
-
-}
-
-.hidden {
-    transform: translateY(-100%); /* This will move the header up out of view */
-    transition: transform 0.3s ease-in-out;
-}
-
     
 /* Mobile layout */
 @media (max-width: 750px) {
@@ -93,7 +82,6 @@ header {
         right: 50%;
         transform: translateX(-100%);
         opacity: 0;
-        transition: all 0.25s;
     }
 
     .nav__top__bar {
@@ -118,6 +106,7 @@ header {
     .nav.navOpen {
         transform: translateX(0); 
         opacity: 1;
+        transition: all 0.5s;
     }
 
     .nav__menu {
