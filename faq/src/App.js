@@ -3,6 +3,7 @@ import React, { useState, useRef } from 'react';
 import Navigation from './components/Navigation';
 import Tiers from './components/Tiers';
 import Accordion from './components/Accordion';
+import Profiles from './components/Profiles';
 import Footer from './components/Footer';
 
 import styles from './App.module.css';
@@ -50,7 +51,7 @@ function App() {
         }
       </section>
       <section>
-        The Team
+        <Profiles />
       </section>
       <section>
         <Accordion title='General' category='general'/>
