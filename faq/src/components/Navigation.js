@@ -34,7 +34,7 @@ function Navigation() {
     const MenuItems = () => (
         <>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
-                <Link to='about' spy={true} smooth={true} offset={0} duration={250} onClick={toggleMenu}>About Us</Link>
+                <Link to='about' spy={true} smooth={true} offset={-40} duration={250} onClick={toggleMenu}>About Us</Link>
             </li>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
                 <Link to='team' spy={true} smooth={true} offset={80} duration={250} onClick={toggleMenu}>The Team</Link>
