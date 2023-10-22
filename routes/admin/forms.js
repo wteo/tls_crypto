@@ -15,6 +15,6 @@ router.get('/:group/:coin/admin/update-coin-form', checkAuth, adminFormsControll
 
 router.get('/:group/:coin/admin/add-resource-form', checkAuth, adminFormsController.getAddResourceForm);
 
-router.get('/:group/:coin/:resource/admin/update-resource-form', checkAuth, adminFormsController.getUpdateResourceForm);
+router.get('/:group/:coin/:resourceId/admin/update-resource-form', checkAuth, adminFormsController.getUpdateResourceForm);
 
 export default router;

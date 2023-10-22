@@ -1,0 +1,24 @@
+.tiers__wrapper {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3vw;
+}
+
+.tiers__container {
+    border: 1px solid black;
+    padding: 3vh 1vw;
+    transition: all 0.5s;
+}
+
+.tiers__container h3, .tiers__container h6 {
+    text-align: center;
+    margin: 0;
+}
+
+/* Mobile layout */
+@media (max-width: 750px) {
+    .tiers__wrapper {
+        grid-template-columns: 1fr;
+        margin: 0 5vw;
+    }
+}

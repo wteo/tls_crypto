@@ -1,0 +1,78 @@
+section {
+    padding: 20vh 10vw 30vh;
+}
+
+section:nth-child(odd) {
+    background-color: var(--secondary-background-color);
+    color: var(--secondary-font-color);
+}
+
+section:nth-child(even) {
+    background-color: var(--main-background-color);
+    color: var(--main-font-color);
+}
+
+.checklist__wrapper {
+    text-align: center;
+}
+
+.checklist__wrapper h1 {
+    font-size: xx-large;
+}
+
+.checklist__wrapper button {
+    padding: 15px 20px;
+    text-transform: uppercase;
+    border: 3px solid var(--primary-border-button-color);
+    background-color: var(--primary-button-color);
+    color: var(--primary-font-button-color);
+    transition: all 0.5s;
+}
+
+.checklist__wrapper button:hover {
+    background-color: transparent;
+    color: var(--primary-button-color);
+    cursor: pointer;
+}
+
+.checklist__overlay {
+    background-color: rgba(0,0,0, 0.5);
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.checklist__modal {
+    background-color: white;
+    color:black;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 90%;
+    max-width: 550px;
+    background-image: url(./images/checklist.png);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: 100% 100%;
+}
+
+.checklist__container {
+    text-align: left;
+    position: fixed;
+    z-index: 100;
+    overflow-y: scroll;
+    top: 20vh;
+    bottom: 15vh;
+    max-width: 550px;
+    display: grid;
+}
+
+.checklist__container div {
+    margin: 0 2vw 0 4vw;
+}
