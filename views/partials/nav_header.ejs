@@ -1,5 +1,5 @@
 <nav class="nav">
-    <button class="nav__hamburger">
+    <button id="nav__hamburger">
         ☰
     </button>
     <ul class="nav__menu">
@@ -14,7 +14,7 @@
                 <ul class="nav__dropdown">
                     <% groups.forEach( group => { %>
                         <% if (group.category === category) { %>
-                            <li class="nav__dropdown-title"><a href="/<%= group.group %>"><%= group.group %></a></li>
+                            <li class="nav__dropdown-title"><a href="/<%= encode(group.group) %>"><%= group.group %></a></li>
                         <% } %>
                     <% }) %>
                 </ul>
@@ -23,7 +23,6 @@
     </ul>
     <form class="nav__search" method="GET" action="/results">
         <input class="nav__search-input" type="text" placeholder="Search a coin..." name="coin" />
-        <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
         <button class="nav__search-button">
             <img class="nav__search-icon" src="/icons/search.png" alt="Search Icon" />
         </button>

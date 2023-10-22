@@ -9,6 +9,7 @@ import CSRFProtection from './middlewares/csrf_protection.js';
 import flash from 'connect-flash';
 
 // Import route handlers
+import FAQItemsRouter from './routes/FAQ_items.js';
 import globalGroupsRouter from './routes/global_groups.js';
 import authRouter from './routes/auth.js';
 import adminPagesRouter from './routes/admin/pages.js';
@@ -22,7 +23,7 @@ const __dirname = path.dirname(__filename);
 
 // Initialize the Express application
 const app = express();
-const PORT = 3000;
+const PORT = 8000;
 
 // Set up the view engine as EJS
 app.set('view engine', 'ejs'); 
@@ -42,11 +43,22 @@ app.use(session({
     }
 }));
 
+app.use((req, res, next) => {
+    res.setHeader('Access-Control-Allow-Origin', '*');
+    res.setHeader('Access-Control-Allow-Methods', 'GET');
+    res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization');
+    next();
+})
+
 // Apply CSRF protection middleware
 app.use(CSRFProtection.generateCSRFToken);
 app.use(flash());
 
 // Define routes for the application
+// REST API
+app.use('/api/', FAQItemsRouter);
+
+// Server-side UI
 app.use(globalGroupsRouter);
 app.use(authRouter);
 app.use(adminFormsRouter);

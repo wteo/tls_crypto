@@ -135,7 +135,7 @@ const postPasswordResetForm = async (req, res, next) => {
                         {
                             From: {
                                 Email: process.env.SENDER_EMAIL,
-                                Name: 'Admin'
+                                Name: 'Support'
                             },
                             To: [
                                 {

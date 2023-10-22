@@ -1,38 +1,37 @@
 :root {
-
     /* Header Navigation */
-    --navigation-bar-color: #1E4E79;
-    --navigation-font-color: #FDF6E3;
+    --navigation-bar-color: #2A6A8F;
+    --navigation-font-color: #FAF3E0;
 
     /* Search Bar */
-    --navigation-border-search-color: #FFB459; 
+    --navigation-border-search-color: #7DA7BE; 
 
     /* Body sections */
-    --main-background-color: #FDF6E3;
-    --secondary-background-color: #FFB459; 
-    --main-font-color: #1E4E79;
-    --secondary-font-color: #FDF6E3;
+    --main-background-color: #FAF3E0;
+    --secondary-background-color: #ba9167; 
+    --main-font-color: #2A6A8F;
+    --secondary-font-color: #FAF3E0;
 
     /* See More Button */
-    --see-more-button-font-color: #1E4E79;
-    --see-more-button-border-color: #1E4E79;
+    --see-more-button-font-color: #2A6A8F;
+    --see-more-button-border-color: #2A6A8F;
     --see-more-button-background-color: transparent;
-    --see-more-hovered-button-background-color: #FFB459; 
+    --see-more-hovered-button-background-color: #ba9167; 
 
     /* Default Buttons */
-    --default-button-font-color: #FDF6E3;
-    --default-button-border-color: #1E4E79;
-    --default-button-background-color: #1E4E79;
-    --default-hovered-button-font-color: #1E4E79;
-    --default-hovered-button-background-color: #FFB459; 
+    --default-button-font-color: #FAF3E0;
+    --default-button-border-color: #2A6A8F;
+    --default-button-background-color: #2A6A8F;
+    --default-hovered-button-font-color: #2A6A8F;
+    --default-hovered-button-background-color: transparent;
 
     /* Article */
     --article-background-color: transparent;
-    --article-font-color: #1E4E79;
+    --article-font-color: #2A6A8F;
 
     /* Modal */
-    --modal-border-color: #FFB459; 
-    --modal-background-color: #FDF6E3;
-    --modal-close-button-color: #1E4E79;
-    --model-hovered-close-button-color: #FFB459; 
+    --modal-border-color: #ba9167; 
+    --modal-background-color: #FAF3E0;
+    --modal-close-button-color: #2A6A8F;
+    --model-hovered-close-button-color: #ba9167; 
 }

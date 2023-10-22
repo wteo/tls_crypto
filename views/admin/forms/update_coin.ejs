@@ -15,7 +15,7 @@
         <%- include('../partials/nav_header.ejs') %>
     </header>
         <section>
-            <form class="coin__form" action="/<%= group %>/<%= coin %>/admin/update" method="POST">
+            <form class="coin__form" action="/<%= encode(group) %>/<%= encode(coin) %>/admin/update" method="POST">
 
                 <% if (errorMessage) { %>
                     <p class="flash-message invalid"><%= errorMessage %></p>
@@ -39,7 +39,7 @@
                 
                 <div class="buttons-wrapper">
                     <button type="submit">Update Coin</button>
-                    <a href="/<%= group %>/<%= coin %>/admin/"><button type="button">Cancel</button></a>
+                    <a href="/<%= encode(group) %>/<%= encode(coin) %>/admin/"><button type="button">Cancel</button></a>
                 </div> 
             </form>
         </section>

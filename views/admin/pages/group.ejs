@@ -24,13 +24,13 @@
                             <img class="group__coin-image--admin" src="<%= coin.coinLogoLink %>" alt="" />
                             <h3 class="group__coin-title--admin"><%= coin.coin %></h3>
                             <div class="group__admin-controls">
-                                <form class="group__admin-delete-form" action="/<%= group %>/admin/delete" method="POST">
+                                <form class="group__admin-delete-form" action="/<%= encode(group) %>/admin/delete" method="POST">
                                     <input type="hidden" name="group" value="<%= group %>" />
                                     <input type="hidden" name="coin" value="<%= coin.coin %>"/>
                                     <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                                     <button class="admin-delete-button">Delete</button>
                                 </form>
-                                <a href="/<%= group %>/<%= coin.coin %>/admin"><button>Update</button></a>
+                                <a href="/<%= encode(group) %>/<%= encode(coin.coin) %>/admin"><button>Update</button></a>
                             </div>
                         </div>
                     <% }) %>

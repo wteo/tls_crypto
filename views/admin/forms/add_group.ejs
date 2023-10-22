@@ -23,12 +23,18 @@
                     <option value="NFTs">NFTs</option>
                     <option value="Tokens">Tokens</option>
                 </select>
+
+                
+                <% if (errorMessage) { %>
+                    <p class="flash-message invalid"><%= errorMessage %></p>
+                <% } %>                
                 
                 <label for="group">Group:</label>
-                <input type="text" name="group" required>
+                <input type="text" name="group" value="<%= oldInput.group %>" required>
 
                 <label for="description">Description:</label>
                 <textarea type="text" name="description" rows="4" required>
+                    <%= oldInput.description %>
                 </textarea>
 
                 <input type="hidden" name="csrfToken" value="<%= csrfToken %>">

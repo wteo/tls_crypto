@@ -1,5 +1,5 @@
 // Toggle menu on hamburger click
-document.querySelector('.nav__hamburger').addEventListener('click', function() {
+document.querySelector('#nav__hamburger').addEventListener('click', function() {
     const menu = document.querySelector('.nav__menu');
     menu.classList.toggle('active');
 });

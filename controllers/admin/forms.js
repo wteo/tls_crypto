@@ -6,7 +6,11 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const getAddGroupForm = (req, res) => {
-    return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'add_group.ejs'));
+    return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'add_group.ejs'), 
+        { 
+            errorMessage: req.flash('error')[0],
+            oldInput: req.session.oldInput || {} 
+        });
 }
 
 const getUpdateGroupForm = (req, res) => {
@@ -19,7 +23,13 @@ const getUpdateGroupForm = (req, res) => {
         return res.status(404).render(path.join(__dirname, '..', '..', 'views', '404.ejs'));
     } else {
         const { category, group, description } = filteredGroup[0];
-        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_group.ejs'), { category, group, description });
+        return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_group.ejs'), 
+            { 
+                category, 
+                group, 
+                description,            
+                errorMessage: req.flash('error')[0],
+            });
     }
 }
 
@@ -74,14 +84,17 @@ const getAddResourceForm = async (req, res, next) => {
 const getUpdateResourceForm = async (req, res, next) => {
     try {
         const coinData = await Coins.findOne({ coin: req.params.coin });
-        const resource = coinData.resources.filter(resource => resource.resource === req.params.resource);
+        // console.log(coinData);
+        const resource = coinData.resources.filter(resource => resource._id.toString() === req.params.resourceId);
+        console.log(resource);
         return res.render(path.join(__dirname, '..', '..', 'views', 'admin', 'forms', 'update_resource.ejs'), 
             { 
                 group: req.params.group, 
                 coin: req.params.coin, 
                 resource: resource[0].resource, 
                 imageLink: resource[0].imageLink, 
-                hyperlink: resource[0].hyperlink 
+                hyperlink: resource[0].hyperlink,
+                resourceId: resource[0]._id
             });
     } catch (error) {
         next(error);

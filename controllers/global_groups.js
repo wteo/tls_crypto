@@ -11,6 +11,7 @@ const globalGroupsModel = new GlobalGroupsModel();
 
 const getCategories = async (req, res, next) => {
     try {
+        res.locals.encode = encodeURIComponent;
         res.locals.categories = await Groups.distinct('category');
         res.locals.groups = await globalGroupsModel.getGroupsWithSortedCoins();
         next();

@@ -23,9 +23,9 @@ const getSelectedCoin = async (req, res, next) => {
 
 const deleteResource = async (req, res, next) => {
     try {
-        const { coin, resource } = req.body;
-        await Coins.updateOne({ coin }, { $pull: { resources: { resource }} });
-        return res.redirect(`/${req.params.group}/${coin}/admin`);
+        const { coin, resourceId } = req.body;
+        await Coins.updateOne({ coin }, { $pull: { resources: { _id: resourceId }} });
+        return res.redirect(`/${encodeURIComponent(req.params.group)}/${encodeURIComponent(coin)}/admin`);
     } catch (error) {
         next(error);
     }
@@ -36,7 +36,7 @@ const addResource = async (req, res, next) => {
         const { group, coin } = req.params;
         const { resource, imageLink, hyperlink } = req.body
         await Coins.updateOne({ coin }, { $push: { resources: { resource, imageLink, hyperlink } } });
-        return res.redirect(`/${group}/${coin}/admin`);
+        return res.redirect(`/${encodeURIComponent(group)}/${encodeURIComponent(coin)}/admin`);
     } catch (error) {
         next(error);
     }
@@ -45,10 +45,10 @@ const addResource = async (req, res, next) => {
 const updateResource = async (req, res, next) => {
     try {
         const { group, coin } = req.params;
-        const { resource, imageLink, hyperlink } = req.body;
+        const { resource, imageLink, hyperlink, resourceId } = req.body;
         await Coins.updateOne({ 
             coin,
-            "resources.resource": req.params.resource
+            "resources._id": resourceId
         } , {
             $set: {
                 "resources.$.resource": resource,
@@ -56,7 +56,7 @@ const updateResource = async (req, res, next) => {
                 "resources.$.hyperlink": hyperlink
             }
         });
-        return res.redirect(`/${group}/${coin}/admin`);
+        return res.redirect(`/${encodeURIComponent(group)}/${encodeURIComponent(coin)}/admin`);
     } catch (error) {
         next(error);
     }

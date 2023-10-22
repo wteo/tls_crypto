@@ -1,0 +1,42 @@
+.profiles__container {
+    border: 1px solid black;
+    padding: 3vh 1vw;
+    transition: all 0.5s;
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;       /* Vertically centers the grid items */
+    justify-items: center;     /* Horizontally centers the grid items */
+}
+
+.profiles__container h3, .profiles__container h6 {
+    margin: 0;
+}
+
+.profiles__image {
+    width: 150px;
+    height: 150px;
+    border-radius: 100%;
+    background-color: gray;
+    margin: 20px;
+}
+
+.profiles__image img {
+    width: 100%;
+    border-radius: 100%;
+}
+
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+    .profiles__image {
+        width: 175px;
+        height: 175px;
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 750px) {
+    .profiles__image {
+        width: 200px;
+        height: 200px;
+    }
+}

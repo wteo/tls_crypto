@@ -106,7 +106,7 @@ header {
 
 }
 
-.nav__hamburger {
+#nav__hamburger {
     display: none; /* Hide by default */
     width: 50px;
 }
@@ -122,10 +122,17 @@ header {
         grid-template-columns: 1fr; 
     }  
 
-    .nav__hamburger {
+    #nav__hamburger {
         display: block;
-        background-color: rgb(105, 109, 109);
+        background-color: rgb(127, 131, 138);
+        color: white;
         border-radius: 5px;
+        transition: all 0.3s;
+    }
+
+    #nav__hamburger:hover {
+        background-color: rgb(118, 157, 176);
+        transform: scale(1.1);
     }
 
     .nav__menu {

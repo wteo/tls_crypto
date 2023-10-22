@@ -24,7 +24,7 @@
                 <div class="group__coin-grid" data-group="<%= group.group %>">
                     <% group.coins.forEach( coin => { %>
                         <div class="group__coin-container">
-                            <a href="/<%= group.group %>/<%= coin.coin %>/admin">
+                            <a href="/<%= encode(group.group) %>/<%= encode(coin.coin) %>/admin">
                                 <img class="group__coin-image" src="<%= coin.coinLogoLink %>" alt="" />
                                 <h3 class="group__coin-title"><%= coin.coin %></h3>
                             </a>
@@ -39,7 +39,7 @@
                         <input type="hidden" name="csrfToken" value="<%= csrfToken %>">
                         <button class="admin-delete-button">Delete</button>
                     </form>
-                    <a href="/<%= group.group %>/admin/update-group-form"><button>Update Group</button></a>
+                    <a href="/<%= encode(group.group) %>/admin/update-group-form"><button>Update Group</button></a>
                 </div>
             </div>
 \
