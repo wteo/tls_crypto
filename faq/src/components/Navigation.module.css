@@ -1,8 +1,8 @@
 header {
-    margin-bottom: 20vh;
+    margin-bottom: 150px;
 }
 
-.nav {
+.navigation {
     background-color: var(--navigation-bar-color);
     padding: 15px 5vw 15px;
     margin: auto 0;
@@ -16,7 +16,7 @@ header {
     transition: transform 0.3s;
 }
 
-.nav__menu {
+.navigation__menu-list {
     display: flex; 
     list-style: none; 
     gap: 3vw;
@@ -26,14 +26,19 @@ header {
     align-items: center;
 }
 
-.nav__menu__title {
+.navigation__menu-item {
     margin-right: 5vw; 
     color: var(--navigation-font-color);
     text-decoration: none;
     font-size: 1.5rem;
 }
 
-.nav__icon__image {
+.navigation__menu-item a {
+    color: var(--navigation-font-color);
+    text-decoration: none;
+}
+
+.navigation__logo {
     max-width: 175px;
     min-width: 75px;
     max-height: auto;
@@ -41,12 +46,12 @@ header {
     margin-right: 3vw;
 }
 
-.nav__menu__title:hover {
+.navigation__menu-item:hover {
     text-decoration: underline;
     cursor: pointer;
 }
 
-.nav__hamburger {
+.navigation__toggle-btn {
     font-size: xx-large;
     display: none;
     position: fixed;
@@ -63,17 +68,17 @@ header {
     z-index: 200;
 }
 
-.nav__hamburger:hover {
+.navigation__toggle-btn:hover {
     background-color: rgba(0,0,0,0.5);
     cursor: pointer;
 }
 
-.nav__top__bar {
+.navigation__mobile-topbar {
     display: none;
     transition: transform 0.3s;
 }
 
-.nav__menu__mobile {
+.navigation__mobile-menu-list {
     display: none;
 }
 
@@ -85,14 +90,14 @@ header {
 /* Mobile layout */
 @media (max-width: 750px) {
     header {
-        margin-bottom: 0;
+        margin-bottom: 50px;
     }
 
-    .nav {
+    .navigation {
         display: none;
     }
 
-    .nav__menu__mobile {
+    .navigation__mobile-menu-list {
         display: flex;
         gap: 5vh;
         flex-direction: column;
@@ -111,11 +116,11 @@ header {
         transition: transform 0.3s ease-in-out;
     }
 
-    .nav__menu__mobile.navOpen {
+    .navigation__mobile-menu-list.navigation__mobile-menu--open {
         transform: translateX(0);
     }
 
-    .nav__top__bar {
+    .navigation__mobile-topbar {
         display: block;
         position: fixed;
         top: 0;
@@ -125,7 +130,7 @@ header {
         background-color: var(--navigation-bar-color);
     }
     
-    .nav__icon__image__mobile {
+    .navigation__mobile-logo {
         max-width: 50px;
         max-height: auto;
         width: 100%;
@@ -134,15 +139,15 @@ header {
     }
     
 
-    .nav__icon__wrapper {
+    .navigation__logo-wrapper {
         display: none;
     }
 
-    .nav__hamburger {
+    .navigation__toggle-btn {
         display: block;
     }
 
-    .nav__overlay {
+    .navigation__overlay {
         position: fixed;
         z-index: 50;
         background-color: black;

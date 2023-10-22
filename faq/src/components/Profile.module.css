@@ -12,7 +12,7 @@
     margin: 0;
 }
 
-.profiles__image__container {
+.profiles__image {
     width: 150px;
     height: 150px;
     border-radius: 100%;
@@ -20,13 +20,14 @@
     margin: 20px;
 }
 
-.profiles__image__container img {
+.profiles__image img {
     width: 100%;
+    border-radius: 100%;
 }
 
 /* Tablet layout */
 @media (min-width: 751px) and (max-width: 1200px) {
-    .profiles__image__container {
+    .profiles__image {
         width: 175px;
         height: 175px;
     }
@@ -34,7 +35,7 @@
 
 /* Mobile layout */
 @media (max-width: 750px) {
-    .profiles__image__container {
+    .profiles__image {
         width: 200px;
         height: 200px;
     }

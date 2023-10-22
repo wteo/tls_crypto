@@ -29,7 +29,7 @@ function App() {
   return (
     <>
       <Navigation />
-      <section>
+      <section id='about'>
         <Tiers />
       </section>
       <section className={styles.checklist__wrapper}>
@@ -50,10 +50,10 @@ function App() {
           </>
         }
       </section>
-      <section>
+      <section id='team'>
         <Profiles />
       </section>
-      <section>
+      <section id='faq'>
         <Accordion title='General' category='general'/>
         <br />
         <br />
