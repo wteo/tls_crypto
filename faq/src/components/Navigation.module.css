@@ -13,6 +13,7 @@ header {
     top: 0;
     left: 0;
     right: 0;
+    transition: all 0.5s;
 }
 
 .nav__menu {
@@ -45,28 +46,56 @@ header {
     cursor: pointer;
 }
 
+.nav__hamburger {
+    display: none;
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 45px;
+    height: 45px;
+    background-color: rgba(0,0,0,0.3);
+    color: white;
+    border-radius: 5px;
+    transition: all 0.5s;
+    text-align: center;
+    border: none;
+    z-index: 200;
+}
+
+.nav__hamburger:hover {
+    background-color: rgba(0,0,0,0.5);
+    cursor: pointer;
+    font-size: larger;
+}
+
+
 /* Tablet layout */
 @media (min-width: 751px) and (max-width: 1200px) {
-
-    .nav__menu__title {
-        font-size: 1.25rem;
-    }
-    
-    .nav__menu__title a {
-        font-size: 1.0rem;
-    }
 
 }
     
 /* Mobile layout */
 @media (max-width: 750px) {
-
-    .nav__menu__title {
-        font-size: 1rem;
+    header {
+        margin-bottom: 0;
     }
 
-    .nav__menu__title a {
-        font-size: 0.75rem;
+    .nav {
+        bottom: 0;
+        right: 50%;
+    }
+
+    .nav__menu {
+        flex-direction: column;
+        gap: 5vh;
+        align-items: start;
+        position: relative;
+        margin-top: 10vh;
+        margin-left: 3vw;
+    }
+
+    .nav__hamburger {
+        display: block;
     }
 
 }
