@@ -1,26 +1,24 @@
 :root {
     /* Header Navigation */
-    --navigation-bar-color: #1E4E79;
-    --navigation-font-color: #FDF6E3;
+    --navigation-bar-color: #2A6A8F;  
+    --navigation-font-color: #FAF3E0;
 
     /* Body sections */
-    --main-background-color: #FDF6E3;
-    --secondary-background-color: #FFB459; 
-    --main-font-color: #1E4E79;
-    --secondary-font-color: #FDF6E3;
+    --main-background-color: #FAF3E0; 
+    --secondary-background-color: #ba9167;  
+    --main-font-color: #2A6A8F;  
+    --secondary-font-color: #FAF3E0;  
 
     /* Style for accordion components */
-    --border-color: #5C8DAD;
-    --separation-line-color: #3E6A8D;
-    --accordion-header-color: #5C8DAD;
-    --accordion-header-hovered-color: #3E6A8D;
+    --border-color: #7DA7BE; 
+    --separation-line-color: #508FA2;  
+    --accordion-header-color: #7DA7BE;  
+    --accordion-header-hovered-color: #508FA2;  
 
     /* Style for button */
-    --primary-button-color: #1E4E79;
-    --primary-border-button-color: #1E4E79;
-    --primary-font-button-color: white;
-
-
+    --primary-button-color: #2A6A8F;
+    --primary-border-button-color: #2A6A8F; 
+    --primary-font-button-color: #FAF3E0; 
 }
 
 body {
