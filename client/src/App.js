@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 
 import Navigation from './components/Navigation';
 import Tiers from './components/Tiers';
@@ -11,6 +11,8 @@ import styles from './App.module.css';
 function App() {
 
   const [isChecklistClicked, setIsChecklistClicked] = useState(false);
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
   const modalRef = useRef(null);
 
   const openCheckListHandler = () => {
@@ -25,6 +27,9 @@ function App() {
     }
   }
 
+  useEffect(() => {
+
+  }, [])
 
   return (
     <>
@@ -39,7 +44,7 @@ function App() {
         { isChecklistClicked &&
           <>
             <div onClick={closeCheckListHandler} className={styles.checklist__overlay}>
-              <div ref={modalRef} className={styles.checklist__modal}>
+            <div ref={modalRef} className={`${styles.checklist__modal} ${isChecklistClicked ? 'active' : ''}`}>
                 <div className={styles.checklist__container}>
                   <div>
                   <p>Click me! ohdfs ks glkjsdhfg jlshdgflsng lkjsdf kndfg lksdgj skdhfg osidgf osdnfg pisfdguodsfng sfgd</p>

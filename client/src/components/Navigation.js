@@ -6,6 +6,7 @@ import styles from './Navigation.module.css';
 function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const [hideNav, setHideNav] = useState(false);
+    const [prevScrollTop, setPrevScrollTop] = useState(0);
 
     const toggleMenu = () => setIsMenuOpen(prevState => !prevState);
 
@@ -14,16 +15,25 @@ function Navigation() {
             const currentScrollTop = window.pageYOffset || document.documentElement.scrollTop;
             const viewportHeight = window.innerHeight;
             const threshold = 0.40 * viewportHeight;
-            setHideNav(currentScrollTop > threshold); // Set the hideNav state based on the scroll position and threshold
-
+        
+            if (currentScrollTop < prevScrollTop) {
+                // User is scrolling up
+                setHideNav(false);
+            } else {
+                // User is scrolling down
+                setHideNav(currentScrollTop > threshold);
+            }
+        
+            // Update the previous scroll position
+            setPrevScrollTop(currentScrollTop);
         };
-
+        
         // Add the scroll event listener
         window.addEventListener('scroll', handleScroll);
 
         // Cleanup: Remove the scroll event listener when the component is unmounted
         return () => window.removeEventListener('scroll', handleScroll);
-    }, []);
+    }, [prevScrollTop]);
 
     const Logo = () => (
         <a href="/">
