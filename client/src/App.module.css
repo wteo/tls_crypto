@@ -46,6 +46,12 @@ section:nth-child(even) {
     display: flex;
     justify-content: center;
     align-items: center;
+    opacity: 0;
+    transition: opacity 0.15s;
+}
+
+.dark {
+    opacity: 1;
 }
 
 .checklist__modal {
@@ -60,6 +66,14 @@ section:nth-child(even) {
     background-repeat: no-repeat;
     background-position: center center;
     background-size: 100% 100%;
+    transform: translateY(10%);
+    opacity: 0;
+    transition: all 0.5s;
+}
+
+.active {
+    transform: translateY(0);
+    opacity: 1;
 }
 
 .checklist__container {

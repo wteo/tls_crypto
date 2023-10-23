@@ -11,18 +11,21 @@ import styles from './App.module.css';
 function App() {
 
   const [isChecklistClicked, setIsChecklistClicked] = useState(false);
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [isModalHidden, setIsModalHidden] = useState(false);
 
   const modalRef = useRef(null);
 
   const openCheckListHandler = () => {
     setIsChecklistClicked(true);
+    setTimeout(() => {
+      setIsModalHidden(true);
+    }, 10); // Delaying the state changes to ensure animation get to pay out.
   }
 
   
   const closeCheckListHandler = (event) => {
-    // Check if the click was outside the modal
     if (modalRef.current && !modalRef.current.contains(event.target)) {
+      setIsModalHidden(false);
       setIsChecklistClicked(false);
     }
   }
@@ -43,14 +46,14 @@ function App() {
         <button onClick={openCheckListHandler}>Check our Crypto Bull Run checklist!</button>
         { isChecklistClicked &&
           <>
-            <div onClick={closeCheckListHandler} className={styles.checklist__overlay}>
-            <div ref={modalRef} className={`${styles.checklist__modal} ${isChecklistClicked ? 'active' : ''}`}>
-                <div className={styles.checklist__container}>
-                  <div>
-                  <p>Click me! ohdfs ks glkjsdhfg jlshdgflsng lkjsdf kndfg lksdgj skdhfg osidgf osdnfg pisfdguodsfng sfgd</p>
+            <div onClick={closeCheckListHandler} className={`${styles.checklist__overlay} ${isModalHidden ? styles.dark : ''}`}>
+                <div ref={modalRef} className={`${styles.checklist__modal} ${isModalHidden ? styles.active : ''}`}>
+                  <div className={styles.checklist__container}>
+                    <div>
+                    <p>Click me! ohdfs ks glkjsdhfg jlshdgflsng lkjsdf kndfg lksdgj skdhfg osidgf osdnfg pisfdguodsfng sfgd</p>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           </>
         }
