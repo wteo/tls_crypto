@@ -22,7 +22,7 @@ function Accordion(props) {
             .catch(error => {
                 console.error("Error fetching accordion items:", error);
             });
-    }, []); // Empty dependency array to ensure the effect runs only once
+    }); // Empty dependency array to ensure the effect runs only once
 
     return (
         <div className={styles.accordion}>
