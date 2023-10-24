@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import styles from './Accordion.module.css';
 import AccordionItem from "./AccordionItem";
 
-const apiUrl = 'http://localhost:8000/api/FAQ/';
+const apiUrl = 'https://thelazysociety.cyclic.app/api/faq';
 
 function Accordion(props) {
     
