@@ -42,7 +42,7 @@ function Profiles() {
         <>
             <h1 className={styles.team__title}>Meet the Team</h1>
             <div className={styles.profiles__wrapper}>
-                { profileData.map(profile => <Profile name={profile.name} title={profile.title} imageLink={profile.imageLink} description={profile.description} />)}
+                { profileData.map((profile, index) => <Profile key={index} name={profile.name} title={profile.title} imageLink={profile.imageLink} description={profile.description} />)}
             </div>
         </>
     );
