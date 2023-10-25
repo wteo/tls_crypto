@@ -7,9 +7,11 @@ function Tier({ onOpen, title, subtitle, details }) {
     <div className={styles.tiers__container} onClick={onOpen}>
         <h3>{title}</h3>
         <h6>{subtitle}</h6>
-        <ul>
+        <ul className={styles.list__grid}>
             {details.map((detail, index) => (
-                <li key={index}><strong>{detail.label}:</strong> {detail.description}</li>
+                <li key={index}>
+                    <p><strong>{detail.label}: </strong>{detail.description}</p>
+                </li>
             ))}
         </ul>
     </div>)

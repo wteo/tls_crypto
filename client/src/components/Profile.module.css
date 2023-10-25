@@ -1,5 +1,6 @@
 .profiles__container {
     border: 1px solid black;
+    border-radius: 10px;
     padding: 3vh 1vw;
     transition: all 0.5s;
     display: grid;
