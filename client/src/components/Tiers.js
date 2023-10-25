@@ -38,7 +38,9 @@ function Tiers() {
 
     return (
         <div className={styles.tiers__wrapper}>
-            { tierData.map((tier, index) => <Tier key={index} {...tier} />) }
+            <Tier onOpen={null} title={tierData[0].title} subtitle={tierData[0].subtitle} details={tierData[0].details} />
+            <Tier onOpen={null} title={tierData[1].title} subtitle={tierData[1].subtitle} details={tierData[1].details} />
+            <Tier onOpen={null} title={tierData[2].title} subtitle={tierData[2].subtitle} details={tierData[2].details} />
         </div>
     );
 }
