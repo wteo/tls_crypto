@@ -7,6 +7,7 @@ import { mongoConnect } from './utils/database.js';
 import { MongoDBStore } from './utils/store.js';
 import CSRFProtection from './middlewares/csrf_protection.js';
 import flash from 'connect-flash';
+import helmet from 'helmet';
 
 // Import route handlers
 import FAQItemsRouter from './routes/FAQ_items.js';
@@ -24,6 +25,16 @@ const __dirname = path.dirname(__filename);
 // Initialize the Express application
 const app = express();
 const PORT = 8000;
+
+app.use(helmet());
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            "img-src": ["'self'", "data:", "*"],
+        },
+    })
+);
 
 // Set up the view engine as EJS
 app.set('view engine', 'ejs'); 
