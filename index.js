@@ -7,6 +7,7 @@ import { mongoConnect } from './utils/database.js';
 import { MongoDBStore } from './utils/store.js';
 import CSRFProtection from './middlewares/csrf_protection.js';
 import flash from 'connect-flash';
+import helmet from 'helmet'
 
 // Import route handlers
 import FAQItemsRouter from './routes/FAQ_items.js';

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useCallback, useEffect } from 'react';
 import styles from './Accordion.module.css';
 import AccordionItem from "./AccordionItem";
 
@@ -8,11 +8,11 @@ function Accordion(props) {
     
     const [accordionItems, setAccordionItems] = useState([]);
 
-    const fetchData = async(url) => {
+    const fetchData = useCallback(async(url) => {
         const response = await fetch(url);
         const data = await response.json();
         return data.data.items.filter(item => item.category === props.category);
-    };
+    }, [props.category]);
 
     useEffect(() => {
         fetchData(apiUrl)
@@ -22,7 +22,7 @@ function Accordion(props) {
             .catch(error => {
                 console.error("Error fetching accordion items:", error);
             });
-    }); // Empty dependency array to ensure the effect runs only once
+    }, [fetchData]); 
 
     return (
         <div className={styles.accordion}>
