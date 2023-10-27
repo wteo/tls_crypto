@@ -27,6 +27,14 @@ const app = express();
 const PORT = 8000;
 
 app.use(helmet());
+app.use(
+    helmet.contentSecurityPolicy({
+        directives: {
+            ...helmet.contentSecurityPolicy.getDefaultDirectives(),
+            "img-src": ["'self'", "data:", "*"],
+        },
+    })
+);
 
 // Set up the view engine as EJS
 app.set('view engine', 'ejs'); 
