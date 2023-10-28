@@ -4,6 +4,10 @@ import Tier from './Tier';
 
 import styles from './Tiers.module.css';
 
+// images
+import discord from '../images/discord.png';
+import directory from '../images/directory.jpg';
+
 function Tiers() {
 
     const tierData = [
@@ -20,9 +24,19 @@ function Tiers() {
             title: 'Intermediate Tier',
             subtitle: 'Deep Dive into Crypto',
             details: [
-                { label: 'Crypto Directory', description: 'Detailed guides on popular cryptocurrencies and related tools.' },
+                { 
+                    imageLink: directory,
+                    imageDescription: 'Directory Image',
+                    label: 'Crypto Directory', 
+                    description: 'Detailed guides on popular cryptocurrencies and related tools.' 
+                },
                 { label: 'Advanced Learning', description: 'In-depth content on blockchain, DeFi, NFTs, and more.' },
-                { label: 'Community Engagement', description: 'Forums and boards for shared experiences and learning.' }
+                {   
+                    imageLink: discord,
+                    imageDescription: 'Discord Logo',
+                    label: 'Dive into Our Crypto Community on Discord', 
+                    description: 'Engage in vibrant discussions on all things cryptocurrency. Stay updated with the latest news, airdrops, and insider tips.' 
+                }
             ]
         },
         {

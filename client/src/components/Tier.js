@@ -10,7 +10,10 @@ function Tier({ onOpen, title, subtitle, details }) {
         <ul className={styles.list__grid}>
             {details.map((detail, index) => (
                 <li key={index}>
-                    <p><strong>{detail.label}: </strong>{detail.description}</p>
+                    <div className={styles.image__container}>
+                        <img className={styles.service__image} src={detail.imageLink || ''} alt={detail.imageDescription || ''}/>
+                    </div>
+                    <p className={styles.service__label}><strong>{detail.label}: </strong>{detail.description}</p>
                 </li>
             ))}
         </ul>

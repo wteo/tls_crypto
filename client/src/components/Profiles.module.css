@@ -8,7 +8,7 @@
 .profiles__wrapper {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    gap: 3vw;
+    gap: 25px;
     text-align: center;
 }
 
