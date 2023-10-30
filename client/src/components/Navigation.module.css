@@ -47,8 +47,19 @@ header {
 }
 
 .navigation__menu-item:hover {
-    text-decoration: underline;
     cursor: pointer;
+}
+
+.navigation__highlight {
+    border-bottom: 5px solid transparent;
+    transform: scaleX(0);
+    transform-origin: left; 
+    transition: all 0.35s;
+}
+
+.navigation__menu-item:hover > .navigation__highlight {
+    border-bottom: 5px solid var(--navigation-font-color);
+    transform: scaleX(1);
 }
 
 .navigation__toggle-btn {
@@ -103,7 +114,7 @@ header {
         flex-direction: column;
         position: fixed;
         top: 0;
-        right: 50%;
+        right: 45%;
         bottom: 0;
         left: 0;
         background-color: var(--navigation-bar-color);
@@ -156,8 +167,8 @@ header {
         right: 0;
         bottom: 0;
         left: 0;
-    } 
-    
+    }
+
 }
 
 

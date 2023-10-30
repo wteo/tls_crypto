@@ -54,7 +54,6 @@ function App() {
         <br />
       </section>
       <section>
-        <h1>Your Crypto Journey: Choose your Path</h1>
         <Tiers />
       </section>
       <section className={styles.checklist__wrapper}>

@@ -45,12 +45,15 @@ function Navigation() {
         <>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
                 <Link to='about' spy={true} smooth={true} offset={-40} duration={250} onClick={toggleMenu}>About Us</Link>
+                <div className={styles.navigation__highlight}></div>
             </li>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
                 <Link to='team' spy={true} smooth={true} offset={80} duration={250} onClick={toggleMenu}>The Team</Link>
+                <div className={styles.navigation__highlight}></div>
             </li>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
                 <Link to='faq' spy={true} smooth={true} offset={80} duration={250} onClick={toggleMenu}>FAQ</Link>
+                <div className={styles.navigation__highlight}></div>
             </li>
         </>
     );

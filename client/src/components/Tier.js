@@ -14,6 +14,7 @@ function Tier({ onOpen, title, subtitle, details }) {
                         <img className={styles.service__image} src={detail.imageLink || ''} alt={detail.imageDescription || ''}/>
                     </div>
                     <p className={styles.service__label}><strong>{detail.label}: </strong>{detail.description}</p>
+                    <button className={styles.service__button}>Learn More</button>
                 </li>
             ))}
         </ul>

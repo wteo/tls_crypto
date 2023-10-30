@@ -25,13 +25,13 @@ function Profiles() {
         name: 'Ant "Gotsauss" ',
         title: 'Co-Founder & Physical Wellbeing Wizard',
         imageLink: avatar,
-        description: `From his early days navigating the IT sector to discovering his true passion in movement, 
-        Ant is a testament to the power of transformation. At 37, he didn't just pick up a new hobby; he mastered the art of the handstand. 
-        But Ant's journey doesn't stop at physical feats. He's also a crypto enthusiast with a twist. 
-        Before delving into the intricate world of digital currencies, Ant firmly believes in fortifying both the mind and body. 
-        It's this holistic approach that sets him apart in the crypto trading realm. 
+        description: `From his early days navigating the IT sector to discovering his true passion in movement, Ant is a testament to the power of transformation. 
+        At 37, he didn't just pick up a new hobby; he mastered the art of the handstand. But Ant's journey doesn't stop at physical feats. 
+        He's also a crypto enthusiast with a twist. Before delving into the intricate world of digital currencies, Ant firmly believes in fortifying all 3: 
+        the mind, body and spirit. It's this holistic approach that sets him apart in the crypto trading realm. 
         With a blend of serious strategy and a sprinkle of fun, Ant mentors individuals in both the physical and digital domains. 
-        Whether perfecting a handstand or exploring crypto, Ant blends expertise with flair to guide your journey.`
+        Whether perfecting a handstand or exploring crypto, Ant blends expertise with flair to guide your journey.
+        `
     }, {
         name: 'John Smith',
         title: 'Founder',

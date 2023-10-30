@@ -24,6 +24,7 @@ section:nth-child(even) {
     padding: 15px 20px;
     text-transform: uppercase;
     border: 3px solid var(--primary-border-button-color);
+    border-radius: 5px;
     background-color: var(--primary-button-color);
     color: var(--primary-font-button-color);
     transition: all 0.5s;
