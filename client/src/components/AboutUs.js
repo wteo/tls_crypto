@@ -19,7 +19,7 @@ function AboutUs() {
                 </p>
             </div>
             <div className={styles[`about__video--wrapper`]}>
-                <iframe className={styles.about__video} src='https://www.youtube.com/embed/0BDRYtRwdWM?autoplay=1' frameborder='0' allowfullscreen></iframe>
+                <iframe title='Introduction to the Lazy Society' className={styles.about__video} src='https://www.youtube.com/embed/0BDRYtRwdWM?autoplay=1' frameborder='0' allowfullscreen></iframe>
             </div>
         </section>
     );
