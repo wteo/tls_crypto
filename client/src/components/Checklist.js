@@ -36,11 +36,11 @@ const checklistData = [{
 
 function Checklist() {
     return (
-        <div>
+        <div className={styles[`checklist__content-wrapper`]}>
             {
                 checklistData.map((section, index) => {
                     return (
-                        <div key={index}>
+                        <div key={index} className={styles.checklist__content}>
                             <h3 className={styles.checklist__title}>{Number(index) + 1}. {section.sectionTitle}</h3>
                             <ul className={styles.checklist__list}>
                                 { section.actionItems.map((actionItem, index) => (

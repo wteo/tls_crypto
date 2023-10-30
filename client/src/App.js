@@ -54,9 +54,12 @@ function App() {
           <>
             <div onClick={closeCheckListHandler} className={`${styles.checklist__overlay} ${isModalHidden ? styles.dark : ''}`}>
                 <div ref={modalRef} className={`${styles.checklist__modal} ${isModalHidden ? styles.active : ''}`}>
+                  <button id={styles[`checklist__close-button`]} onClick={closeCheckListHandler}>X</button>
+                  <h1>Crypto Bull Run Checklist</h1>
                   <div className={styles.checklist__container}>
                     <Checklist />
                   </div>
+                  <p>www.thelazysociety.com</p>
                 </div>
             </div>
           </>

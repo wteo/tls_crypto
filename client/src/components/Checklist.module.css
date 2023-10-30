@@ -1,3 +1,12 @@
+.checklist__content-wrapper {
+    background-color: rgba(0,0,0,0.05);
+    margin: 0 20px;
+    border-radius: 5px;
+}
+.checklist__content {
+    margin: 0 15px;
+}
+
 .checklist__title {
     background-color: black;
     color: white;
