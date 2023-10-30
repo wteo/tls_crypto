@@ -29,6 +29,7 @@ function App() {
     if (modalRef.current && !modalRef.current.contains(event.target)) {
       setIsModalHidden(false);
       setIsChecklistClicked(false);
+      console.log('Closing Modal');
     }
   }
 

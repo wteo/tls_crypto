@@ -1,15 +1,14 @@
 .accordion__item {
-    border: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--separation-line-color);
+   border-bottom: 1px solid var(--separation-line-color); 
 }
 
-.accordion__item:hover {
-    border-top: 1px solid var(--accordion-header-hovered-color);
+.accordion__item:first-of-type {
+    border-top: 1px solid var(--separation-line-color); 
 }
 
 .accordion__header {
     background-color: var(--accordion-header-color);
-    color: var(--navigation-font-color);
+    color: var(--accordion-font-color);
     cursor: pointer;
     padding: 1rem;
     width: 100%;

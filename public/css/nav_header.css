@@ -37,20 +37,20 @@ header {
 
 .nav__menu-title {
     position: relative;
-    font-size: 1.5rem;
+    font-size: 1rem;
     margin: auto 0;
 }
 
 .nav__icon-image {
-    max-width: 175px;
-    min-width: 125px;
+    max-width: 125px;
+    min-width: 65px;
     max-height: auto;
     width: 100%;
     margin-right: 3vw;
 }
 
 .nav__dropdown-title a {
-    font-size: 1rem;
+    font-size: 0.85rem;
     white-space: nowrap;
 }
 
@@ -78,32 +78,6 @@ header {
 .nav__menu-title:hover, .nav__dropdown-title:hover {
     text-decoration: underline;
     cursor: pointer;
-}
-
-/* Tablet layout */
-@media (min-width: 751px) and (max-width: 1200px) {
-
-    .nav__menu-title {
-        font-size: 1.25rem;
-    }
-    
-    .nav__menu-title a {
-        font-size: 1.0rem;
-    }
-
-}
-    
-/* Mobile layout */
-@media (max-width: 750px) {
-
-    .nav__menu-title {
-        font-size: 1rem;
-    }
-
-    .nav__menu-title a {
-        font-size: 0.75rem;
-    }
-
 }
 
 #nav__hamburger {
