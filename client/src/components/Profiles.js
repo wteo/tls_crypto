@@ -1,11 +1,11 @@
 import React from 'react';
 
-import Profile from './Profile';
-import avatar from '../images/avatar.png';
-
-// Profile Images
+// profile images
 import rosh from '../images/rosh.jpg';
 import ant from '../images/ant.jpg';
+
+import Profile from './Profile';
+import avatar from '../images/avatar.png';
 
 import styles from './Profiles.module.css';
 
