@@ -62,7 +62,7 @@ section:nth-child(even) {
     z-index: 100;
     width: 100%;
     height: 90%;
-    max-width: 550px;
+    max-width: 475px;
     background-image: url(./images/checklist.png);
     background-repeat: no-repeat;
     background-position: center center;
@@ -82,12 +82,27 @@ section:nth-child(even) {
     position: fixed;
     z-index: 100;
     overflow-y: scroll;
-    top: 20vh;
-    bottom: 15vh;
-    max-width: 550px;
+    top: 12vh;
+    bottom: 7.5vh;
+    max-width: 475px;
     display: grid;
 }
 
 .checklist__container div {
-    margin: 0 2vw 0 4vw;
+    margin: 0 10px 0 20px;
+}
+
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+    section {
+        padding: 15vh 10vw 25vh;
+    }
+}
+
+
+/* Mobile layout */
+@media (max-width: 750px) {
+    section {
+        padding: 10vh 10vw 15vh;
+    }
 }

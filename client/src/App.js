@@ -1,9 +1,11 @@
 import React, { useState, useRef, useEffect } from 'react';
 
 import Navigation from './components/Navigation';
+import AboutUs from './components/AboutUs';
 import Tiers from './components/Tiers';
-import Accordion from './components/Accordion';
+import Checklist from './components/Checklist';
 import Profiles from './components/Profiles';
+import Accordion from './components/Accordion';
 import Footer from './components/Footer';
 
 import styles from './App.module.css';
@@ -37,31 +39,14 @@ function App() {
   return (
     <>
       <Navigation />
-      <section id='about'>
-        <h1>Discover The Lazy Society's Crypto Journey</h1>
-        <p>
-            Welcome to The Lazy Society, where we inspire you to live smarter, not harder. 
-        </p>
-        <p>
-          Our mission? To demystify crypto, making it accessible and enjoyable for everyone. 
-          We believe in the power of cryptocurrency to reshape our financial future, and we're here to guide you every step of the way. 
-          With our curated learning paths and expert insights, we aim to keep things light, fun, and engaging, without the heavy jargon.
-        </p>
-        <p>
-          So, whether you're new to crypto or looking to enhance your knowledge, join us on this exciting journey. 
-          Dive in, enjoy the ride, and let's embrace the future of finance together!
-        </p>
-        <br />
-      </section>
-      <section>
-        <Tiers />
-      </section>
-      <section className={styles.checklist__wrapper}>
+      <AboutUs />
+      <Tiers />
+      <section className={styles.checklist__wrapper} id='checklist'>
         <br />
         <h1>Discover Your Own Crypto Journey!</h1>
         <p>
-          Feeling overwhelmed with the world of cryptocurrency? Don't worry, we've got you covered! 
-          Check out our quick and easy checklist to help you prepare for the next Crypto Bull Run.
+          Dive into the dynamic world of cryptocurrencies with our comprehensive guide. 
+          From understanding blockchain basics to preparing for market surges, our checklist ensures you're well-equipped for the next Crypto Bull Run. 
         </p>
         <br />
         <button onClick={openCheckListHandler}>Start the Checklist Now!</button>
@@ -70,18 +55,14 @@ function App() {
             <div onClick={closeCheckListHandler} className={`${styles.checklist__overlay} ${isModalHidden ? styles.dark : ''}`}>
                 <div ref={modalRef} className={`${styles.checklist__modal} ${isModalHidden ? styles.active : ''}`}>
                   <div className={styles.checklist__container}>
-                    <div>
-                      <p>Click me! ohdfs ks glkjsdhfg jlshdgflsng lkjsdf kndfg lksdgj skdhfg osidgf osdnfg pisfdguodsfng sfgd</p>
-                    </div>
+                    <Checklist />
                   </div>
                 </div>
             </div>
           </>
         }
       </section>
-      <section id='team'>
-        <Profiles />
-      </section>
+      <Profiles />
       <section id='faq'>
         <Accordion title='General' category='general'/>
         <br />

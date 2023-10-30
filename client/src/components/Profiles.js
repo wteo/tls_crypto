@@ -5,6 +5,7 @@ import avatar from '../images/avatar.png';
 
 // Profile Images
 import rosh from '../images/rosh.jpg';
+import ant from '../images/ant.jpg';
 
 import styles from './Profiles.module.css';
 
@@ -24,7 +25,7 @@ function Profiles() {
     }, {
         name: 'Ant "Gotsauss" ',
         title: 'Co-Founder & Physical Wellbeing Wizard',
-        imageLink: avatar,
+        imageLink: ant,
         description: `From his early days navigating the IT sector to discovering his true passion in movement, Ant is a testament to the power of transformation. 
         At 37, he didn't just pick up a new hobby; he mastered the art of the handstand. But Ant's journey doesn't stop at physical feats. 
         He's also a crypto enthusiast with a twist. Before delving into the intricate world of digital currencies, Ant firmly believes in fortifying all 3: 
@@ -62,12 +63,12 @@ function Profiles() {
     }];
     
     return (
-        <>
+        <section id='team'>
             <h1 className={styles.team__title}>Meet the Team</h1>
             <div className={styles.profiles__wrapper}>
                 { profileData.map((profile, index) => <Profile key={index} name={profile.name} title={profile.title} imageLink={profile.imageLink} description={profile.description} />)}
             </div>
-        </>
+        </section>
     );
 }
 

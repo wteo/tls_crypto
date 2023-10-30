@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { Link } from 'react-scroll';
+
 import Tier from './Tier';
 
 import styles from './Tiers.module.css';
@@ -80,13 +82,20 @@ function Tiers() {
     ];
 
     return (
-        <div className={styles.tiers__wrapper}>
+        <section className={styles.tiers__wrapper}>
             <h1>Your Crypto Journey: Choose your Path</h1>
             <br/>
             <Tier onOpen={null} title={tierData[0].title} subtitle={tierData[0].subtitle} details={tierData[0].details} />
             <Tier onOpen={null} title={tierData[1].title} subtitle={tierData[1].subtitle} details={tierData[1].details} />
             <Tier onOpen={null} title={tierData[2].title} subtitle={tierData[2].subtitle} details={tierData[2].details} />
-        </div>
+            <div className={styles.tiers__quickstart}>
+                <h2>Feeling Overwhelmed by Choices?</h2>
+                <p>Don't worry, we've got you covered. Dive right in with our Crypto Bull Run checklist!</p>
+                <Link to='checklist' spy={true} smooth={true} offset={-40} duration={250}>
+                    <h1>{String.fromCharCode(62)}</h1>
+                </Link>
+            </div>
+        </section>
     );
 }
 
