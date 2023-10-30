@@ -1,25 +1,25 @@
 :root {
   /* Header Navigation */
-  --navigation-bar-color: #0E4D64;  /* Deep ocean blue */
-  --navigation-font-color: #F8ECC2; /* Soft sand color */
+  --navigation-bar-color: #0E4D64;  
+  --navigation-font-color: #F8ECC2;
 
   /* Body sections */
-  --main-background-color: #ffffff;  /* Warm sand color */
-  --secondary-background-color: #F4E1D2;  /* Turquoise beach water */
-  --main-font-color: #5B5F97;  /* Earthy purple, reminiscent of Balinese textiles */
-  --secondary-font-color: #5B5F97;  /* Earthy terracotta */
+  --main-background-color: #ffffff;  
+  --secondary-background-color: #F8ECC2;  
+  --main-font-color: #5B5F97;  
+  --secondary-font-color: #0E4D64;
 
   /* Style for accordion components */
-  --border-color: #0E4D64;  /* Deep ocean blue */
-  --separation-line-color: #0E4D64;  /* Deep ocean blue */
+  --border-color: #0E4D64;  
+  --separation-line-color: #0E4D64;  
   --accordion-header-color: transparent;  
-  --accordion-header-hovered-color: #A8DADC;  /* Lighter ocean blue */
-  --accordion-font-color: #5B5F97;  /* Earthy purple */
+  --accordion-header-hovered-color: #A8DADC;  
+  --accordion-font-color: #5B5F97;  
 
   /* Style for button */
-  --primary-button-color: #0E4D64;  /* Vibrant ocean blue */
-  --primary-border-button-color: #0E4D64;  /* Deep ocean blue */
-  --primary-font-button-color: #F8ECC2;  /* Soft sand color */
+  --primary-button-color: #0E4D64;
+  --primary-border-button-color: #0E4D64;  
+  --primary-font-button-color: #F8ECC2;  
 }
 
 

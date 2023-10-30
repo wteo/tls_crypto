@@ -15,8 +15,6 @@ function App() {
   const [isChecklistClicked, setIsChecklistClicked] = useState(false);
   const [isModalHidden, setIsModalHidden] = useState(false);
 
-  const modalRef = useRef(null);
-
   const openCheckListHandler = () => {
     setIsChecklistClicked(true);
     setTimeout(() => {
@@ -26,10 +24,9 @@ function App() {
 
   
   const closeCheckListHandler = (event) => {
-    if (modalRef.current && !modalRef.current.contains(event.target)) {
+    if (event.target.getAttribute('data-id') === 'modal-overlay' || event.target.getAttribute('data-id') === 'close-button') {
       setIsModalHidden(false);
       setIsChecklistClicked(false);
-      console.log('Closing Modal');
     }
   }
 
@@ -53,9 +50,9 @@ function App() {
         <button onClick={openCheckListHandler}>Start the Checklist Now!</button>
         { isChecklistClicked &&
           <>
-            <div onClick={closeCheckListHandler} className={`${styles.checklist__overlay} ${isModalHidden ? styles.dark : ''}`}>
-                <div ref={modalRef} className={`${styles.checklist__modal} ${isModalHidden ? styles.active : ''}`}>
-                  <button id={styles[`checklist__close-button`]} onClick={closeCheckListHandler}>X</button>
+            <div onClick={closeCheckListHandler} data-id='modal-overlay' className={`${styles.checklist__overlay} ${isModalHidden ? styles.dark : ''}`}>
+                <div className={`${styles.checklist__modal} ${isModalHidden ? styles.active : ''}`}>
+                  <button data-id='close-button' id={styles[`checklist__close-button`]} onClick={closeCheckListHandler}>X</button>
                   <h1>Crypto Bull Run Checklist</h1>
                   <div className={styles.checklist__container}>
                     <Checklist />
