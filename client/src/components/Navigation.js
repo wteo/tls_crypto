@@ -48,7 +48,7 @@ function Navigation() {
                 <div className={styles.navigation__highlight}></div>
             </li>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
-                <Link to='checklist' spy={true} smooth={true} offset={-60} duration={250} onClick={toggleMenu}>Start checklist</Link>
+                <Link to='checklist' spy={true} smooth={true} offset={-60} duration={250} onClick={toggleMenu}>Checklist</Link>
                 <div className={styles.navigation__highlight}></div>
             </li>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
