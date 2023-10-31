@@ -16,7 +16,7 @@
     text-align: left;
     outline: none;
     font-size: 1.2rem;
-    transition: background-color 0.3s;
+    transition: background-color 0.25s;
     display: grid;
     grid-template-columns: 1fr 30px;
     gap: 20px;
