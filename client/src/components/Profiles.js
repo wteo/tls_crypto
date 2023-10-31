@@ -34,16 +34,6 @@ function Profiles() {
         Whether perfecting a handstand or exploring crypto, Ant blends expertise with flair to guide your journey.
         `
     }, {
-        name: 'John Smith',
-        title: 'Founder',
-        imageLink: avatar,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. Fusce non ante sed lorem rutrum feugiat. Vestibulum pellentesque, purus ut dignissim dictum, risus lectus porta purus, at facilisis odio sapien in ante. Aliquam erat volutpat. Sed ac tempus neque. Curabitur euismod libero in neque mollis, sit amet fringilla libero finibus'
-    }, {
-        name: 'John Smith',
-        title: 'Founder',
-        imageLink: avatar,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. Fusce non ante sed lorem rutrum feugiat. Vestibulum pellentesque, purus ut dignissim dictum, risus lectus porta purus, at facilisis odio sapien in ante. Aliquam erat volutpat. Sed ac tempus neque. Curabitur euismod libero in neque mollis, sit amet fringilla libero finibus'
-    }, {
         name: 'Wendy',
         title: 'Crypto Maven & Web Development Enthusiast',
         imageLink: avatar,
@@ -55,11 +45,6 @@ function Profiles() {
         Having experienced two cryptocurrency market cycles, her insights are sharp and strategic. 
         Wendy champions dollar-cost averaging, combining research, long-term holding, and timely trading to bolster her Bitcoin and Ethereum portfolio.
         `
-    }, {
-        name: 'John Smith',
-        title: 'Founder',
-        imageLink: avatar,
-        description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. Fusce non ante sed lorem rutrum feugiat. Vestibulum pellentesque, purus ut dignissim dictum, risus lectus porta purus, at facilisis odio sapien in ante. Aliquam erat volutpat. Sed ac tempus neque. Curabitur euismod libero in neque mollis, sit amet fringilla libero finibus'
     }];
     
     return (

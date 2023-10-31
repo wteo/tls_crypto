@@ -19,7 +19,13 @@ function AboutUs() {
                 </p>
             </div>
             <div className={styles[`about__video--wrapper`]}>
-                <iframe className={styles.about__video} src='https://www.youtube.com/embed/0BDRYtRwdWM?autoplay=1' frameborder='0' allowfullscreen></iframe>
+                <iframe 
+                    className={styles.about__video} 
+                    src='https://www.youtube.com/embed/0BDRYtRwdWM?autoplay=1'
+                    title='Placeholder video'
+                    frameborder='0' 
+                    allowfullscreen 
+                />
             </div>
         </section>
     );

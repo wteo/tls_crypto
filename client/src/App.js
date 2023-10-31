@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Navigation from './components/Navigation';
 import AboutUs from './components/AboutUs';
@@ -9,6 +9,9 @@ import Accordion from './components/Accordion';
 import Footer from './components/Footer';
 
 import styles from './App.module.css';
+
+// files
+import checklist from './files/checklist.pdf';
 
 function App() {
 
@@ -57,11 +60,12 @@ function App() {
                   <div className={styles.checklist__container}>
                     <Checklist />
                   </div>
-                  <p>www.thelazysociety.com</p>
+                  <p className={styles.home__address}><a href='https://thelazysociety.com/' target='_blank' rel='noreferrer'>www.thelazysociety.com</a></p>
                 </div>
             </div>
           </>
         }
+        <p className={styles.download__link}>Download a file copy <a href={checklist} target='_blank' rel='noreferrer'>here</a></p>
       </section>
       <Profiles />
       <section id='faq'>
