@@ -25,7 +25,7 @@
 }
 
 .coin__resources-group--admin {
-    color: var(--secondary-font-color);
+    color: var(--navigation-font-color);
     opacity: 0.7;
     position: absolute;
     text-align: end;

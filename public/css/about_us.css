@@ -30,11 +30,19 @@
     .about__description-container {
         left: 45%;
     }
+
+    .about__title {
+        font-size: 2.25rem;
+    }
 }
     
 /* Mobile layout */
 @media (max-width: 750px) {
     .about__description-container {
         left: 35%;
+    }
+
+    .about__title {
+        font-size: 2rem;
     }
 }

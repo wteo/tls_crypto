@@ -1,37 +1,33 @@
 :root {
     /* Header Navigation */
-    --navigation-bar-color: #2A6A8F;
-    --navigation-font-color: #FAF3E0;
+    --navigation-bar-color: #0E4D64;  /* Using the same color as the first set for consistency */
+    --navigation-font-color: #F8ECC2; /* Using the same color as the first set for consistency */
 
     /* Search Bar */
-    --navigation-border-search-color: #7DA7BE; 
+    --navigation-border-search-color: #5B5F97; /* Using a color from the first set that hasn't been used for similar purposes */
 
     /* Body sections */
-    --main-background-color: #FAF3E0;
-    --secondary-background-color: #ba9167; 
-    --main-font-color: #2A6A8F;
-    --secondary-font-color: #FAF3E0;
+    --main-background-color: #ffffff; /* Using the secondary background color from the first set */
+    --secondary-background-color: #F8ECC2; /* A lighter shade that complements the primary colors */
+    --main-font-color: #5B5F97; /* Using the primary color from the first set for consistency */
+    --secondary-font-color: #0E4D64; /* Using the main font color from the first set for variety */
 
     /* See More Button */
-    --see-more-button-font-color: #2A6A8F;
-    --see-more-button-border-color: #2A6A8F;
+    --see-more-button-font-color: #0E4D64; 
+    --see-more-button-border-color: #0E4D64;
     --see-more-button-background-color: transparent;
-    --see-more-hovered-button-background-color: #ba9167; 
+    --see-more-hovered-button-background-color: #A8DADC; 
 
     /* Default Buttons */
-    --default-button-font-color: #FAF3E0;
-    --default-button-border-color: #2A6A8F;
-    --default-button-background-color: #2A6A8F;
-    --default-hovered-button-font-color: #2A6A8F;
+    --default-button-font-color: #F8ECC2;
+    --default-button-border-color: #0E4D64;
+    --default-button-background-color: #0E4D64;
+    --default-hovered-button-font-color: #0E4D64;
     --default-hovered-button-background-color: transparent;
 
-    /* Article */
-    --article-background-color: transparent;
-    --article-font-color: #2A6A8F;
-
     /* Modal */
-    --modal-border-color: #ba9167; 
-    --modal-background-color: #FAF3E0;
-    --modal-close-button-color: #2A6A8F;
-    --model-hovered-close-button-color: #ba9167; 
+    --modal-border-color: #5B5F97; 
+    --modal-background-color: #F8ECC2;
+    --modal-close-button-color: #0E4D64;
+    --model-hovered-close-button-color: #A8DADC; 
 }

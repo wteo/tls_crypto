@@ -82,7 +82,7 @@ section:nth-child(even) .coin__resources-title {
 
 
 .group__title, .coin__title  {
-    font-size: 3rem;
+    font-size: 2.5rem;
 }
 
 .group__description, .coin__description {
@@ -91,4 +91,18 @@ section:nth-child(even) .coin__resources-title {
 
 .group__description-not-found {
     margin-bottom: 25vh;
+}
+
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+    .group__title, .coin__title  {
+        font-size: 2.2rem;
+    }
+}
+    
+/* Mobile layout */
+@media (max-width: 750px) {
+    .group__title, .coin__title  {
+        font-size: 1.8rem;
+    }
 }

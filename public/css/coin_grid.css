@@ -40,7 +40,7 @@
 }
 
 .group__coin-title {
-    color: var(--secondary-font-color);
+    color: var(--navigation-font-color);
     opacity: 0.7;
     position: absolute;
     text-align: end;
