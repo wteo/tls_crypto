@@ -1,7 +1,7 @@
 import express from 'express';
 
 import adminPagesController from '../../controllers/admin/pages.js';
-import checkAuth from '../../controllers/middlewares/is_auth.js';
+import checkAuth from '../../middlewares/is_auth.js';
 
 const router = express.Router();
 
