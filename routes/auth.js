@@ -1,7 +1,7 @@
 import express from 'express';
 
 import authController from '../controllers/auth.js';
-import CSRFProtection from '../middlewares/csrf_protection.js';
+import CSRFProtection from '../controllers/middlewares/csrf_protection.js';
 
 const router = express.Router();
 

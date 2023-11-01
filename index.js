@@ -5,7 +5,7 @@ import { fileURLToPath } from 'url';
 import session from 'express-session';
 import { mongoConnect } from './utils/database.js';
 import { MongoDBStore } from './utils/store.js';
-import CSRFProtection from './middlewares/csrf_protection.js';
+import CSRFProtection from './controllers/middlewares/csrf_protection.js';
 import flash from 'connect-flash';
 import helmet from 'helmet';
 
