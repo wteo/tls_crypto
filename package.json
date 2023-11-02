@@ -4,7 +4,7 @@
   "description": "A web platform designed to serve as a centralized directory for cryptocurrency resources.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha --recursive --exit",
+    "test": "mocha test",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
@@ -12,6 +12,7 @@
   "license": "ISC",
   "devDependencies": {
     "chai": "^4.3.10",
+    "esm": "^3.2.25",
     "mocha": "^10.2.0",
     "nodemon": "^3.0.1",
     "sinon": "^17.0.0",

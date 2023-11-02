@@ -39,6 +39,11 @@ describe('Get Admin Pages', () => {
     });
 
     describe('getGroupPage', () => {
+
+        beforeEach(() => {
+            res.locals.groups = [{ group: 'TestGroup', description: 'Test Description', coins: [] }];
+        });
+
         it('should render a 404 page if no group is found', () => {
             req.params.group = 'NonExistentGroup';
             groupsController.getGroupPage(req, res);
@@ -48,7 +53,6 @@ describe('Get Admin Pages', () => {
 
         it('should render the group page if the group is found', () => {
             req.params.group = 'TestGroup';
-            res.locals.groups = [{ group: 'TestGroup', description: 'Test Description', coins: [] }];
             groupsController.getGroupPage(req, res);
             const expectedPath = path.join(__dirname, '..', 'views', 'admin', 'pages', 'group.ejs');
             const expectedData = {

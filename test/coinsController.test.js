@@ -9,7 +9,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 describe('Coins Controller', () => {
-    let req, res, next;
+    let req, res, next, mockError;
 
     beforeEach(() => {
         req = {
@@ -22,6 +22,7 @@ describe('Coins Controller', () => {
             status: sinon.stub().returnsThis()
         };
         next = sinon.spy();
+        mockError = new Error('Database error');
     });
 
     afterEach(() => {
@@ -56,7 +57,6 @@ describe('Coins Controller', () => {
         });
 
         it('should call next with an error if there is a database error', async () => {
-            const mockError = new Error('Database error');
             sinon.stub(Coins, 'findOne').throws(mockError);
             await coinsController.getSelectedCoin(req, res, next);
             expect(next.calledWith(mockError)).to.be.true;
@@ -76,7 +76,6 @@ describe('Coins Controller', () => {
         });
 
         it('should call next with an error if there is a database error', async () => {
-            const mockError = new Error('Database error');
             sinon.stub(Coins, 'updateOne').throws(mockError);
             await coinsController.deleteResource(req, res, next);
             expect(next.calledWith(mockError)).to.be.true;
@@ -101,7 +100,6 @@ describe('Coins Controller', () => {
         });
 
         it('should call next with an error if there is a database error', async () => {
-            const mockError = new Error('Database error');
             sinon.stub(Coins, 'updateOne').throws(mockError);
             await coinsController.addResource(req, res, next);
             expect(next.calledWith(mockError)).to.be.true;
@@ -127,7 +125,6 @@ describe('Coins Controller', () => {
         });
 
         it('should call next with an error if there is a database error', async () => {
-            const mockError = new Error('Database error');
             sinon.stub(Coins, 'updateOne').throws(mockError);
             await coinsController.updateResource(req, res, next);
             expect(next.calledWith(mockError)).to.be.true;

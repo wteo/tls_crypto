@@ -41,9 +41,7 @@ describe('FAQItemsController', () => {
         it('should call next with an error if there is a database error', async () => {
             const mockError = new Error('Database error');
             sinon.stub(FAQItems, 'find').throws(mockError);
-
             await FAQItemsController.getFAQItems(req, res, next);
-
             expect(next.calledWith(mockError)).to.be.true;
         });
     });

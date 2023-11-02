@@ -12,7 +12,7 @@ const __dirname = path.dirname(__filename);
 describe('Get Admin Forms', () => {
 
     let req, res, next, mockCoinData;
-
+    
     beforeEach(() => {
         req = { 
             flash: sinon.stub().returns([]),
@@ -83,7 +83,6 @@ describe('Get Admin Forms', () => {
 
         it('Add Coin Form - renders a 404 page when there are no categories or groups', () => {
             groupsController.getAddCoinForm(req, res);
-            
             expect(res.status.calledWith(404)).to.be.true;
             expect(res.render.calledWith(path.join(__dirname, '..', 'views', '404.ejs'))).to.be.true;
         });
@@ -92,7 +91,6 @@ describe('Get Admin Forms', () => {
             res.locals.categories = ['SampleCategory'];
             res.locals.groups = ['SampleGroup'];
             groupsController.getAddCoinForm(req, res);
-            
             const expectedPath = path.join(__dirname, '..', 'views', 'admin', 'forms', 'add_coin.ejs');
             const expectedData = {
                 categories: ['SampleCategory'],
@@ -100,17 +98,14 @@ describe('Get Admin Forms', () => {
                 errorMessage: undefined,
                 oldInput: {}
             };
-            
             expect(res.render.calledWith(expectedPath, expectedData)).to.be.true;
         });
 
         it('Update Coin Form - renders form with expected arguments', async () => {
-
             req.params = {
                 group: 'TestGroup',
                 coin: 'TestCoin'
             };
-    
             res.locals.groups = [{
                 group: 'TestGroup',
                 coins: [{
@@ -118,16 +113,12 @@ describe('Get Admin Forms', () => {
                     coinLogoLink: 'TestLink'
                 }]
             }];
-    
             mockCoinData = {
                 description: 'Test Description',
                 imageLink: 'TestImageLink'
             }
-    
             sinon.stub(Coins, 'findOne').resolves(mockCoinData);
-    
             await groupsController.getUpdateCoinForm(req, res, next);
-            
             const expectedPath = path.join(__dirname, '..', 'views', 'admin', 'forms', 'update_coin.ejs');
             const expectedData = {
                 group: 'TestGroup',
@@ -138,7 +129,6 @@ describe('Get Admin Forms', () => {
                 imageLink: 'TestImageLink',
                 errorMessage: undefined
             };
-            
             expect(res.render.calledWith(expectedPath, expectedData)).to.be.true;
         });
 
