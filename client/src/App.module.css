@@ -125,4 +125,8 @@ section:nth-child(even) {
         top: 130px;
         bottom: 60px;
     }
+
+    section {
+        padding: 10vh 3vw 15vh;
+    }
 }
