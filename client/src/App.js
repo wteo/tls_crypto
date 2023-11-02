@@ -13,6 +13,7 @@ import styles from './App.module.css';
 // files
 import checklist from './files/checklist.pdf';
 
+
 function App() {
 
   const [isChecklistClicked, setIsChecklistClicked] = useState(false);
@@ -60,7 +61,6 @@ function App() {
                   <div className={styles.checklist__container}>
                     <Checklist />
                   </div>
-                  <p className={styles.home__address}><a href='https://thelazysociety.com/' target='_blank' rel='noreferrer'>www.thelazysociety.com</a></p>
                 </div>
             </div>
           </>

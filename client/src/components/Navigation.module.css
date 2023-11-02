@@ -63,20 +63,21 @@ header {
 }
 
 .navigation__toggle-btn {
-    font-size: xx-large;
+    font-size: 45px;
     display: none;
     position: fixed;
-    top: 20px;
+    top: 15px;
     left: 30px;
-    width: 45px;
-    height: 45px;
+    padding: 0px;
+    height: 60px;
+    width: 60px;
     background-color: rgba(0,0,0,0.3);
     color: white;
     border-radius: 5px;
     transition: all 0.5s;
-    text-align: center;
     border: none;
     z-index: 200;
+    margin: 0 auto;
 }
 
 .navigation__toggle-btn:hover {
