@@ -1,4 +1,4 @@
-#about {
+.about {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 50px;
@@ -9,7 +9,7 @@
 .about__video--wrapper {
     width: 100%;
     height: auto;
-    min-width: 300px;
+    min-width: 230px;
     max-height: 500px;
 }
 
@@ -20,7 +20,7 @@
 
 /* Mobile layout */
 @media (max-width: 750px) {
-    #about {
+    .about {
         grid-template-columns: 1fr;
     }
 }

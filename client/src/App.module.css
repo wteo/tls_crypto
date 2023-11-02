@@ -75,11 +75,11 @@ section:nth-child(even) {
 
 .checklist__container {
     text-align: left;
-    position: fixed;
+    position: absolute;
     z-index: 300;
     overflow-y: scroll;
     top: 80px;
-    bottom: 50px;
+    bottom: 30px;
     width: 100%;
     display: grid;
 }
