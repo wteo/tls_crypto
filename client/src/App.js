@@ -60,7 +60,6 @@ function App() {
                   <div className={styles.checklist__container}>
                     <Checklist />
                   </div>
-                  <p className={styles.home__address}><a href='https://thelazysociety.com/' target='_blank' rel='noreferrer'>www.thelazysociety.com</a></p>
                 </div>
             </div>
           </>

@@ -63,13 +63,12 @@ header {
 }
 
 .navigation__toggle-btn {
-    font-size: xx-large;
+    font-size: 45px;
     display: none;
     position: fixed;
-    top: 20px;
-    left: 30px;
-    width: 45px;
-    height: 45px;
+    padding: 5px 15px;
+    top: 15px;
+    left: 40px;
     background-color: rgba(0,0,0,0.3);
     color: white;
     border-radius: 5px;
