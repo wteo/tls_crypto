@@ -69,14 +69,13 @@ header {
     top: 15px;
     left: 30px;
     padding: 5px 15px;
-    width: min-content;
     background-color: rgba(0,0,0,0.3);
     color: white;
     border-radius: 5px;
     transition: all 0.5s;
-    text-align: center;
     border: none;
     z-index: 200;
+    margin: 0 auto;
 }
 
 .navigation__toggle-btn:hover {
