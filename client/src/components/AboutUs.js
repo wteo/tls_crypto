@@ -4,7 +4,7 @@ import styles from './AboutUs.module.css';
 
 function AboutUs() {
     return (
-        <section id={styles.about}>
+        <section id='about'>
             <div>
                 <h1>Discover The Lazy Society's Crypto Journey</h1>
                 <p>Welcome to The Lazy Society, where we inspire you to live smarter, not harder. </p>
