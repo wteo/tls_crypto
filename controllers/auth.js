@@ -145,7 +145,7 @@ const postPasswordResetForm = async (req, res, next) => {
                             Subject: 'Resetting your password',
                             HTMLPart: `
                                 <p>You requested a password reset.</p>
-                                <p>Click <a href="http://localhost:3000/reset/${resetToken}">here</a> to set a new password.</p>
+                                <p>Click <a href="${process.env.HOME_URL}/reset/${resetToken}">here</a> to set a new password.</p>
                                 `
                         }
                     ]
