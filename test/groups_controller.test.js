@@ -67,7 +67,7 @@ describe('Groups Controller', () => {
             expect(res.status.calledWith(404)).to.be.true;
             expect(res.render.calledWith(path.join(__dirname, '..', 'views', '404.ejs'))).to.be.true;
         });
-
+          
         it('should call next with an error if there is a database error', async () => {
             sinon.stub(Groups, 'findOne').throws(mockError);
             await groupsController.fetchGroup(req, res, next);
