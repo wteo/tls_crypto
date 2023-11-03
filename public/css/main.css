@@ -98,6 +98,11 @@ section:nth-child(even) .coin__resources-title {
     .group__title, .coin__title  {
         font-size: 2.2rem;
     }
+
+    section {
+        padding-top: 15vh;
+        padding-bottom: 25vh;
+    }
 }
     
 /* Mobile layout */
@@ -105,4 +110,10 @@ section:nth-child(even) .coin__resources-title {
     .group__title, .coin__title  {
         font-size: 1.8rem;
     }
+
+    section {
+        padding-top: 10vh;
+        padding-bottom: 15vh;
+    }
 }
+
