@@ -75,7 +75,6 @@ const getLoginForm = (req, res) => {
         });
 }
 
-
 const postLoginForm = async (req, res, next) => {
     
     try {
@@ -103,7 +102,7 @@ const postLoginForm = async (req, res, next) => {
     }
 }
 
-const postLogout = (req, res) => {
+const postLogout = (req, res, next) => {
     return req.session.destroy(error => error ? next(error) : res.redirect('/'));
 }
 

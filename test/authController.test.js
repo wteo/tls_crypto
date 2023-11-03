@@ -11,6 +11,7 @@ import Users from '../models/users.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
+
 describe('authController', () => {
 
     let req, res, next, bcryptHashStub, userCreateStub, userFindOneStub;
@@ -28,7 +29,7 @@ describe('authController', () => {
         };
         res = {
             render: sinon.spy(),
-            redirect: sinon.spy()
+            redirect: sinon.spy(),
         };
         next = sinon.spy();
         bcryptHashStub = sinon.stub(bcrypt, 'hash');
@@ -167,7 +168,6 @@ describe('authController', () => {
             });
         });
     });
-
     
     describe('postLoginForm', () => {
 
@@ -225,6 +225,61 @@ describe('authController', () => {
         });
     });
 
+    describe('postLogout', () => {
+
+        let sessionDestroyStub;
+
+        beforeEach(() => {
+            req.session.destroy = sinon.stub();
+            sessionDestroyStub = req.session.destroy;
+            next = sinon.stub();
+        });
+
+        it('should destroy the session and redirect to the home page', () => {
+
+            sessionDestroyStub.callsFake((callback) => {
+                callback(null); // Simulate no error on session destroy
+            });
+       
+            authController.postLogout(req, res, next);
+        
+            expect(sessionDestroyStub.calledOnce).to.be.true;
+            expect(res.redirect.calledWith('/')).to.be.true;
+            expect(next.notCalled).to.be.true;
+        });
     
+        it('should call next with an error if session destruction fails', () => {
+            const error = new Error('Session destruction failed');
+            sessionDestroyStub.callsFake((callback) => {
+                callback(error); // Simulate error on session destroy
+            });
+        
+            authController.postLogout(req, res, next);
+        
+            expect(sessionDestroyStub.calledOnce).to.be.true;
+            expect(res.redirect.notCalled).to.be.true;
+            expect(next.calledWith(error)).to.be.true;
+        });
+    });
+
+    describe('getPasswordResetForm', () => {
+
+        it('should render the forgot_password template with success and error messages', () => {
+
+            req.flash.withArgs('success').returns(['Success message']);
+            req.flash.withArgs('error').returns(['Error message']);
+
+            const expectedPath = path.join(__dirname, '..', 'views', 'auth', 'forgot_password.ejs');
+            const expectedOptions = {
+                successMessage: 'Success message',
+                errorMessage: 'Error message',
+            };
+        
+            authController.getPasswordResetForm(req, res);
+        
+            expect(res.render.calledOnce).to.be.true;
+            expect(res.render.calledWith(expectedPath, expectedOptions)).to.be.true;
+        });
+    });
 
 });
