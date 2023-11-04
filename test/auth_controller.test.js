@@ -264,12 +264,6 @@ describe('authController', () => {
         });
     });
 
-    /*
-    describe('postPasswordResetForm', () => {
-
-    });
-    */
-
     describe('getPasswordResetForm', () => {
 
         it('should render the forgot_password template with success and error messages', () => {
@@ -288,6 +282,11 @@ describe('authController', () => {
             expect(res.render.calledOnce).to.be.true;
             expect(res.render.calledWith(expectedPath, expectedOptions)).to.be.true;
         });
+    });
+
+    /*
+    describe('postPasswordResetForm', () => {
+
     });
 
     describe('getNewPasswordForm', () => {
@@ -329,6 +328,7 @@ describe('authController', () => {
         });
 
     });
+    */
 
     describe('postNewPasswordForm', () => {
 
