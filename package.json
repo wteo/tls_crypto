@@ -4,7 +4,7 @@
   "description": "A web platform designed to serve as a centralized directory for cryptocurrency resources.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
+    "test": "mocha test/auth_controller.test.js",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
