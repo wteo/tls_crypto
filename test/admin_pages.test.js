@@ -88,7 +88,6 @@ describe('Get Admin Pages', () => {
         });
 
         it('should call next with an error if there is a database error', async () => {
-            req.params.coin = 'TestCoin';
             const mockError = new Error('Database error');
             sinon.stub(Coins, 'findOne').throws(mockError);
             await groupsController.getCoinPage(req, res, next);
