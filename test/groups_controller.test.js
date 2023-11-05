@@ -86,7 +86,7 @@ describe('Groups Controller', () => {
         });
 
         it('should flash an error message if group already exists in the database', async () => {
-            sinon.stub(Groups, 'findOne').resolves({}); 
+            sinon.stub(Groups, 'findOne').resolves({});
             await groupsController.addGroup(req, res, next);
             expect(req.flash.calledWith('error', 'This group already exists in our database. Please update the existing group or choose a different group name.')).to.be.true;
             expect(res.redirect.calledWith('/admin/add-group-form')).to.be.true;
@@ -112,6 +112,7 @@ describe('Groups Controller', () => {
             };
             sinon.stub(Groups, 'findOne').resolves({ group: 'TestGroup' });
             sinon.stub(Groups, 'updateOne').resolves({});
+
             await groupsController.updateGroup(req, res, () => {});
             expect(res.redirect.calledWith('/admin')).to.be.true;
         });
@@ -122,12 +123,14 @@ describe('Groups Controller', () => {
             sinon.stub(Groups, 'findOne').callsFake((query) => {
                 if (query.group === 'ExistingGroupName') {
                     return Promise.resolve({ group: 'ExistingGroupName' });
-                }
-                return Promise.resolve(null);
+                } 
+                return Promise.resolve({ group: null });
             });
+
             await groupsController.updateGroup(req, res, next);
             expect(req.flash.calledWith('error', 'This group already exists in our database. Please update the existing group or choose a different group name.')).to.be.true;
-            expect(res.redirect.calledWith(`/${encodeURIComponent(req.params.group)}/admin/update-group-form`)).to.be.true;
+            expect(res.redirect.calledWith(`/${encodeURIComponent(req.params.group)}/admin/update-group-form`)).to.be.true;    
+
         });
 
         it('should call next with an error if database query fails', async () => {
@@ -194,7 +197,7 @@ describe('Groups Controller', () => {
                 if (query.coin === 'ExistingCoinName') {
                     return Promise.resolve({ coin: 'ExistingCoinName' });
                 }
-                return Promise.resolve(null);
+                return Promise.resolve({ coin: null });
             });
             await groupsController.updateCoin(req, res, next);
             expect(req.flash.calledWith('error', 'This coin already exists in our database. Please update the existing coin or choose a different name.')).to.be.true;
