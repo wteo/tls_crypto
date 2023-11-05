@@ -48,7 +48,14 @@ describe('Groups Controller', () => {
                 description: 'TestDescription',
                 coins: ['Coin1', 'Coin2']
             };
-            sinon.stub(Groups, 'findOne').resolves(mockGroupData);
+
+            sinon.stub(Groups, 'findOne').callsFake((query) => {
+                if (query.hasOwnProperty('group') && !query.hasOwnProperty('_id')) {
+                    return Promise.resolve(mockGroupData);
+                } else {
+                    return Promise.resolve(null);
+                }
+            });
 
             req.params.group = 'TestGroup';
             await groupsController.fetchGroup(req, res, next);
@@ -79,14 +86,25 @@ describe('Groups Controller', () => {
 
         it('should redirect to group admin page if group is added successfully', async () => {
             req.body = { category: 'Sample', group: 'TestGroup', description: 'Test Description' }
-            sinon.stub(Groups, 'findOne').resolves(null);
-            sinon.stub(Groups, 'create').resolves({});
+            
+            sinon.stub(Groups, 'findOne').callsFake((query) => {
+                if (query.hasOwnProperty('group')) {
+                    return Promise.resolve(null);
+                } else {
+                    return Promise.resolve({ group: req.body.group }); 
+                }
+            });           
+            sinon.stub(Groups, 'create').resolves({
+                category: req.body.category,
+                group: req.body.group,
+                description: req.body.description
+            });
             await groupsController.addGroup(req, res, () => {});
             expect(res.redirect.calledWith('/TestGroup/admin')).to.be.true;
         });
 
         it('should flash an error message if group already exists in the database', async () => {
-            sinon.stub(Groups, 'findOne').resolves({});
+            sinon.stub(Groups, 'findOne').resolves({ group: 'TestGroup'});
             await groupsController.addGroup(req, res, next);
             expect(req.flash.calledWith('error', 'This group already exists in our database. Please update the existing group or choose a different group name.')).to.be.true;
             expect(res.redirect.calledWith('/admin/add-group-form')).to.be.true;
@@ -110,7 +128,14 @@ describe('Groups Controller', () => {
                 }, 
                 params: { group: 'TestGroup' } 
             };
-            sinon.stub(Groups, 'findOne').resolves({ group: 'TestGroup' });
+
+            sinon.stub(Groups, 'findOne').callsFake((query) => {
+                if (query === null) {
+                    return Promise.resolve({ group: null });
+                } 
+                return Promise.resolve({ group: 'TestGroup' });
+            });
+
             sinon.stub(Groups, 'updateOne').resolves({});
 
             await groupsController.updateGroup(req, res, () => {});
@@ -144,7 +169,7 @@ describe('Groups Controller', () => {
 
         it('should redirect to admin page if group is deleted successfully', async () => {
             req.body = { group: 'TestGroup' };
-            sinon.stub(Groups, 'deleteOne').resolves({});
+            sinon.stub(Groups, 'deleteOne').resolves({ group: req.body.group });
             await groupsController.deleteGroup(req, res, () => {});
             expect(res.redirect.calledWith('/admin')).to.be.true;
         });
@@ -159,9 +184,25 @@ describe('Groups Controller', () => {
     describe('addCoin', () => {
 
         it('should redirect to coin admin page if coin is added successfully', async () => {
+
+            req.body = {
+                coin: 'TestCoin',
+                description: 'Test Description',
+                imageLink: 'www.testlink.com',
+                resources: []
+            }
+
+            const mockData = {
+                _id: '12345',
+                category: 'Category Data',
+                group: 'Group Data',
+                description: 'Group Description',
+                coins: []
+            }
+            
             sinon.stub(Coins, 'findOne').resolves(null);
-            sinon.stub(Groups, 'updateOne').resolves({});
-            sinon.stub(Coins, 'create').resolves({});
+            sinon.stub(Groups, 'updateOne').resolves(mockData);
+            sinon.stub(Coins, 'create').resolves(req.body);
             await groupsController.addCoin(req, res, next);
             expect(res.redirect.calledWith(`/${encodeURIComponent(req.body.group)}/admin`)).to.be.true;
         });
