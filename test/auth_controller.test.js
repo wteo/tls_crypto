@@ -14,11 +14,12 @@ const __dirname = path.dirname(__filename);
 
 describe('authController', () => {
 
-    let req, res, next, bcryptHashStub, userCreateStub, userFindOneStub;
+    let req, res, next, bcryptHashStub, userCreateStub, userFindOneStub, userMock;
 
     beforeEach(() => {
         req = {
             body: {},
+            params: {},
             flash: sinon.stub(),
             session: {
                 save: sinon.stub().yields(null),
@@ -42,6 +43,7 @@ describe('authController', () => {
     });
 
     describe('getRegisterForm', () => {
+
         it('should render the registration form with expected variables', () => {
         req.flash.returns([]);
         req.session.oldInput = { username: 'test@example.com' }; 
@@ -281,5 +283,94 @@ describe('authController', () => {
             expect(res.render.calledWith(expectedPath, expectedOptions)).to.be.true;
         });
     });
+
+    /*
+    describe('postPasswordResetForm', () => {
+
+    });
+
+    describe('getNewPasswordForm', () => {
+
+        beforeEach(() => {
+            req.params = { token: 'valid-token' };
+            userMock = {
+                _id: 'valid-user-id'
+            }
+        });
+
+        it('should render the new password form if the user exists', async () => {
+            userFindOneStub.resolves(userMock);
+            await authController.getNewPasswordForm(req, res, next);
+            expect(Users.findOne.calledOnce).to.be.true;
+            expect(res.render.calledOnce).to.be.true;
+            expect(res.render.firstCall.args[0]).to.equal(path.join(__dirname, '..', 'views', 'auth', 'new_password.ejs'));
+            expect(res.render.firstCall.args[1]).to.deep.equal({
+                userId: userMock._id.toString(),
+                errorMessage: undefined,
+                passwordToken: 'valid-token',
+            });
+        });
+        
+        it('should render the 404 page if the user does not exist', async () => {
+            userFindOneStub.resolves(null);
+            await authController.getNewPasswordForm(req, res, next);
+            expect(Users.findOne.calledOnce).to.be.true;
+            expect(res.render.calledOnce).to.be.true;
+            expect(res.render.firstCall.args[0]).to.equal(path.join(__dirname, '..', 'views', '404.ejs'));
+        });
+
+        it('should call next with an error if there is a database error', async () => {
+            const mockError = new Error('Database Error');
+            userFindOneStub.rejects(mockError);
+            await authController.getNewPasswordForm(req, res, next);
+            expect(next.calledOnce).to.be.true;
+            expect(next.calledWith(mockError)).to.be.true;
+        });
+
+    });
+    */
+
+    describe('postNewPasswordForm', () => {
+
+        beforeEach(() => {
+            req.body = {
+                newPassword: 'NewPass123!',
+                confirmedNewPassword: 'NewPass123!',
+                passwordToken: 'valid-token',
+                userId: 'valid-user-id'
+            }
+    
+            userMock = {
+                password: '',
+                resetToken: undefined,
+                tokenExpiration: undefined,
+                save: sinon.stub().resolves()
+            };
+            userFindOneStub.resolves(userMock);
+            bcryptHashStub.resolves('hashed-password');
+        });
+
+        it('should redirect to login after successfully updating password', async () => {
+            await authController.postNewPasswordForm(req, res, next);
+            expect(bcryptHashStub.calledOnce).to.be.true;
+            expect(userMock.save.calledOnce).to.be.true;
+            expect(res.redirect.calledWith('/login')).to.be.true;
+        });
+
+        it('should redirect to reset page with an error if passwords do not match', async () => {
+            req.body.confirmedNewPassword = 'DifferentPass123!';
+            await authController.postNewPasswordForm(req, res, next);
+            expect(req.flash.calledWith('error', 'Passwords do not match.')).to.be.true;
+            expect(res.redirect.calledWith(`/reset/${req.body.passwordToken}`)).to.be.true;
+        });
+
+        it('should redirect to reset page with an error if password does not meet criteria', async () => {
+            req.body.newPassword = 'short';
+            await authController.postNewPasswordForm(req, res, next);
+            expect(req.flash.calledWith('error')).to.be.true;
+            expect(res.redirect.calledWith(`/reset/${req.body.passwordToken}`)).to.be.true;
+        });
+
+    })
 
 });

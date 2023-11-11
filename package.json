@@ -4,13 +4,17 @@
   "description": "A web platform designed to serve as a centralized directory for cryptocurrency resources.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test",
+    "test": "mocha",
+    "test:mutate": "stryker run",
     "start": "node index.js",
     "start:dev": "nodemon index.js"
   },
   "author": "Wendy Teo",
   "license": "ISC",
   "devDependencies": {
+    "@stryker-mutator/core": "^7.3.0",
+    "@stryker-mutator/jest-runner": "^7.3.0",
+    "@stryker-mutator/mocha-runner": "^7.3.0",
     "chai": "^4.3.10",
     "esm": "^3.2.25",
     "mocha": "^10.2.0",

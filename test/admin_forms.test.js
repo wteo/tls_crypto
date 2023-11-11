@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 
 describe('Get Admin Forms', () => {
 
-    let req, res, next, mockCoinData;
+    let req, res, mockCoinData;
     
     beforeEach(() => {
         req = { 
@@ -27,7 +27,6 @@ describe('Get Admin Forms', () => {
                 groups: []
             } 
         };
-        next = sinon.spy();
         mockCoinData = {};
     });
 
@@ -77,7 +76,7 @@ describe('Get Admin Forms', () => {
             expect(res.render.calledWith(expectedPath, expectedData)).to.be.true;
         });
 
-    })
+    });
 
     describe('Coin Form', () => {
 
@@ -118,7 +117,7 @@ describe('Get Admin Forms', () => {
                 imageLink: 'TestImageLink'
             }
             sinon.stub(Coins, 'findOne').resolves(mockCoinData);
-            await groupsController.getUpdateCoinForm(req, res, next);
+            await groupsController.getUpdateCoinForm(req, res);
             const expectedPath = path.join(__dirname, '..', 'views', 'admin', 'forms', 'update_coin.ejs');
             const expectedData = {
                 group: 'TestGroup',
@@ -143,7 +142,7 @@ describe('Get Admin Forms', () => {
                 coin: 'TestCoin'
             };
 
-            await groupsController.getAddResourceForm(req, res, next);
+            await groupsController.getAddResourceForm(req, res);
             
             const expectedPath = path.join(__dirname, '..', 'views', 'admin', 'forms', 'add_resource.ejs');
             const expectedData = {
@@ -174,7 +173,7 @@ describe('Get Admin Forms', () => {
 
             sinon.stub(Coins, 'findOne').resolves(mockCoinData);
 
-            await groupsController.getUpdateResourceForm(req, res, next);
+            await groupsController.getUpdateResourceForm(req, res);
 
             const expectedPath = path.join(__dirname, '..', 'views', 'admin', 'forms', 'update_resource.ejs');
             const expectedData = {
@@ -189,6 +188,5 @@ describe('Get Admin Forms', () => {
 
         });
 
-    })
-
+    });
 });
