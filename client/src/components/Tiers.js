@@ -82,7 +82,7 @@ function Tiers() {
     ];
 
     return (
-        <section className={styles.tiers__wrapper}>
+        <section className={styles.tiers__wrapper} id='tier'>
             <h1>Your Crypto Journey: Choose your Path</h1>
             <br/>
             <Tier onOpen={null} title={tierData[0].title} subtitle={tierData[0].subtitle} details={tierData[0].details} />

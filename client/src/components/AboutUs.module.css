@@ -18,6 +18,24 @@
     height: 400px;
 }
 
+.about button {
+    margin-top: 20px;
+    padding: 15px 20px;
+    text-transform: uppercase;
+    border: 3px solid var(--primary-border-button-color);
+    border-radius: 5px;
+    background-color: var(--primary-button-color);
+    color: var(--primary-font-button-color);
+    transition: all 0.5s;
+}
+
+.about button:hover {
+    background-color: transparent;
+    color: var(--primary-button-color);
+    cursor: pointer;
+}
+
+
 /* Mobile layout */
 @media (max-width: 750px) {
     .about {

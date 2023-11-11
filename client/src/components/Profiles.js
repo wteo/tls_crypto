@@ -3,6 +3,8 @@ import React from 'react';
 // profile images
 import rosh from '../images/rosh.jpg';
 import ant from '../images/ant.jpg';
+import alex from '../images/alex.jpg';
+import wendy from '../images/wendy.jpg';
 
 import Profile from './Profile';
 import avatar from '../images/avatar.png';
@@ -34,9 +36,28 @@ function Profiles() {
         Whether perfecting a handstand or exploring crypto, Ant blends expertise with flair to guide your journey.
         `
     }, {
+        name: `Marc`,
+        title: `Co-Founder`,
+        imageLink: avatar,
+        description: `Marc joined TLS way back when Rosh and Ant were finding their legs. Another IT veteran, 
+        who is now specialising in IT security for his 9-5 job and really enjoying what he does for TLS. 
+        He also enjoys Scuba Diving as a hobby and wants to make that happen more often! 
+        He recently met his life partner and everything is finally firing on all cylinders as he deserves.
+        It is clear to see Marc's passion for helping people aligns so well with Rosh and Ant. 
+        He goes above and beyond to test and to demonstrate and to help. A fantastic addition to the team.`
+    }, 
+    {
+        name: `Alex`,
+        title: `Mindset Guru`,
+        imageLink: alex,
+        description: `With over a decade and half of Information Technology experience as an analyst, product owner, delivery and iteration manager, Alex Holland know how connect with talented individuals. 
+        With experience of managing both national and international team members to deliver results, Alex's knows how to get the best out of people and ensures they are always set up for success. 
+        Alex is always excited for a new challenge whether that is his personal best lift at the gym, time spent in his personal ice bath or keeping his two young sons from driving his wife crazy.` 
+    }, 
+    {
         name: 'Wendy',
         title: 'Crypto Maven & Web Development Enthusiast',
-        imageLink: avatar,
+        imageLink: wendy,
         description: `
         Merging cryptocurrency insights with web development, Wendy stands out in both realms. 
         Since 2017, she's tracked the 4-year Bitcoin halving cycle, armed with a decade's experience in finance. 

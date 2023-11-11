@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-scroll';
 
 import styles from './AboutUs.module.css';
 
@@ -17,6 +18,9 @@ function AboutUs() {
                     So, whether you're new to crypto or looking to enhance your knowledge, join us on this exciting journey. 
                     Dive in, enjoy the ride, and let's embrace the future of finance together!
                 </p>
+                <Link to='tier' spy={true} smooth={true} offset={40} duration={250}>
+                    <button>Start Discovering</button>
+                </Link>
             </div>
             <div className={styles[`about__video--wrapper`]}>
                 <iframe 
@@ -24,7 +28,7 @@ function AboutUs() {
                     src='https://www.youtube.com/embed/0BDRYtRwdWM?autoplay=1'
                     title='Placeholder video'
                     frameborder='0' 
-                    allowfullscreen 
+                    allowFullScreen 
                 />
             </div>
         </section>
