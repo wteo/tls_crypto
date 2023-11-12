@@ -1,6 +1,8 @@
+@import 'variables';
+
 .footer {
-    background-color: var(--navigation-bar-color);
-    color: var(--navigation-font-color);
+    background-color: $navigation-bar-color;
+    color: $navigation-font-color;
     padding: 5vh 5vw;
     margin: auto 0;
     position: relative;

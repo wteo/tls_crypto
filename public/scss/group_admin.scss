@@ -1,3 +1,5 @@
+@import 'variables';
+
 .group__coin-grid--admin {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -22,7 +24,7 @@
 }
 
 .group__coin-title--admin {
-    color: var(--navigation-font-color);
+    color: $navigation-font-color;
     opacity: 0.7;
     position: absolute;
     text-align: end;

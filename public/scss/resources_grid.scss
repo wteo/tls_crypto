@@ -1,3 +1,5 @@
+@import 'variables';
+
 .coin__resources-title {
     margin-top: 10vh;    
 }
@@ -31,7 +33,7 @@
 }
 
 .coin__resources-group {
-    color: var(--navigation-font-color);
+    color: $navigation-font-color;
     opacity: 0.7;
     position: absolute;
     text-align: end;

@@ -1,3 +1,5 @@
+@import 'variables';
+
 .coin__resources-title {
     margin-top: 10vh;    
 }
@@ -25,7 +27,7 @@
 }
 
 .coin__resources-group--admin {
-    color: var(--navigation-font-color);
+    color: $navigation-font-color;
     opacity: 0.7;
     position: absolute;
     text-align: end;
@@ -63,9 +65,9 @@
 }
 
 .coin__resource-button-container {
-    border: 1px solid var(--see-more-button-border-color);
-    background-color: var(--see-more-button-background-color);
-    color: var(--see-more-button-border-color);
+    border: 1px solid $see-more-button-border-color;
+    background-color: $see-more-button-background-color;
+    color: $see-more-button-border-color;
     display: grid;
     grid-template-columns: 1fr;
     text-align: center;
@@ -74,13 +76,13 @@
 
 .coin__resource-button-container:hover {
     cursor: pointer;
-    background-color: var(--see-more-hovered-button-background-color);
+    background-color: $see-more-hovered-button-background-color;
     transition: all 0.5s ease;
 }
 
 .coin__resource-more,
 .coin__resource-button {
-    color: var(--see-more-button-font-color);
+    color: $see-more-button-font-color;
     font-size: 1.5rem;
     transition: all 0.5s ease;
 }

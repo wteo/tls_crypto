@@ -1,3 +1,5 @@
+@import 'variables';
+
 .nav__search {
     position: relative;
     width: 25vw;
@@ -13,7 +15,7 @@
     padding-right: 50px;
     box-sizing: border-box;
     border-radius: 5px;
-    border: 1px solid var(--navigation-border-search-color);
+    border: 1px solid $navigation-border-search-color;
     outline: 3px solid none;
     font-size: 1rem;
     transition: all 0.3s ease;
@@ -21,7 +23,7 @@
 
 .nav__search-input:focus {
     border: 1px solid none;
-    outline: 1.5px solid var(--navigation-border-search-color);
+    outline: 1.5px solid $navigation-border-search-color;
 }
 
 .nav__search-button {
