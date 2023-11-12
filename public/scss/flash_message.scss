@@ -1,3 +1,5 @@
+@import 'mixins';
+
 .flash-message {
     border-radius: 5px;
     padding: 10px;
@@ -8,13 +10,9 @@
 }
 
 .success {
-    color: green;
-    background-color: lightgreen;
-    border: 1px solid green;
+    @include colors-and-border(green, lightgreen, 1px);
 }
 
 .invalid {
-    color: red;
-    background-color: pink;
-    border: 1px solid red;
+    @include colors-and-border(red, pink, 1px);
 }

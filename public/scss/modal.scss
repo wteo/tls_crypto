@@ -1,3 +1,4 @@
+@import 'mixins';
 @import 'variables';
 
 .modal {
@@ -42,8 +43,6 @@
 }
 
 .modal__buttons-wrapper {
-    display: grid;
-    grid-auto-flow: column;
-    gap: 10px;
+    @include column-flow-grid;
     width: fit-content;
 }

@@ -1,6 +1,7 @@
+@import 'mixins';
+
 .error {
-    display: grid;
-    grid-template-columns: 1fr;
+    @include grid-layout(1fr);
     justify-items: center;     
     align-items: center; 
     margin-top: 20vh;

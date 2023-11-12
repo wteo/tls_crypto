@@ -1,5 +1,17 @@
-@mixin grid-layout($columns, $gap: 0) {
+@mixin grid-layout($columns, $gap: 0) { // determins grid layout by the number of columns
     display: grid;
     grid-template-columns: repeat($columns, 1fr);
     gap: $gap
+}
+
+@mixin column-flow-grid($flow: column, $gap: 10px) {// determines grid layout by column flow
+    display: grid;
+    grid-auto-flow: column;
+    gap: $gap;
+}
+
+@mixin colors-and-border($color, $background-color, $border-thickness, $border-color: $color) { // determines the colour and border styles of a container
+    color: $color;
+    background-color: $background-color;
+    border: $border-thickness solid $border-color;
 }

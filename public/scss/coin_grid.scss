@@ -29,12 +29,12 @@
     object-fit: cover;
     filter: brightness(50%);
     transition: all 0.5s ease; 
-}
-
-.group__coin-image:hover {
-    filter: brightness(80%);
-    transform: scale(1.1); 
-    cursor: pointer;
+    
+    &:hover {
+        filter: brightness(80%);
+        transform: scale(1.1); 
+        cursor: pointer;
+    }
 }
 
 .group__coin-title {
@@ -56,17 +56,15 @@
 
 .group__coin-button-container {
     @include grid-layout(1);    
-    border: 1px solid $see-more-button-border-color;
-    background-color: $see-more-button-background-color;
-    color: $see-more-button-border-color;
+    @include colors-and-border($see-more-button-border-color, $see-more-button-background-color, 1px);
     text-align: center;
     text-decoration: none;
-}
-
-.group__coin-button-container:hover {
-    cursor: pointer;
-    background-color: $see-more-hovered-button-background-color;
-    transition: all 0.5s ease;
+    
+    &:hover {
+        cursor: pointer;
+        background-color: $see-more-hovered-button-background-color;
+        transition: all 0.5s ease;
+    }
 }
 
 .group__coin-button-container:hover .group__coin-more,

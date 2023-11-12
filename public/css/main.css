@@ -136,9 +136,9 @@ header {
     transition: all 0.3s;
     width: 50px;
     height: 50px; }
-  #nav__hamburger:hover {
-    background-color: rgba(0, 0, 0, 0.7);
-    transform: scale(1.1); }
+    #nav__hamburger:hover {
+      background-color: rgba(0, 0, 0, 0.7);
+      transform: scale(1.1); }
   .nav__menu {
     max-height: 0;
     opacity: 0;
@@ -223,8 +223,8 @@ header {
 .coin__resources-grid--admin {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 100px;
-  gap: 5px; }
+  gap: 5px;
+  grid-auto-rows: 100px; }
 
 .coin__resources-container--admin {
   position: relative;
@@ -268,23 +268,22 @@ header {
   grid-template-columns: 0.25fr 1fr;
   gap: 10px;
   width: 100%; }
-
-.coin__admin-controls button:hover {
-  background-color: white; }
+  .coin__admin-controls button:hover {
+    background-color: white; }
 
 .coin__resource-button-container {
-  border: 1px solid #0E4D64;
-  background-color: transparent;
   color: #0E4D64;
+  background-color: transparent;
+  border: 1px solid #0E4D64;
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 0;
   text-align: center;
   text-decoration: none; }
-
-.coin__resource-button-container:hover {
-  cursor: pointer;
-  background-color: #A8DADC;
-  transition: all 0.5s ease; }
+  .coin__resource-button-container:hover {
+    cursor: pointer;
+    background-color: #A8DADC;
+    transition: all 0.5s ease; }
 
 .coin__resource-more,
 .coin__resource-button {
@@ -348,10 +347,9 @@ header {
   outline: 3px solid none;
   font-size: 1rem;
   transition: all 0.3s ease; }
-
-.nav__search-input:focus {
-  border: 1px solid none;
-  outline: 1.5px solid #5B5F97; }
+  .nav__search-input:focus {
+    border: 1px solid none;
+    outline: 1.5px solid #5B5F97; }
 
 .nav__search-button {
   position: absolute;
@@ -387,18 +385,17 @@ header {
   width: fit-content; }
 
 button {
-  background-color: #0E4D64;
   color: #F8ECC2;
+  background-color: #0E4D64;
   border: 2px solid #0E4D64;
   padding: 10px 15px;
   text-transform: uppercase;
   transition: all 0.3s ease;
   text-decoration: none; }
-
-button:hover {
-  background-color: transparent;
-  color: #0E4D64;
-  cursor: pointer; }
+  button:hover {
+    background-color: transparent;
+    color: #0E4D64;
+    cursor: pointer; }
 
 /* Navigation Admin menu buttons */
 .nav__menu-buttons-wrapper {
@@ -407,18 +404,17 @@ button:hover {
   gap: 10px; }
 
 .nav__menu-button {
-  background-color: white;
   color: #0E4D64;
-  border: 2px solid white;
+  background-color: #F8ECC2;
+  border: 2px solid #F8ECC2;
   font-size: 1.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
   max-width: 15vw; }
-
-.nav__menu-button:hover {
-  background-color: #0E4D64;
-  color: #F8ECC2; }
+  .nav__menu-button:hover {
+    background-color: #0E4D64;
+    color: #F8ECC2; }
 
 @media (max-width: 750px) {
   .nav__menu-buttons-wrapper {
@@ -427,8 +423,8 @@ button:hover {
     right: 30px;
     display: grid;
     grid-auto-flow: column;
-    justify-content: end;
-    gap: 10px; }
+    gap: 10px;
+    justify-content: end; }
   .nav__menu-button {
     white-space: nowrap;
     max-width: 30vw; } }
@@ -643,11 +639,10 @@ button:hover {
   object-fit: cover;
   filter: brightness(50%);
   transition: all 0.5s ease; }
-
-.group__coin-image:hover {
-  filter: brightness(80%);
-  transform: scale(1.1);
-  cursor: pointer; }
+  .group__coin-image:hover {
+    filter: brightness(80%);
+    transform: scale(1.1);
+    cursor: pointer; }
 
 .group__coin-title {
   color: #F8ECC2;
@@ -668,16 +663,15 @@ button:hover {
   display: grid;
   grid-template-columns: repeat(1, 1fr);
   gap: 0;
-  border: 1px solid #0E4D64;
-  background-color: transparent;
   color: #0E4D64;
+  background-color: transparent;
+  border: 1px solid #0E4D64;
   text-align: center;
   text-decoration: none; }
-
-.group__coin-button-container:hover {
-  cursor: pointer;
-  background-color: #A8DADC;
-  transition: all 0.5s ease; }
+  .group__coin-button-container:hover {
+    cursor: pointer;
+    background-color: #A8DADC;
+    transition: all 0.5s ease; }
 
 .group__coin-button-container:hover .group__coin-more,
 .group__coin-button-container:hover .group__coin-button {
@@ -719,7 +713,8 @@ button:hover {
 
 .error {
   display: grid;
-  grid-template-columns: 1fr;
+  grid-template-columns: repeat(1fr, 1fr);
+  gap: 0;
   justify-items: center;
   align-items: center;
   margin-top: 20vh;
@@ -774,9 +769,8 @@ section:nth-child(even) {
 
 .coin__breadcrumb a {
   text-decoration: none; }
-
-.coin__breadcrumb a:hover {
-  text-decoration: underline; }
+  .coin__breadcrumb a:hover {
+    text-decoration: underline; }
 
 section:nth-child(even) .error__title,
 section:nth-child(even) .error__description,
