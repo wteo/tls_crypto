@@ -8,6 +8,11 @@
                 <img class="nav__icon-image" src="https://i0.wp.com/thelazysociety.com/wp-content/uploads/2020/02/The-Lazy-Society-logo.png?fit=220%2C194&ssl=1"/>
             </a>
         </li>
+        <li class="nav__icon-wrapper-mobile">
+            <a href="/">
+                <img class="nav__icon-image" src="https://i0.wp.com/thelazysociety.com/wp-content/uploads/2020/02/The-Lazy-Society-logo.png?fit=220%2C194&ssl=1"/>
+            </a>
+        </li>
         <% categories.forEach( category => { %>
             <li class="nav__menu-title"><%= category %>
                 <br/>
@@ -15,6 +20,18 @@
                     <% groups.forEach( group => { %>
                         <% if (group.category === category) { %>
                             <li class="nav__dropdown-title"><a href="/<%= encode(group.group) %>/admin"><%= group.group %></a></li>
+                        <% } %>
+                    <% }) %>
+                </ul>
+            </li>
+        <% }) %>
+        <% categories.forEach( category => { %>
+            <li class="nav__menu-title-mobile"><%= category %>
+                <br/>
+                <ul class="nav__dropdown-mobile">
+                    <% groups.forEach( group => { %>
+                        <% if (group.category === category) { %>
+                            <li class="nav__dropdown-title-mobile"><a href="/<%= encode(group.group) %>/admin"><%= group.group %></a></li>
                         <% } %>
                     <% }) %>
                 </ul>
