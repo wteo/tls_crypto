@@ -69,10 +69,7 @@ function App() {
       </section>
       <Profiles />
       <section id='faq'>
-        <Accordion title='General' category='general'/>
-        <br />
-        <br />
-        <Accordion title='TLS Crypto Hub' category='hub'/>
+        <Accordion title='Frequently Asked Questions' category='general'/>
       </section>
       <Footer />
     </>
