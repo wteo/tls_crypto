@@ -1,7 +1,7 @@
 @import 'variables';
 
 header {
-    margin-bottom: 20vh;
+    margin-bottom: 130px;
 }
 
 .nav {
@@ -113,11 +113,18 @@ header {
     display: none;
 }
 
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+    header {
+        margin-bottom: 100px;
+    }
+}
+
 
 @media (max-width: 750px) {
 
     header {
-        margin-bottom: 0vh;
+        margin-bottom: 30px;
     }
 
     .nav {

@@ -5,9 +5,9 @@
 /* Default Buttons */
 /* Modal */
 .about__wrapper {
-  margin: 150px 0 50px;
+  padding: 100px 0 50px;
   position: relative;
-  background-image: url("https://cdn.mos.cms.futurecdn.net/wtqqnkYDYi2ifsWZVW2MT4.jpg");
+  background-image: url("https://thelazysociety.com/wp-content/uploads/2020/02/cropped-beach-beautiful-color-idyllic-358358-1-1.jpg");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -48,7 +48,7 @@
 /* Default Buttons */
 /* Modal */
 header {
-  margin-bottom: 20vh; }
+  margin-bottom: 130px; }
 
 .nav {
   background-color: #0E4D64;
@@ -145,9 +145,14 @@ header {
 .nav__menu-title-mobile {
   display: none; }
 
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+  header {
+    margin-bottom: 100px; } }
+
 @media (max-width: 750px) {
   header {
-    margin-bottom: 0vh; }
+    margin-bottom: 30px; }
   .nav {
     height: 40px; }
     .nav #nav__hamburger {
