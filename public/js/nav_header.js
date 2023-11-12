@@ -22,4 +22,3 @@ window.addEventListener('resize', function() {
         menu.classList.remove('active'); 
     }
 });
-

@@ -5,7 +5,7 @@
     background-color: $navigation-bar-color;
     text-align: center;
     color: $navigation-font-color;
-    padding: 10px 5vw 20px;
+    padding: 50px 5vw 20px;
     margin: auto 0;
     position: relative;
     bottom: 0;
@@ -15,7 +15,7 @@
     .footer__link-container {
 
         list-style-type: none;
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         @include column-flow-grid;
 
         .footer__link, .footer__link a {
