@@ -51,9 +51,11 @@ describe('globalGroupsController', () => {
     describe('getGroups', () => {
         it('should render the groups view with groups from res.locals', () => {
             const mockGroups = [{ group: 'Group1' }, { group: 'Group2' }];
+            const mockFaqItems = [{ question: 'This is a question', answer: 'Here lies the answer' }];
             res.locals.groups = mockGroups;
+            res.locals.faqItems = mockFaqItems;
             globalGroupsController.getGroups(req, res);
-            expect(res.render.calledWith(path.join(__dirname, '..', 'views', 'groups.ejs'), { groups: mockGroups })).to.be.true;
+            expect(res.render.calledWith(path.join(__dirname, '..', 'views', 'groups.ejs'), { groups: mockGroups, faqItems: mockFaqItems })).to.be.true;
         });
     });
 
