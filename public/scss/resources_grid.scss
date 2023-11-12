@@ -1,3 +1,4 @@
+@import 'mixins';
 @import 'variables';
 
 .coin__resources-title {
@@ -5,10 +6,8 @@
 }
 
 .coin__resources-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    @include grid-layout(3, 5px);    
     grid-auto-rows: 100px; /* Default height */
-    gap: 5px;
 }
 
 .coin__resources-container {

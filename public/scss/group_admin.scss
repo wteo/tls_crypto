@@ -1,9 +1,8 @@
+@import 'mixins';
 @import 'variables';
 
 .group__coin-grid--admin {
-    display: grid;
-    grid-template-columns: repeat(5, 1fr);
-    gap: 5px;
+    @include grid-layout(5, 5px);    
 }
 
 .group__coin-container--admin {
@@ -38,9 +37,7 @@
 /* Control buttons */
 .group__admin-controls {
     position: absolute;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 10px;
+    @include grid-layout(2, 10px);    
     width: 100%;
 }
 
