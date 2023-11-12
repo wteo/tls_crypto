@@ -1,0 +1,75 @@
+@import 'variables';
+
+$border: 1px solid $separation-line-color;
+
+.accordion__wrapper {
+    padding-left: 3vw;
+    padding-right: 3vw;
+}
+
+.accordion {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    color: $accordion-font-color;
+
+    .accordion__title {
+        text-transform: uppercase;
+        font-size: 200%;
+    }
+
+    .accordion__item {
+        border-bottom: $border; 
+
+        &:first-of-type {
+            border-top: $border; 
+        }
+
+    .accordion__header {
+            background-color: $accordion-header-color;
+            color: $accordion-font-color;
+            cursor: pointer;
+            padding: 1rem;
+            width: 100%;
+            border: none;
+            text-align: left;
+            outline: none;
+            font-size: 1.2rem;
+            transition: background-color 0.25s;
+            display: grid;
+            grid-template-columns: 1fr 30px;
+            gap: 20px;
+
+            &:hover {
+                background-color: $accordion-header-hovered-color;  
+            }
+
+            h4 {
+                margin: auto 0;
+                text-transform: none;
+            }
+        }
+
+        
+        .accordion__content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-in-out;
+
+            p {
+                padding: 1rem;
+            }
+
+            ul {
+                margin-top: -1rem;
+                padding-bottom: 1rem;
+            }
+        }
+
+        .accordion__content.active {
+            max-height: 500px;
+        }
+
+    }
+
+}

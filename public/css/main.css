@@ -47,6 +47,59 @@
 /* See More Button */
 /* Default Buttons */
 /* Modal */
+.accordion__wrapper {
+  padding-left: 3vw;
+  padding-right: 3vw; }
+
+.accordion {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  color: #5B5F97; }
+  .accordion .accordion__title {
+    text-transform: uppercase;
+    font-size: 200%; }
+  .accordion .accordion__item {
+    border-bottom: 1px solid #0E4D64; }
+    .accordion .accordion__item:first-of-type {
+      border-top: 1px solid #0E4D64; }
+    .accordion .accordion__item .accordion__header {
+      background-color: transparent;
+      color: #5B5F97;
+      cursor: pointer;
+      padding: 1rem;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 1.2rem;
+      transition: background-color 0.25s;
+      display: grid;
+      grid-template-columns: 1fr 30px;
+      gap: 20px; }
+      .accordion .accordion__item .accordion__header:hover {
+        background-color: #A8DADC; }
+      .accordion .accordion__item .accordion__header h4 {
+        margin: auto 0;
+        text-transform: none; }
+    .accordion .accordion__item .accordion__content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height 0.3s ease-in-out; }
+      .accordion .accordion__item .accordion__content p {
+        padding: 1rem; }
+      .accordion .accordion__item .accordion__content ul {
+        margin-top: -1rem;
+        padding-bottom: 1rem; }
+    .accordion .accordion__item .accordion__content.active {
+      max-height: 500px; }
+
+/* Header Navigation */
+/* Search Bar */
+/* Body sections */
+/* See More Button */
+/* Default Buttons */
+/* Modal */
 header {
   margin-bottom: 130px; }
 
