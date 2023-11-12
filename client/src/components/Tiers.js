@@ -8,7 +8,7 @@ import Tier from './Tier';
 import tlsBlog from '../images/tls_blog.jpeg';
 
 
-import styles from './Tiers.module.css';
+import styles from './Tiers.module.scss';
 
 function Tiers() {
 

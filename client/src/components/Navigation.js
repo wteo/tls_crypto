@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-scroll';
 
-import styles from './Navigation.module.css';
+import styles from './Navigation.module.scss';
 
 function Navigation() {
     const [isMenuOpen, setIsMenuOpen] = useState(false);

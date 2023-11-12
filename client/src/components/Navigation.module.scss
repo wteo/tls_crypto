@@ -1,18 +1,17 @@
+@import '../sass/mixins';
+@import '../sass/variables';
+
 header {
     margin-bottom: 150px;
 }
 
 .navigation {
-    background-color: var(--navigation-bar-color);
+    @include position(fixed, 0, 0, auto, 0);
+    background-color: $navigation-bar-color;
     padding: 15px 5vw 15px;
     margin: auto 0;
     display: grid;
     gap: 10px;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    left: 0;
-    right: 0;
     transition: transform 0.3s;
 }
 
@@ -28,13 +27,13 @@ header {
 
 .navigation__menu-item {
     margin-right: 5vw; 
-    color: var(--navigation-font-color);
+    color: $navigation-font-color;
     text-decoration: none;
     font-size: 1rem;
 }
 
 .navigation__menu-item a {
-    color: var(--navigation-font-color);
+    color: $navigation-font-color;
     text-decoration: none;
 }
 
@@ -58,7 +57,7 @@ header {
 }
 
 .navigation__menu-item:hover > .navigation__highlight {
-    border-bottom: 5px solid var(--navigation-font-color);
+    border-bottom: 5px solid $navigation-font-color;
     transform: scaleX(1);
 }
 
@@ -118,7 +117,7 @@ header {
         right: 35%;
         bottom: 0;
         left: 0;
-        background-color: var(--navigation-bar-color);
+        background-color: $navigation-bar-color;
         list-style: none; 
         margin: 0;
         padding: 25vh 10vw; 
@@ -139,7 +138,7 @@ header {
         left: 0;
         right: 0;
         z-index: 100;
-        background-color: var(--navigation-bar-color);
+        background-color: $navigation-bar-color;
     }
     
     .navigation__mobile-logo {

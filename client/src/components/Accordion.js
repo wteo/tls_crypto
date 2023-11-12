@@ -1,5 +1,5 @@
 import React, { useState, useCallback, useEffect } from 'react';
-import styles from './Accordion.module.css';
+import styles from './Accordion.module.scss';
 import AccordionItem from "./AccordionItem";
 
 

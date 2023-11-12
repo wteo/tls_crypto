@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Profile.module.css';
+import styles from './Profile.module.scss';
 
 function Profile({ name, title, imageLink, description}) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Tiers.module.css';
+import styles from './Tiers.module.scss';
 
 function Tier({ onOpen, title, subtitle, details }) {
     return (

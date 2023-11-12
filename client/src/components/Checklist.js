@@ -1,6 +1,6 @@
 import React from 'react';
 
-import styles from './Checklist.module.css';
+import styles from './Checklist.module.scss';
 
 const checklistData = [{
     sectionTitle: 'Self-Assessment',

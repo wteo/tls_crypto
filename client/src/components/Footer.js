@@ -4,7 +4,7 @@ import pininterest from '../icons/pininterest.png';
 import facebook from '../icons/facebook.png';
 import youtube from '../icons/youtube.png';
 
-import styles from './Footer.module.css';
+import styles from './Footer.module.scss';
 
 const socialMediaArr = [{
     name: 'Pinterest',

@@ -9,7 +9,7 @@ import wendy from '../images/wendy.jpg';
 import Profile from './Profile';
 import avatar from '../images/avatar.png';
 
-import styles from './Profiles.module.css';
+import styles from './Profiles.module.scss';
 
 function Profiles() {
 

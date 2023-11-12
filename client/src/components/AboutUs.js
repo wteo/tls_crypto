@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-scroll';
 
-import styles from './AboutUs.module.css';
+import styles from './AboutUs.module.scss';
 
 function AboutUs() {
     return (

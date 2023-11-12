@@ -8,7 +8,7 @@ import Profiles from './components/Profiles';
 import Accordion from './components/Accordion';
 import Footer from './components/Footer';
 
-import styles from './App.module.css';
+import styles from './App.module.scss';
 
 // files
 import checklist from './files/checklist.pdf';

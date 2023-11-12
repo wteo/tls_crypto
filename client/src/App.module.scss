@@ -1,15 +1,18 @@
+@import './sass/mixins';
+@import './sass/variables';
+
 section {
     padding: 20vh 10vw 30vh;
 }
 
 section:nth-child(odd) {
-    background-color: var(--secondary-background-color);
-    color: var(--secondary-font-color);
+    background-color: $secondary-background-color;
+    color: $secondary-font-color;
 }
 
 section:nth-child(even) {
-    background-color: var(--main-background-color);
-    color: var(--main-font-color);
+    background-color: $main-background-color;
+    color: $main-font-color;
 }
 
 .checklist__wrapper {
@@ -20,29 +23,16 @@ section:nth-child(even) {
     font-size: xx-large;
 }
 
-.checklist__wrapper button {
-    padding: 15px 20px;
-    text-transform: uppercase;
-    border: 3px solid var(--primary-border-button-color);
-    border-radius: 5px;
-    background-color: var(--primary-button-color);
-    color: var(--primary-font-button-color);
-    transition: all 0.5s;
-}
+.checklist__wrapper {
 
-.checklist__wrapper button:hover {
-    background-color: transparent;
-    color: var(--primary-button-color);
-    cursor: pointer;
+    button {
+        @include default-button;
+    }
 }
 
 .checklist__overlay {
+    @include position;
     background-color: rgba(0,0,0, 0.5);
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
     z-index: 250;
     display: flex;
     justify-content: center;
