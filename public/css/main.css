@@ -483,8 +483,9 @@ header {
 button {
   color: #F8ECC2;
   background-color: #0E4D64;
-  border: 2px solid #0E4D64;
+  border: 3px solid #0E4D64;
   padding: 10px 15px;
+  border-radius: 5px;
   text-transform: uppercase;
   transition: all 0.3s ease;
   text-decoration: none; }
@@ -502,7 +503,7 @@ button {
 .nav__menu-button {
   color: #0E4D64;
   background-color: #F8ECC2;
-  border: 2px solid #F8ECC2;
+  border: 3px solid #F8ECC2;
   font-size: 1.2rem;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -548,6 +549,7 @@ button {
   margin: 5% auto;
   padding: 5vh 3vw 7vh;
   border: 1px solid #5B5F97;
+  border-radius: 5px;
   width: 60%; }
 
 .modal__close-button {
@@ -835,13 +837,29 @@ button {
 /* Modal */
 .footer {
   background-color: #0E4D64;
+  text-align: center;
   color: #F8ECC2;
-  padding: 5vh 5vw;
+  padding: 10px 5vw 20px;
   margin: auto 0;
   position: relative;
   bottom: 0;
   left: 0;
   right: 0; }
+  .footer .footer__link-container {
+    list-style-type: none;
+    margin-bottom: 20px;
+    display: grid;
+    grid-auto-flow: column;
+    gap: 10px; }
+    .footer .footer__link-container .footer__link, .footer .footer__link-container .footer__link a {
+      text-decoration: none;
+      color: #F8ECC2; }
+      .footer .footer__link-container .footer__link:hover, .footer .footer__link-container .footer__link a:hover {
+        text-decoration: underline;
+        cursor: pointer; }
+  .footer .footer__copyright {
+    margin: 0;
+    padding: 0; }
 
 body {
   margin: auto 0;

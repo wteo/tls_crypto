@@ -7,16 +7,17 @@
 }
 
 button {
-    @include colors-and-border($default-button-font-color, $default-button-background-color, 2px, $default-button-border-color);
+    @include colors-and-border($default-button-font-color, $default-button-background-color, 3px, $default-button-border-color);
     padding: 10px 15px;
+    border-radius: 5px;
     text-transform: uppercase;
     transition: all 0.3s ease;
     text-decoration: none;
     
     &:hover {
-    background-color: $default-hovered-button-background-color;
-    color: $default-hovered-button-font-color;
-    cursor: pointer;
+        background-color: $default-hovered-button-background-color;
+        color: $default-hovered-button-font-color;
+        cursor: pointer;
     }
 }
 
@@ -26,7 +27,7 @@ button {
 }
 
 .nav__menu-button {
-    @include colors-and-border($default-button-background-color, $default-button-font-color, 2px, $default-button-font-color);
+    @include colors-and-border($default-button-background-color, $default-button-font-color, 3px, $default-button-font-color);
     font-size: 1.2rem;
     overflow: hidden;
     text-overflow: ellipsis;
