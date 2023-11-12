@@ -16,7 +16,8 @@
 
         list-style-type: none;
         margin-bottom: 30px;
-        @include column-flow-grid;
+        @include column-flow-grid(column, 30px);
+        justify-content: center;
 
         .footer__link, .footer__link a {
 

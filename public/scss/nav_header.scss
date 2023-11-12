@@ -49,6 +49,10 @@ header {
     margin-right: 3vw;
 }
 
+.nav__dropdown-title {
+    padding: 10px;
+}
+
 .nav__dropdown-title a, .nav__dropdown-title-mobile a {
     font-size: 0.85rem;
     white-space: nowrap;
@@ -58,10 +62,9 @@ header {
     position: absolute;
     list-style: none;
     text-align: left;
-    background-color: $navigation-bar-color;
+    background-color: darken($navigation-bar-color, 10%);
     padding: 1.5vh 1vw 2vh;
     margin-top: 1vh;
-    border: 1px solid $navigation-font-color;
     border-radius: 5px;
     opacity: 0;
     visibility: hidden;

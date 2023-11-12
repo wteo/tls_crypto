@@ -143,6 +143,9 @@ header {
   width: 100%;
   margin-right: 3vw; }
 
+.nav__dropdown-title {
+  padding: 10px; }
+
 .nav__dropdown-title a, .nav__dropdown-title-mobile a {
   font-size: 0.85rem;
   white-space: nowrap; }
@@ -151,10 +154,9 @@ header {
   position: absolute;
   list-style: none;
   text-align: left;
-  background-color: #0E4D64;
+  background-color: #082b37;
   padding: 1.5vh 1vw 2vh;
   margin-top: 1vh;
-  border: 1px solid #F8ECC2;
   border-radius: 5px;
   opacity: 0;
   visibility: hidden;
@@ -850,7 +852,8 @@ button {
     margin-bottom: 30px;
     display: grid;
     grid-auto-flow: column;
-    gap: 10px; }
+    gap: 30px;
+    justify-content: center; }
     .footer .footer__link-container .footer__link, .footer .footer__link-container .footer__link a {
       text-decoration: none;
       color: #F8ECC2; }
