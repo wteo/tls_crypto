@@ -5,10 +5,10 @@
 }
 
 .tiers__container {
-    padding: 3vh 3vw;
+    padding: 15px 3vw;
     transition: all 0.5s;
-    padding-top: 5vh;
-    padding-bottom: 10vh;
+    padding-top: 15px;
+    padding-bottom: 30px;
     border-bottom: 2px solid rgba(0,0,0,0.3);
 }
 
@@ -27,7 +27,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     padding: 0;
-    gap: 10px;
+    gap: 15px;
 }
 
 .list__grid li {
@@ -84,12 +84,12 @@
 }
 
 .tiers__quickstart {
-    margin-top: 15vh;
+    margin-top: 45px;
 }
 
 .tiers__quickstart h1 {
-    margin-top: 5vh;
-    margin-bottom: -10vh;
+    margin-top: 15px;
+    margin-bottom: -30px;
     padding: 0;
     transform: rotate(90deg);
     font-size: 500%;

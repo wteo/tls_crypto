@@ -16,7 +16,7 @@ function AccordionItem({ question, answer, list }) {
                 <h4>{ question }</h4>
                 <i>{ isClicked ? '-' : '+'}</i>
             </button>
-            <div className={styles.accordion__content} style={{ maxHeight: isClicked ? '300px' : '0' }}>
+            <div className={styles.accordion__content} style={{ maxHeight: isClicked ? '1000px' : '0' }}>
                 <p>{ answer }</p>
                 <ul>
                     { list.map((item, index) => <li key={index}>{item}</li>) }
