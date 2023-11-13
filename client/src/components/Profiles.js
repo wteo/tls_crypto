@@ -3,11 +3,11 @@ import React from 'react';
 // profile images
 import rosh from '../images/rosh.jpg';
 import ant from '../images/ant.jpg';
+import marc from '../images/marc.jpg';
 import alex from '../images/alex.jpg';
 import wendy from '../images/wendy.jpg';
 
 import Profile from './Profile';
-import avatar from '../images/avatar.png';
 
 import styles from './Profiles.module.scss';
 
@@ -37,14 +37,14 @@ function Profiles() {
         `
     }, {
         name: `Marc`,
-        title: `Co-Founder`,
-        imageLink: avatar,
-        description: `Marc joined TLS way back when Rosh and Ant were finding their legs. Another IT veteran, 
-        who is now specialising in IT security for his 9-5 job and really enjoying what he does for TLS. 
-        He also enjoys Scuba Diving as a hobby and wants to make that happen more often! 
-        He recently met his life partner and everything is finally firing on all cylinders as he deserves.
-        It is clear to see Marc's passion for helping people aligns so well with Rosh and Ant. 
-        He goes above and beyond to test and to demonstrate and to help. A fantastic addition to the team.`
+        title: `Co-Founder & IT Security Maestro`,
+        imageLink: marc,
+        description: `Marc, a pivotal member of The Lazy Society, seamlessly blends his IT security expertise with a profound commitment to community support. 
+        Joining Rosh and Ant in the nascent stages, he has been instrumental in shaping the society's ethos. Marc's professional life revolves around IT security, 
+        where he excels, but his heart beats for the community at TLS. His journey is a blend of professional rigor and personal passion, evident in his love for 
+        scuba diving and the fulfillment he finds in his personal life. Marc is known for going the extra mile, often dipping into his own resources to resolve 
+        issues that members face. His presence in The Lazy Society is not just about imparting knowledge; it's about creating a nurturing and inclusive space for all.
+        `
     }, 
     {
         name: `Alex`,
