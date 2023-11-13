@@ -6,4 +6,7 @@ body {
       'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
       sans-serif;
     background-color: $main-background-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }

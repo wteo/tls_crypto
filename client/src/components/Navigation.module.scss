@@ -10,10 +10,11 @@ header {
     z-index: 100;
     background-color: $navigation-bar-color;
     padding: 15px 5vw 15px;
-    margin: auto 0;
+    margin: 0 auto;
     display: grid;
     gap: 10px;
     transition: transform 0.3s;
+    max-width: 2200px;
 }
 
 .navigation__menu-list {
