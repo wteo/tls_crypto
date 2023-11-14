@@ -18,11 +18,11 @@
     border: 1px solid $navigation-border-search-color;
     outline: 3px solid none;
     font-size: 1rem;
-    transition: all 0.3s ease;
+    transition: all 0.15s ease;
     
     &:focus {
         border: 1px solid none;
-        outline: 1.5px solid $navigation-border-search-color;
+        outline: 2px solid $navigation-border-search-color;
     }
 }
 

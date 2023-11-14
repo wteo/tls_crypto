@@ -441,13 +441,13 @@ header {
   padding-right: 50px;
   box-sizing: border-box;
   border-radius: 5px;
-  border: 1px solid #5B5F97;
+  border: 1px solid #8d90be;
   outline: 3px solid none;
   font-size: 1rem;
-  transition: all 0.3s ease; }
+  transition: all 0.15s ease; }
   .nav__search-input:focus {
     border: 1px solid none;
-    outline: 1.5px solid #5B5F97; }
+    outline: 2px solid #8d90be; }
 
 .nav__search-button {
   position: absolute;
