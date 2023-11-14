@@ -1,14 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TLS Crypto Hub</title>
-    <script src="/js/nav_header.js" defer></script>
-    <script src="/js/delete_modal.js" defer></script>
-    <link rel="stylesheet" href="/css/main.css">
-</head>
+<%- include('../../partials/head.ejs') %>
 
 <body>
     <header>
@@ -41,7 +31,9 @@
                 </div>
             </div>
         </section>
+    
     <%- include('../../partials/footer.ejs') %>
+    
     <div id="delete__modal" class="modal">
         <div class="modal__content">
             <span class="modal__close-button">&times;</span>
@@ -53,6 +45,9 @@
             </div>
         </div>
     </div>
+
+    <script src="/js/delete_modal.js" defer></script>
+
 </body>
 
 </html>
