@@ -1,6 +1,3 @@
-@import 'mixins';
-@import 'variables';
-
 .footer {
     background-color: $navigation-bar-color;
     text-align: center;
@@ -16,6 +13,7 @@
 
         list-style-type: none;
         margin-bottom: 30px;
+        padding: 0;
         @include column-flow-grid(column, 30px);
         justify-content: center;
 

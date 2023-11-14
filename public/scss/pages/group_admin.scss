@@ -1,6 +1,3 @@
-@import 'mixins';
-@import 'variables';
-
 .group__coin-grid--admin {
     @include grid-layout(5, 5px);    
 }

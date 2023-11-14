@@ -1,18 +1,30 @@
+// utils
 @import 'variables';
-@import './about_us.scss';
-@import './accordion.scss';
-@import './nav_header.scss';
-@import './group_admin.scss';
-@import './coin_admin.scss';
-@import './search.scss';
-@import './button.scss';
-@import './modal.scss';
-@import './form.scss';
-@import './flash_message.scss';
-@import './resources_grid.scss';
-@import './coin_grid.scss';
-@import './error.scss';
-@import './footer.scss';
+@import 'mixins';
+
+// components
+@import './components/accordion.scss';
+@import './components/button.scss';
+@import './components/error.scss';
+@import './components/flash_message.scss';
+@import './components/form.scss';
+@import './components/modal.scss';
+@import './components/search.scss';
+
+// layouts
+@import './layouts/about_us.scss';
+@import './layouts/coin_grid.scss';
+@import './layouts/footer.scss';
+@import './layouts/nav_header.scss';
+@import './layouts/resources_grid.scss';
+
+// pages
+@import './pages/group_admin.scss';
+@import './pages/coin_admin.scss';
+
+* {
+    scroll-behavior: smooth;
+}
 
 
 body {

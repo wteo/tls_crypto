@@ -1,6 +1,3 @@
-@import 'mixins';
-@import 'variables';
-
 .buttons-wrapper {
     @include column-flow-grid;
     width: fit-content;
@@ -40,12 +37,12 @@ button {
     }
 }
 
-
+// Mobile layout
 @media (max-width: 750px) {
     .nav__menu-buttons-wrapper {
         position: absolute;
-        top: 15px;
-        right: 30px;
+        top: 10px;
+        right: 10px;
         @include column-flow-grid;
         justify-content: end; 
     }

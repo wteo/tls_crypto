@@ -1,5 +1,3 @@
-@import 'variables';
-
 .nav__search {
     position: relative;
     width: 25vw;
@@ -47,7 +45,7 @@
     .nav__search {
         position: absolute;
         top: 15px;
-        right: 30px;
+        right: 10px;
         width: 50%;
     }
 }

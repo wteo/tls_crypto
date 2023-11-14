@@ -1,5 +1,3 @@
-@import 'mixins';
-
 .error {
     @include grid-layout(1fr);
     justify-items: center;     
