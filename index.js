@@ -73,9 +73,10 @@ app.use('/api/', FAQItemsRouter);
 
 // Server-side UI
 app.use(globalGroupsRouter);
-app.use(authRouter);
+// app.use(authRouter);
 app.use(adminFormsRouter);
 app.use(adminPagesRouter);
+app.use(authRouter);
 app.use(groupsRouter);
 app.use(coinsRouter);
 
