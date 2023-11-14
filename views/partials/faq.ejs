@@ -1,0 +1,16 @@
+<section class="accordion__wrapper" id="faq">
+    <div class="accordion">
+        <h1 class="accordion__title">Frequently Asked Questions</h1>
+        <% faqItems.forEach(item => { %>
+            <div class="accordion__item">
+                <button class="accordion__header">
+                    <h4><%= item.question %></h4>
+                    <i>+</i>
+                </button>
+                <div class="accordion__content">
+                    <p><%= item.answer %></p>
+                </div>
+            </div>
+        <% }) %>
+    </div>
+</section>
