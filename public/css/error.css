@@ -1,0 +1,22 @@
+.error {
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;     
+    align-items: center; 
+    margin-top: 20vh;
+    margin-bottom: 10vh;
+}
+
+.error__title {
+    text-align: center;
+    font-size: 3rem;
+}
+
+.error__description {
+    text-align: center;
+}
+
+.error__button {
+    width: 200px;
+    margin-top: 40px;
+}

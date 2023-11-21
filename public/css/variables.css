@@ -1,0 +1,33 @@
+:root {
+    /* Header Navigation */
+    --navigation-bar-color: #0E4D64;  /* Using the same color as the first set for consistency */
+    --navigation-font-color: #F8ECC2; /* Using the same color as the first set for consistency */
+
+    /* Search Bar */
+    --navigation-border-search-color: #5B5F97; /* Using a color from the first set that hasn't been used for similar purposes */
+
+    /* Body sections */
+    --main-background-color: #ffffff; /* Using the secondary background color from the first set */
+    --secondary-background-color: #F8ECC2; /* A lighter shade that complements the primary colors */
+    --main-font-color: #5B5F97; /* Using the primary color from the first set for consistency */
+    --secondary-font-color: #0E4D64; /* Using the main font color from the first set for variety */
+
+    /* See More Button */
+    --see-more-button-font-color: #0E4D64; 
+    --see-more-button-border-color: #0E4D64;
+    --see-more-button-background-color: transparent;
+    --see-more-hovered-button-background-color: #A8DADC; 
+
+    /* Default Buttons */
+    --default-button-font-color: #F8ECC2;
+    --default-button-border-color: #0E4D64;
+    --default-button-background-color: #0E4D64;
+    --default-hovered-button-font-color: #0E4D64;
+    --default-hovered-button-background-color: transparent;
+
+    /* Modal */
+    --modal-border-color: #5B5F97; 
+    --modal-background-color: #ffffff;
+    --modal-close-button-color: #0E4D64;
+    --model-hovered-close-button-color: #A8DADC; 
+}

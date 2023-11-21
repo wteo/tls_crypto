@@ -1,0 +1,129 @@
+
+/* At Coin Page */
+.coin__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+}
+
+.coin__container, .coin__image {
+    width: 100%;
+}
+
+/* At Main Groups Page */
+.group__coin-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+}
+
+.group__coin-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 300px;
+}
+
+.group__coin-image {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(50%);
+    transition: all 0.5s ease; 
+}
+
+.group__coin-image:hover {
+    filter: brightness(80%);
+    transform: scale(1.1); 
+    cursor: pointer;
+}
+
+.group__coin-title {
+    color: var(--navigation-font-color);
+    opacity: 0.7;
+    position: absolute;
+    text-align: end;
+    bottom: 10px;
+    right: 10px;
+    font-size: 1.25rem;
+    transition: all 0.5s ease; 
+}
+
+.group__coin-container:hover .group__coin-title {
+    opacity: 1;
+    transform: scale(1.25);
+    right: 20px;
+}
+
+.group__coin-button-container {
+    border: 1px solid var(--see-more-button-border-color);
+    background-color: var(--see-more-button-background-color);
+    color: var(--see-more-button-border-color);
+    display: grid;
+    grid-template-columns: 1fr;
+    text-align: center;
+    text-decoration: none;
+}
+
+.group__coin-button-container:hover {
+    cursor: pointer;
+    background-color: var(--see-more-hovered-button-background-color);
+    transition: all 0.5s ease;
+}
+
+.group__coin-button-container:hover .group__coin-more,
+.group__coin-button-container:hover .group__coin-button {
+    cursor: pointer;
+    transform: scale(1.25);
+}
+
+.group__coin-more, 
+.group__coin-button {
+    color: var(--see-more-button-font-color);
+    font-size: 1.5rem;
+    transition: all 0.5s ease;
+}
+
+.group__coin-more {
+    margin-top: 50%;
+}
+
+.group__coin-button {
+    background-color: transparent;
+    border: none;
+}
+
+/* Tablet layout */
+@media (min-width: 751px) and (max-width: 1200px) {
+
+    .coin__grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .group__coin-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .group__coin-container {
+        height: 250px;
+    }
+}
+    
+/* Mobile layout */
+@media (max-width: 750px) {
+
+    .coin__grid {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .group__coin-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .group__coin-container {
+        height: 200px;
+    }
+}
