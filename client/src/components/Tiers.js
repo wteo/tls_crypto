@@ -5,7 +5,11 @@ import { Link } from 'react-scroll';
 import Tier from './Tier';
 
 // images
-import tlsBlog from '../images/tls_blog.jpeg';
+import mastermind from '../images/mindset.png'
+import richBookCover from '../images/rich_book_cover.jpg';
+import meetup from '../images/meetup.png';
+import blog from '../images/blog.jpg';
+import wiki from '../images/wiki.png';
 
 
 import styles from './Tiers.module.scss';
@@ -18,24 +22,24 @@ function Tiers() {
             subtitle: 'Discover Yourself Before Crypto',
             details: [
                 { 
-                    imageLink: 'https://picsum.photos/400/500',
-                    link: '',
-                    imageDescription: 'Placeholder Image',
-                    label: 'Wellbeing Focus', 
-                    description: 'Emphasize stress management, decision-making, and understanding risk tolerance.' },
-                { 
-                    imageLink: 'https://picsum.photos/400/501',
-                    link: '',
-                    imageDescription: 'Placeholder Image',
-                    label: 'Crypto Basics', 
-                    description: 'Introduce cryptocurrency concepts and its potential.' },
-                { 
-                    imageLink: 'https://picsum.photos/400/502',
-                    link: '',
-                    imageDescription: 'Placeholder Image',
-                    label: 'Personalized Path', 
-                    description: 'Assessments to guide beginners based on their investment style.' 
-                }
+                    imageLink: mastermind,
+                    link: 'https://mastermind.thelazysociety.com',
+                    imageDescription: 'The 7 Steps to Riches book cover',
+                    label: 'Mindset Mastery', 
+                    description: 'Explore our courses and content designed to equip you with the mindset needed for achieving financial independence.' 
+                }, { 
+                    imageLink: richBookCover,
+                    link: 'https://www.amazon.com.au/dp/B0CJD8SKHB',
+                    imageDescription: 'The 7 Steps to Riches book cover',
+                    label: 'Read our Mindset Book', 
+                    description: 'The "7 Steps to Riches" by our mindset guru Alex Holland. Learn how mental preparation is key to achieving wealth.' 
+                }, { 
+                    imageLink: meetup,
+                    link: 'https://www.meetup.com/tls-aus/',
+                    imageDescription: 'A group of like-minded people gathering to talk about crypto.',
+                    label: 'Join Our Crypto Meetup', 
+                    description: 'Connect & learn with others weekly in our engaging online community.' 
+                },
             ]
         },
         {
@@ -43,26 +47,19 @@ function Tiers() {
             subtitle: 'Deep Dive into Crypto',
             details: [
                 { 
-                    imageLink: tlsBlog,
+                    imageLink: blog,
                     link: 'https://thelazysociety.com',
-                    imageDescription: 'Placeholder Image',
+                    imageDescription: 'A solo crypto ethusiast browsing a blog.',
                     label: 'The Lazy Society Blog', 
                     description: 'Your guide to navigating cryptocurrency with the latest news and airdrops' 
                 },
                 { 
-                    imageLink: 'https://picsum.photos/400/504',
-                    link: '',
-                    imageDescription: 'Placeholder Image',
-                    label: 'Advanced Learning', 
-                    description: 'In-depth content on blockchain, DeFi, NFTs, and more.' 
+                    imageLink: wiki,
+                    link: 'https://wiki.thelazysociety.com',
+                    imageDescription: 'A digital encyclopedia on cryptocurrencies.',
+                    label: 'Dive into our Crypto Index', 
+                    description: 'Read through a selection of our favourite cryptocurrencies with informative links for deeper insights.' 
                 },
-                {   
-                    imageLink: 'https://picsum.photos/400/505',
-                    link: '',
-                    imageDescription: 'Placeholder Logo',
-                    label: 'Dive into Our Crypto Community on Discord', 
-                    description: 'Engage in vibrant discussions on all things cryptocurrency. Stay updated with the latest news, airdrops, and insider tips.' 
-                }
             ]
         },
         {
@@ -75,20 +72,6 @@ function Tiers() {
                     imageDescription: 'Placeholder Image',
                     label: 'Mitigation Platform', 
                     description: 'Tools and analytics for optimized crypto investments.' 
-                },
-                { 
-                    imageLink: 'https://picsum.photos/400/507',
-                    link: '',
-                    imageDescription: 'Placeholder Image',
-                    label: 'Exclusive Content', 
-                    description: 'Advanced strategies, research, and expert insights.' 
-                },
-                { 
-                    imageLink: 'https://picsum.photos/400/508',
-                    link: '',
-                    imageDescription: 'Placeholder Image',
-                    label: 'Collaborative Opportunities', 
-                    description: 'Workshops and sessions for platform enhancement.' 
                 }
             ]
         }
@@ -100,7 +83,8 @@ function Tiers() {
             <br/>
             <Tier onOpen={null} title={tierData[0].title} subtitle={tierData[0].subtitle} details={tierData[0].details} />
             <Tier onOpen={null} title={tierData[1].title} subtitle={tierData[1].subtitle} details={tierData[1].details} />
-            <Tier onOpen={null} title={tierData[2].title} subtitle={tierData[2].subtitle} details={tierData[2].details} />
+            { // <Tier onOpen={null} title={tierData[2].title} subtitle={tierData[2].subtitle} details={tierData[2].details} /> 
+            }
             <div className={styles.tiers__quickstart}>
                 <h2>Feeling Overwhelmed by Choices?</h2>
                 <p>Don't worry, we've got you covered. Dive right in with our Crypto Bull Run checklist!</p>
