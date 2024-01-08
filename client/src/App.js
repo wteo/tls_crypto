@@ -6,6 +6,7 @@ import Tiers from './components/Tiers';
 import Checklist from './components/Checklist';
 import Profiles from './components/Profiles';
 import Accordion from './components/Accordion';
+import ContactUs from './components/ContactUs';
 import Footer from './components/Footer';
 
 import styles from './App.module.scss';
@@ -71,6 +72,7 @@ function App() {
       <section id='faq'>
         <Accordion title='Frequently Asked Questions' category='general'/>
       </section>
+      <ContactUs />
       <Footer />
     </>
   );
