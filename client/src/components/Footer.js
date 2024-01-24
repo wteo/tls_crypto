@@ -17,7 +17,7 @@ const socialMediaArr = [{
     imageLink: facebook,
 }, {
     name: 'Youtube',
-    link: 'https://youtube.thelazysociety.com',
+    link: 'https://www.youtube.com/@tlsmastermind',
     imageLink: youtube,
 }, {
     name: 'Lenster',
