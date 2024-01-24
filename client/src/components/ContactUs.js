@@ -1,36 +1,95 @@
-import React from 'react';
-import { Link } from 'react-scroll';
-
+import React, { useState } from 'react';
 import styles from './ContactUs.module.scss';
 
 function ContactUs() {
+    const [formData, setFormData] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const [formErrors, setFormErrors] = useState({
+        name: '',
+        email: '',
+        message: ''
+    });
+
+    const [isFormSubmitted, setIsFormSubmitted] = useState(false);
+
+    const validate = (name, value) => {
+        switch (name) {
+            case 'name':
+                if (value.length < 3) {
+                    return 'Name must be at least 3 characters long';
+                }
+                break;
+            case 'email':
+                if (!/\S+@\S+\.\S+/.test(value)) {
+                    return 'Email must be a valid email address';
+                }
+                break;
+            case 'message':
+                if (value.length < 5) {
+                    return 'Please enter a valid message.';
+                }
+                break;
+            default:
+                return '';
+        }
+        return '';
+    };
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormData({
+            ...formData,
+            [name]: value
+        });
+        setFormErrors({
+            ...formErrors,
+            [name]: ''
+        });
+    };
+
+    const handleSubmit = (event) => {
+        event.preventDefault();
+        // Validate all fields before submitting
+        const newErrors = {
+            name: validate('name', formData.name),
+            email: validate('email', formData.email),
+            message: validate('message', formData.message)
+        };
+        setFormErrors(newErrors);
+
+        // Check if there are any errors
+        if (!Object.values(newErrors).some(error => error)) {
+            console.log('Form Data:', formData);
+            // Form submission logic here
+            setFormData({
+                name: '',
+                email: '',
+                message: ''
+            });
+            setIsFormSubmitted(true); 
+        }
+    };
+
     return (
-        <section id='contact' className={styles.about}>
-            <div>
-                <h1>Discover The Lazy Society's Crypto Journey</h1>
-                <p>Welcome to The Lazy Society, where we inspire you to live smarter, not harder. </p>
-                <p>
-                    Our mission? To demystify crypto, making it accessible and enjoyable for everyone. 
-                    We believe in the power of cryptocurrency to reshape our financial future, and we're here to guide you every step of the way. 
-                    With our curated learning paths and expert insights, we aim to keep things light, fun, and engaging, without the heavy jargon.
-                </p>
-                <p>
-                    So, whether you're new to crypto or looking to enhance your knowledge, join us on this exciting journey. 
-                    Dive in, enjoy the ride, and let's embrace the future of finance together!
-                </p>
-                <Link to='tier' spy={true} smooth={true} offset={40} duration={250}>
-                    <button>Start Discovering</button>
-                </Link>
-            </div>
-            <div className={styles[`about__video--wrapper`]}>
-                <iframe 
-                    className={styles.about__video} 
-                    src='https://www.youtube.com/embed/0BDRYtRwdWM?autoplay=1'
-                    title='Placeholder video'
-                    frameborder='0' 
-                    allowFullScreen 
-                />
-            </div>
+        <section id='contact' className={styles.contact}>
+            <form className={styles.contact__form} onSubmit={handleSubmit} onClick={ () => setIsFormSubmitted (false) }>
+                <h1 className={styles.contact__title}>Want to get in touch?</h1>
+                { isFormSubmitted && <p className={styles.success}>Thank you for sending us a message. We'll be in touch soon!</p> }
+                <label>Name</label>
+                <input className={formErrors.name ? styles.inputError : ''} name="name" value={formData.name} onChange={handleChange} />
+                {formErrors.name && <p className={styles.error}>{formErrors.name}</p>}
+                <label>Email</label>
+                <input className={formErrors.email ? styles.inputError : ''} name="email" type="email" value={formData.email} onChange={handleChange} />
+                {formErrors.email && <p className={styles.error}>{formErrors.email}</p>}
+                <label>Message</label>
+                <textarea className={formErrors.message ? styles.textAreaError : ''} name="message" value={formData.message} onChange={handleChange} />
+                {formErrors.message && <p className={styles.error}>{formErrors.message}</p>}
+                <button type="submit">Send Message</button>
+            </form>
         </section>
     );
 }
