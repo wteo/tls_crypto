@@ -51,6 +51,8 @@ function ContactUs() {
         });
     };
 
+    const [formResponse, setFormResponse] = useState('');
+
     const handleSubmit = (event) => {
         event.preventDefault();
         // Validate all fields before submitting
@@ -63,22 +65,47 @@ function ContactUs() {
 
         // Check if there are any errors
         if (!Object.values(newErrors).some(error => error)) {
-            console.log('Form Data:', formData);
+
+            const url = process.env.REACT_APP_URL_API_FORMSPREE;
+            
             // Form submission logic here
-            setFormData({
-                name: '',
-                email: '',
-                message: ''
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify(formData)
+            })
+
+            .then(response => {
+
+                setIsFormSubmitted(true);
+
+                if (response.ok) {
+                    setFormData({
+                        name: '',
+                        email: '',
+                        message: ''
+                    });
+                    setFormResponse('Thank you for sending us a message. We\'ll be in touch soon!'); 
+                } else {
+                    setFormResponse('Apologies! We are facing a sever issue. Please try again later.'); 
+                    throw new Error('Network response was not ok.');
+                }
+            })
+            .catch(error => {
+                console.log(error);
+                setFormResponse('Apologies! We are facing a sever issue. Please try again later.'); 
             });
-            setIsFormSubmitted(true); 
         }
     };
 
     return (
         <section id='contact' className={styles.contact}>
-            <form className={styles.contact__form} onSubmit={handleSubmit} onClick={ () => setIsFormSubmitted (false) }>
+            <form className={styles.contact__form} onSubmit={handleSubmit} onClick={ () => setIsFormSubmitted(false) }>
                 <h1 className={styles.contact__title}>Want to get in touch?</h1>
-                { isFormSubmitted && <p className={styles.success}>Thank you for sending us a message. We'll be in touch soon!</p> }
+                { isFormSubmitted && <p>{ formResponse }</p> }
                 <label>Name</label>
                 <input className={formErrors.name ? styles.inputError : ''} name="name" value={formData.name} onChange={handleChange} />
                 {formErrors.name && <p className={styles.error}>{formErrors.name}</p>}

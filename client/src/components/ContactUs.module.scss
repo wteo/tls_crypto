@@ -44,8 +44,7 @@
         }
 
         .inputError, .textAreaError {
-            border: 2px solid $error-color;
-            background-color: lighten($error-color, 40%);
+            border: 1px solid $error-color;
         }        
 
         textarea {
