@@ -1,20 +1,25 @@
 {
   "files": {
-    "main.css": "/static/css/main.a7a61c4b.css",
-    "main.js": "/static/js/main.060dcbc9.js",
+    "main.css": "/static/css/main.c211a127.css",
+    "main.js": "/static/js/main.cc77ec4d.js",
     "static/media/checklist.pdf": "/static/media/checklist.d3021b387aa7d3d1330b.pdf",
+    "static/media/wiki.png": "/static/media/wiki.eea28353120d10cc38ad.png",
+    "static/media/mindset.png": "/static/media/mindset.9052cb2005b85e3062e2.png",
+    "static/media/meetup.png": "/static/media/meetup.77e35eca582dfb932447.png",
     "static/media/alex.jpg": "/static/media/alex.595df0a59c0aa7215ebc.jpg",
     "static/media/rosh.jpg": "/static/media/rosh.75582e0881618bdfdd5d.jpg",
     "static/media/ant.jpg": "/static/media/ant.9021e8d31003a72898eb.jpg",
+    "static/media/blog.jpg": "/static/media/blog.3aa7b4f717df389cbc00.jpg",
     "static/media/wendy.jpg": "/static/media/wendy.b2ad02df0e28a06ac3d0.jpg",
     "static/media/marc.jpg": "/static/media/marc.6e55785f33ca89d12f39.jpg",
-    "static/media/tls_blog.jpeg": "/static/media/tls_blog.400f5abfd0f37efaf06f.jpeg",
+    "static/media/rich_book_cover.jpg": "/static/media/rich_book_cover.01f93b2accfce62fae6a.jpg",
+    "static/media/lenster.png": "/static/media/lenster.cdc8f7c6582a32c7e1dc.png",
     "index.html": "/index.html",
-    "main.a7a61c4b.css.map": "/static/css/main.a7a61c4b.css.map",
-    "main.060dcbc9.js.map": "/static/js/main.060dcbc9.js.map"
+    "main.c211a127.css.map": "/static/css/main.c211a127.css.map",
+    "main.cc77ec4d.js.map": "/static/js/main.cc77ec4d.js.map"
   },
   "entrypoints": [
-    "static/css/main.a7a61c4b.css",
-    "static/js/main.060dcbc9.js"
+    "static/css/main.c211a127.css",
+    "static/js/main.cc77ec4d.js"
   ]
 }
