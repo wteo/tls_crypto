@@ -44,7 +44,7 @@ function Navigation() {
     const MenuItems = () => (
         <>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
-                <Link to='about' spy={true} smooth={true} offset={-120} duration={250} onClick={toggleMenu}>About Us</Link>
+                <Link to='about' spy={true} smooth={true} offset={-120} duration={250} onClick={toggleMenu}>About</Link>
                 <div className={styles.navigation__highlight}></div>
             </li>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
@@ -57,6 +57,10 @@ function Navigation() {
             </li>
             <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
                 <Link to='faq' spy={true} smooth={true} offset={80} duration={250} onClick={toggleMenu}>FAQ</Link>
+                <div className={styles.navigation__highlight}></div>
+            </li>
+            <li className={styles['navigation__menu-item']} onClick={toggleMenu}>
+                <Link to='contact' spy={true} smooth={true} offset={80} duration={250} onClick={toggleMenu}>Contact</Link>
                 <div className={styles.navigation__highlight}></div>
             </li>
         </>

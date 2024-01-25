@@ -1,0 +1,62 @@
+@import '../sass/variables';
+@import '../sass/mixins';
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    .contact__title {
+        font-size: xx-large;
+        text-transform: uppercase;
+        text-align: center;
+    }
+
+    .success {
+        color: rgb(1, 170, 1);
+    }
+
+    .contact__form {
+        display: flex;
+        flex-direction: column;
+        max-width: 500px;
+        width: 100%;
+        margin: 0 auto;
+        padding: 25px 50px 75px;
+        border-radius: 10px;
+        border: 2px solid rgba(0,0,0,0.3);
+    
+        label {
+            margin-top: 10px;
+        }
+
+        .error {
+            color: $error-color;
+            font-size: 0.8rem;
+            margin-top: 5px;
+        }
+    
+        input, textarea {
+            padding: 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+
+        .inputError, .textAreaError {
+            border: 1px solid $error-color;
+        }        
+
+        textarea {
+            resize: vertical; 
+        }
+    
+        button {
+            margin-top: 30px;
+            @include default-button;
+        }
+    }
+}
+
+
+
