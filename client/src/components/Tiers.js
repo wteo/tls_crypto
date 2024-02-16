@@ -10,6 +10,7 @@ import richBookCover from '../images/rich_book_cover.jpg';
 import meetup from '../images/meetup.png';
 import blog from '../images/blog.jpg';
 import wiki from '../images/wiki.png';
+import farmbase from '../images/farmbase.png';
 
 
 import styles from './Tiers.module.scss';
@@ -59,6 +60,12 @@ function Tiers() {
                     imageDescription: 'A digital encyclopedia on cryptocurrencies.',
                     label: 'Dive into our Crypto Index', 
                     description: 'Read through a selection of our favourite cryptocurrencies with informative links for deeper insights.' 
+                }, {
+                    imageLink: farmbase,
+                    link: 'https://www.farmbase.pro/?ref=54b04da1-1dcb-4a90-9894-f8dca79909a4',
+                    imageDescription: 'Farmbase Bot Logo',
+                    label: 'Stop the Airdrop Chase', 
+                    description: 'Automate Your Rewards with Farmbase Farming Bot!'
                 },
             ]
         },
