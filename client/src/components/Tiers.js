@@ -11,7 +11,7 @@ import meetup from '../images/meetup.png';
 import blog from '../images/blog.jpg';
 import wiki from '../images/wiki.png';
 import farmbase from '../images/farmbase.png';
-
+import guild from '../images/guild_mastermind.webp';
 
 import styles from './Tiers.module.scss';
 
@@ -70,15 +70,15 @@ function Tiers() {
             ]
         },
         {
-            title: 'Advanced Tier',
+            title: 'Paid Premium',
             subtitle: 'Master Smart Crypto Investing',
             details: [
                 { 
-                    imageLink: 'https://picsum.photos/400/506',
-                    link: '',
-                    imageDescription: 'Placeholder Image',
-                    label: 'Mitigation Platform', 
-                    description: 'Tools and analytics for optimized crypto investments.' 
+                    imageLink: guild,
+                    link: 'https://Joinguild.co/?ref=tls',
+                    imageDescription: 'Crypto Mastermind Group',
+                    label: 'Join Our Mastermind Guild', 
+                    description: 'Become a premium member & get connected with top traders & developers in crypto.' 
                 }
             ]
         }
@@ -90,8 +90,7 @@ function Tiers() {
             <br/>
             <Tier onOpen={null} title={tierData[0].title} subtitle={tierData[0].subtitle} details={tierData[0].details} />
             <Tier onOpen={null} title={tierData[1].title} subtitle={tierData[1].subtitle} details={tierData[1].details} />
-            { // <Tier onOpen={null} title={tierData[2].title} subtitle={tierData[2].subtitle} details={tierData[2].details} /> 
-            }
+            <Tier onOpen={null} title={tierData[2].title} subtitle={tierData[2].subtitle} details={tierData[2].details} /> 
             <div className={styles.tiers__quickstart}>
                 <h2>Feeling Overwhelmed by Choices?</h2>
                 <p>Don't worry, we've got you covered. Dive right in with our Crypto Bull Run checklist!</p>
