@@ -1,12 +1,15 @@
+@import '../sass/variables';
+
 .profiles__container {
-    border: 2px solid rgba(0,0,0,0.3);
+    box-shadow: $box-shadow;
+    background-color: $main-background-color;
     border-radius: 10px;
     padding: 3vh 1vw;
     transition: all 0.5s;
     display: grid;
     grid-template-rows: 30px 200px 10px 1fr;
-    align-items: center;       /* Vertically centers the grid items */
-    justify-items: center;     /* Horizontally centers the grid items */
+    align-items: center;
+    justify-items: center;
 
     h3, h6 {
         margin: 0;
