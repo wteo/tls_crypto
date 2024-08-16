@@ -3,7 +3,7 @@ import styles from './Accordion.module.scss';
 import AccordionItem from "./AccordionItem";
 
 
-const apiUrl = 'https://thelazysociety.cyclic.app/api/faq';
+const apiUrl = 'https://tls-crypto.onrender.com/api/faq';
 
 function Accordion(props) {
     
