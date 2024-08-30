@@ -814,8 +814,9 @@ body {
   font-family: 'proxima-nova', sans-serif; }
 
 section {
-  padding-top: 20vh;
-  padding-bottom: 30vh; }
+  padding-top: 10vh;
+  padding-bottom: 15vh; 
+}
 
 section:nth-child(odd) {
   background-color: #F8ECC2; }
