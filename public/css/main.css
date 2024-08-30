@@ -586,7 +586,11 @@ header {
   position: relative;
   /* If you want to add text overlay or other elements */
   overflow: hidden;
-  width: 100%; }
+  width: 100%; 
+  box-shadow: inset 0px 0px 20px rgba(0, 0, 0, 0.10);
+  background-color: rgba(0, 0, 0, 0.10);
+}
+
 
 .coin__resources-image {
   position: absolute;
