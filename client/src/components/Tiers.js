@@ -55,7 +55,7 @@ function Tiers() {
                 },
                 { 
                     imageLink: wiki,
-                    link: 'https://wiki.thelazysociety.com',
+                    link: 'https://tls-crypto.onrender.com/',
                     imageDescription: 'A digital encyclopedia on cryptocurrencies.',
                     label: 'Dive into our Crypto Index', 
                     description: 'Read through a selection of our favourite cryptocurrencies with informative links for deeper insights.' 
