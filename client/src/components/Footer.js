@@ -41,7 +41,7 @@ function Footer() {
                     )) 
                 }
             </div>
-            <p>© 2024 The Lazy Society |  All rights reserved</p>
+            <p>© 2025 The Lazy Society |  All rights reserved</p>
         </footer>
     );
 }
